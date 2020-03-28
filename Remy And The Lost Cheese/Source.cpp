@@ -16,7 +16,7 @@ Escobas e1;
 
 int main(int argc, char* argv[])
 {
-
+	e1.SetAtributos(-30, 20, 0, 0, 0, 0);
 	//Inicializar el gestor de ventanas GLUT
 	//y crear la ventana
 	glutInit(&argc, argv);
@@ -53,12 +53,48 @@ void OnDraw(void) /// Funcion para dibujar
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	gluLookAt(10, 10, 3,  // posicion del ojo
-		0.0, 0, 0.0,      // hacia que punto mira  (0,0,0) 
-		0.0, 0.0, 1.0);      // definimos hacia arriba (eje Z)
+	gluLookAt(-10.00f, 110.0f, 10.1000f,  // posicion del ojo
+		-10.0, 0, 10,      // hacia que punto mira  (0,0,0) 
+		0.0, -1.0, 0.0);      // definimos hacia arriba (eje Z)
+	////PAR QUE NO HAGA MIERDAS RARAS HAY QUE MODIFICAR A LA VEZ EL PUNTO DEL OJO Y EL DE VISTA
+	////EJE Z BIEN EJE X MAL
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	/*
+	//pared roja
+	glBegin(GL_POLYGON);
+	glColor3ub(255, 255, 255);
+	glVertex3f(0.0f, 0.0f, 0.0f);
+	glColor3ub(255, 0, 0);
+	glVertex3f(0.0f, 10.0f, 0.0f);
+	glColor3ub(255, 0, 0);
+	glVertex3f(10.0f, 10.0f, 0.0f);
+	glColor3ub(255, 0, 0);
+	glVertex3f(10.0f, 0.0f, 0.0f);
+	//pared verde
+	glColor3ub(0, 255, 0);
+	glVertex3f(0.0f, 0.0f, 10.0f);
+	glColor3ub(0, 255, 0);
+	glVertex3f(0.0f, 10.0f, 10.0f);
+	glColor3ub(0, 255, 0);
+	glVertex3f(0.0f, 10.0f, 0.0f);
+	glColor3ub(255, 255, 255);
+	glVertex3f(0.0f, 0.0f, 0.0f);
+	//pared azul
+	glColor3ub(255, 255, 255);
+	glVertex3f(0.0f, 1.0f, 0.0f);
+	glColor3ub(0, 0, 255);
+	glVertex3f(10.0f, 1.0f, 0.0f);
+	glColor3ub(0, 0, 255);
+	glVertex3f(10.0f, 1.0f, 10.0f);
+	glColor3ub(0, 0, 255);
+	glVertex3f(0.0f, 1.0f, 10.0f);
+	glEnd();
+	
+	*/
+	//////////////////////////////////////////
 
-	e1.SetCono();
+	e1.SetObjetos();
 	e1.Pintar();
 
 
