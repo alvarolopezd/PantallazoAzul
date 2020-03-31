@@ -7,9 +7,9 @@ private:
 	// Mesa mesa2lv1
 
 public:
-	void PintarPlano();
-	void PintarVertice(float x, float y, float z, unsigned char rojo, unsigned char verde, unsigned char azul);
+	
 
+	void Pintar();
 
 
 };

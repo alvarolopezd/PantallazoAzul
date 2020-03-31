@@ -3,7 +3,7 @@
 #include "Cilindro.h"
 #include "Enemigo.h"
 #include "Escobas.h"
-
+#include "Escenario.h"
 #include "glut.h"
 
 
@@ -12,11 +12,14 @@ void OnDraw(void);
 void OnTimer(int value);
 void OnKeyboardDown(unsigned char key, int x, int y);
 
+Escenario esc1;
 Escobas e1;
 
 int main(int argc, char* argv[])
 {
-	e1.SetAtributos(-30, 20, 0, 0, 0, 0);
+	e1.SetAtributos(0, 0.1, 0, 0, 0, 0);
+
+
 	//Inicializar el gestor de ventanas GLUT
 	//y crear la ventana
 	glutInit(&argc, argv);
@@ -53,8 +56,8 @@ void OnDraw(void) /// Funcion para dibujar
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	gluLookAt(-10.00f, 110.0f, 10.1000f,  // posicion del ojo
-		-10.0, 0, 10,      // hacia que punto mira  (0,0,0) 
+	gluLookAt(-45.0f, 120.0f, 40.1f,  // posicion del ojo
+		-45, 0, 40,      // hacia que punto mira  (0,0,0) 
 		0.0, -1.0, 0.0);      // definimos hacia arriba (eje Z)
 	////PAR QUE NO HAGA MIERDAS RARAS HAY QUE MODIFICAR A LA VEZ EL PUNTO DEL OJO Y EL DE VISTA
 	////EJE Z BIEN EJE X MAL
@@ -96,6 +99,8 @@ void OnDraw(void) /// Funcion para dibujar
 
 	e1.SetObjetos();
 	e1.Pintar();
+
+	esc1.Pintar();
 
 
 	//no borrar esta linea ni poner nada despues
