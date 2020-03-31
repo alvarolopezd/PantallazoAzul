@@ -1,9 +1,8 @@
-#include "Esfera.h"
-#include "Cono.h"
-#include "Cilindro.h"
-#include "Enemigo.h"
+
+
 #include "Escobas.h"
-#include "Escenario.h"
+#include "Fondo.h"
+#include "Remy.h"
 #include "glut.h"
 
 
@@ -12,13 +11,14 @@ void OnDraw(void);
 void OnTimer(int value);
 void OnKeyboardDown(unsigned char key, int x, int y);
 
-Escenario esc1;
+Fondo esc1;
+
 Escobas e1;
 
 int main(int argc, char* argv[])
 {
-	e1.SetAtributos(0, 0.1, 0, 0, 0, 0);
-
+	e1.SetPosicion(-10.0, 0.1);
+	esc1.SetPlataformas();
 
 	//Inicializar el gestor de ventanas GLUT
 	//y crear la ventana
@@ -56,8 +56,8 @@ void OnDraw(void) /// Funcion para dibujar
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	gluLookAt(-45.0f, 120.0f, 40.1f,  // posicion del ojo
-		-45, 0, 40,      // hacia que punto mira  (0,0,0) 
+	gluLookAt(e1.GetXPosicion(), 130.0f, 40.1f,  // posicion del ojo		0,130,40.1
+		e1.GetXPosicion(), 0, 40,      // hacia que punto mira  (0,0,0)					0,0,40
 		0.0, -1.0, 0.0);      // definimos hacia arriba (eje Z)
 	////PAR QUE NO HAGA MIERDAS RARAS HAY QUE MODIFICAR A LA VEZ EL PUNTO DEL OJO Y EL DE VISTA
 	////EJE Z BIEN EJE X MAL
@@ -100,7 +100,8 @@ void OnDraw(void) /// Funcion para dibujar
 	e1.SetObjetos();
 	e1.Pintar();
 
-	esc1.Pintar();
+	
+	esc1.PintarLvl1();
 
 
 	//no borrar esta linea ni poner nada despues
@@ -110,7 +111,7 @@ void OnDraw(void) /// Funcion para dibujar
 void OnKeyboardDown(unsigned char key, int x_t, int y_t)
 {
 	
-
+	e1.Mover(key);
 
 
 	// Esta linea no se borra, hace que cuando le de a algo del tecladome ejecute de nuevo el void main,

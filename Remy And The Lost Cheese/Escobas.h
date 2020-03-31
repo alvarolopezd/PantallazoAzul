@@ -17,7 +17,7 @@ private:
 
 public:
 	void SetObjetos();
-	void Mover();
+	void Mover(unsigned char _key);
 	void Atacar();
 	void Pintar(); 
 
@@ -73,4 +73,26 @@ void Escobas::Pintar()
 	glVertex3f(GetXPosicion()-2.75, 0.0f, GetYPosicion()+25.6);
 	glEnd();
 
+}
+
+void Escobas::Mover(unsigned char _key)
+{
+	float x, z;
+	x = GetXPosicion();
+	z = GetYPosicion();
+	switch (_key)
+	{
+	case 'd':
+	case 'D':
+		x--;
+		break;
+	case 'a':
+	case 'A':
+		x++;
+		break;
+
+	default:
+		break;
+	}
+	SetPosicion(x, z);
 }

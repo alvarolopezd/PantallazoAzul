@@ -11,7 +11,9 @@ private:
 
 
 public:
-	void SetAtributos(float _XPosicion, float _YPosicion, float _XVelocidad, float _YVelocidad, float _XAceleracion, float _YAceleracion);
+	void SetPosicion(float _XPosicion, float _YPosicion);
+	void SetVelocidad(float _XVelocidad, float _YVelocidad);
+	void SetAceleracion(float _XAceleracion, float _YAceleracion);
 	void SetVida(int _vida);
 	float GetXPosicion();
 	float GetYPosicion();
@@ -23,13 +25,21 @@ public:
 };
 
 
-void Enemigo::SetAtributos(float _XPosicion, float _YPosicion, float _XVelocidad, float _YVelocidad, float _XAceleracion, float _YAceleracion)
+void Enemigo::SetPosicion(float _XPosicion, float _YPosicion)
 {
 	posicion.SetCoordenadas(_XPosicion, _YPosicion);
-	velocidad.SetCoordenadas(_XVelocidad, _YVelocidad);
-	aceleracion.SetCoordenadas(_XAceleracion, _YAceleracion);
+	
 }
 
+void Enemigo::SetVelocidad(float _XVelocidad, float _YVelocidad)
+{
+	velocidad.SetCoordenadas(_XVelocidad, _YVelocidad);
+}
+
+void Enemigo::SetAceleracion(float _XAceleracion, float _YAceleracion)
+{
+	aceleracion.SetCoordenadas(_XAceleracion, _YAceleracion);
+}
 void Enemigo::SetVida(int _vida)
 {
 	vida = _vida;

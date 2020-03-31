@@ -138,18 +138,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Escenario.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cilindro.h" />
     <ClInclude Include="Cono.h" />
     <ClInclude Include="Enemigo.h" />
-    <ClInclude Include="Escenario.h" />
     <ClInclude Include="Escobas.h" />
     <ClInclude Include="Esfera.h" />
+    <ClInclude Include="Fondo.h" />
     <ClInclude Include="Gatitos.h" />
     <ClInclude Include="Mesa.h" />
+    <ClInclude Include="Plataforma.h" />
     <ClInclude Include="Remy.h" />
     <ClInclude Include="Skinner.h" />
     <ClInclude Include="Vector2D.h" />
