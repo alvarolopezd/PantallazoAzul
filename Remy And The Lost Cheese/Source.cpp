@@ -13,7 +13,7 @@ void OnKeyboardDown(unsigned char key, int x, int y);
 
 Fondo esc1;
 
-Escobas e1;
+Remy e1;
 
 int main(int argc, char* argv[])
 {

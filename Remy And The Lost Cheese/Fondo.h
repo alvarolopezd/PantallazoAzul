@@ -7,7 +7,7 @@ class Fondo
 private:
 	// INCLUIR CLASES :MESA, PLATAFORMAS, QUESOS, CUCHILLOS, TECHO, FONDO Y SUELO
 	// Mesa mesa2lv1
-	Plataforma p1, p2, p3, p4;
+	Plataforma p1, p2, p3, p4,p5,p6,p7,p8;
 
 public:
 
@@ -25,6 +25,8 @@ void Fondo::SetPlataformas()
 	p2.SetCoordenadas(-50, 40);
 	p3.SetCoordenadas(-70, 60);
 	p4.SetCoordenadas(-80, 20);
+	p5.SetCoordenadas(-90, 40);
+	p6.SetCoordenadas(-100, 60);
 
 }
 
@@ -102,5 +104,7 @@ void Fondo::PintarLvl1() {
 	p2.Pintar();
 	p3.Pintar();
 	p4.Pintar();
+	p5.Pintar();
+	p6.Pintar();
 	
 }
