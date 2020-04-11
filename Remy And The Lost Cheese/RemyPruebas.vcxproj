@@ -138,7 +138,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Cono.cpp" />
+    <ClCompile Include="Fondo.cpp" />
+    <ClCompile Include="Plataforma.cpp" />
+    <ClCompile Include="Queso.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Trampa.cpp" />
+    <ClCompile Include="Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cilindro.h" />
@@ -150,8 +156,10 @@
     <ClInclude Include="Gatitos.h" />
     <ClInclude Include="Mesa.h" />
     <ClInclude Include="Plataforma.h" />
+    <ClInclude Include="Queso.h" />
     <ClInclude Include="Remy.h" />
     <ClInclude Include="Skinner.h" />
+    <ClInclude Include="Trampa.h" />
     <ClInclude Include="Vector2D.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

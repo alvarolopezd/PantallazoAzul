@@ -130,11 +130,11 @@ void Remy::Mover(unsigned char _key)
 	{
 	case 'd':
 	case 'D':
-		x--;
+		x=x-10;
 		break;
 	case 'a':
 	case 'A':
-		x++;
+		x=x+10;
 		break;
 
 	default:
