@@ -1,4 +1,6 @@
-﻿  Remy.cpp
-C:\Users\Luis Quintana\Desktop\Remy(bueno)\src\Remy.cpp(11,25): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Luis Quintana\Desktop\Remy(bueno)\src\Remy.cpp(14,24): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+﻿  Disparo.cpp
+  ListaEspadas.cpp
+  Mundo.cpp
+  Remy_And_The_Lose_Cheese.cpp
+  Generando código...
   Pang.vcxproj -> C:\Users\Luis Quintana\Desktop\Remy(bueno)\bin\Pang.exe

@@ -22,6 +22,11 @@ void Remy::SetPosicion(float _XPosicion, float _YPosicion)
 
 }
 
+void Remy::SetPosicion(Vector2D _posicion)
+{
+	posicion = _posicion;
+}
+
 void Remy::SetVelocidad(float _XVelocidad, float _YVelocidad)
 {
 	velocidad.SetCoordenadas(_XVelocidad, _YVelocidad);
@@ -39,6 +44,16 @@ void Remy::SetVida(int _vida)
 
 void Remy::SetAltura(float _altura) {
 	altura = _altura;
+}
+
+void Remy::SetQuesos(int _quesos)
+{
+	quesos = _quesos;
+}
+
+Vector2D Remy::GetPosicion()
+{
+	return posicion;
 }
 
 float Remy::GetXPosicion()
@@ -71,57 +86,22 @@ float Remy::GetYAceleracion()
 	return aceleracion.GetY();
 }
 
-void Remy::SetObjetos()
+int Remy::GetVida()
 {
-	//ojoi.SetAtributos((GetXPosicion() - 1), (GetYPosicion() + 13.5), 0.5, 50, 50, 0, 0, 0);
-	//ojod.SetAtributos((GetXPosicion() + 1), (GetYPosicion() + 13.5), 0.5, 50, 50, 0, 0, 0);
-	//cabeza.SetAtributos(GetXPosicion(), GetYPosicion() + 11, 3, 50, 50, 129, 216, 208);
-	//cuerpo.SetAtributos(GetXPosicion(), (GetYPosicion() + 2), 3.25, 7, 50, 50, 129, 216, 208);
-	//sombrero.SetAtributos(GetXPosicion(), (GetYPosicion() + 14), 1.5, 2.5, 50, 50, 212, 0, 40);
-
+	return vida;
 }
 
 float Remy::GetAltura() {
 	return altura;
 }
 
+int Remy :: GetQuesos()
+{
+	return quesos;
+}
+
 void Remy::Pintar()
 {
-	/*
-	glRotatef(-90, 1, 0, 0);
-	glDisable(GL_LIGHTING);
-	glTranslatef(sombrero.GetX(),sombrero.GetY(),0);
-	glColor3ub(sombrero.GetRojo(), sombrero.GetVerde(), sombrero.GetAzul());
-	glutSolidCone(sombrero.GetBase(), sombrero.GetHeight(), sombrero.GetSlices(), sombrero.GetStacks()); // QUE ME DUVUELVE TOODS LOS PARAMETROS DEL CONO
-	glTranslatef(-sombrero.GetX(), -sombrero.GetY(),0);
-	glRotatef(90, 1, 0, 0);
-
-	glRotatef(-90, 1, 0, 0);
-	glDisable(GL_LIGHTING);
-	glTranslatef(cuerpo.GetX(),cuerpo.GetY(),0);
-	glColor3ub(cuerpo.GetRojo(), cuerpo.GetVerde(), cuerpo.GetAzul());
-	glutSolidCone(cuerpo.GetBase(), cuerpo.GetHeight(), cuerpo.GetSlices(), cuerpo.GetStacks()); // QUE ME DUVUELVE TOODS LOS PARAMETROS DEL CONO
-	glTranslatef(-cuerpo.GetX(), -cuerpo.GetY(),0);
-	glRotatef(90, 1, 0, 0);
-
-	glDisable(GL_LIGHTING);
-	glTranslatef(cabeza.GetX(),cabeza.GetY(),0);
-	glutSolidSphere(cabeza.GetRadius(), cabeza.GetSlices(), cabeza.GetStacks());
-	glTranslatef(-cabeza.GetX(),-cabeza.GetY(),0);
-
-	glDisable(GL_LIGHTING);
-	glColor3ub(ojod.GetRojo(), ojod.GetVerde(), ojod.GetAzul());
-	glTranslatef(ojod.GetX(),ojod.GetY() - 1,4);
-	glutSolidSphere(ojod.GetRadius(), ojod.GetSlices(), ojod.GetStacks());
-	glTranslatef(-ojod.GetX(),-ojod.GetY()+1,-4);
-
-	glDisable(GL_LIGHTING);
-	//glColor3ub(sombrero.GetRojo(), sombrero.GetVerde(), sombrero.GetAzul());
-	glTranslatef(ojoi.GetX(),ojoi.GetY(),4);
-	glutSolidSphere(ojoi.GetRadius(), ojoi.GetSlices(), ojoi.GetStacks());
-	glTranslatef(-ojoi.GetX(),-ojoi.GetY(),0);
-	*/
-
 	glPushMatrix();
 	glTranslatef(posicion.GetX(), posicion.GetY(), 0.5);
 	glColor3f(1.0f, 1.0f, 1.0f);
@@ -161,18 +141,8 @@ void Remy::Pintar()
 		Salto.draw();
 	}
 
-
-
-	
-
-	
-	
-
-
 	glTranslatef(-posicion.GetX(), -posicion.GetY(), -0.5);
-
 	glPopMatrix();
-
 }
 
 void Remy::Mover(float t)
@@ -181,4 +151,8 @@ void Remy::Mover(float t)
 	velocidad = velocidad + aceleracion * t;
 	Camina.loop();
 	Salto.loop();
+}
+
+void Remy::Atacar() {
+
 }

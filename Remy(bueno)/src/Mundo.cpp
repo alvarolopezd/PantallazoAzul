@@ -30,6 +30,7 @@ void Mundo::Dibuja()
 	escenario.PintarLvl1();
 	remy.Pintar();
 	g1.Pintar();
+	disparos.Dibuja();
 	
 	//remy.Pintar();
 	
@@ -40,11 +41,14 @@ void Mundo::Mueve()
 {
 	g1.Mover(0.025f);
 	remy.Mover(0.025f);
+	disparos.Mueve(0.025f);
 
 	Interaccion::rebote(g1);
 
-
+	Interaccion::rebote(remy);
 	Interaccion::rebote(remy, escenario);
+	Interaccion::rebote(remy, g1);
+
 }
 
 void Mundo::Inicializa()
@@ -53,59 +57,67 @@ void Mundo::Inicializa()
 	y_ojo=45;
 	z_ojo=120;
 
-	g1.SetPosicion(0, 80);
-	g1.SetVelocidad(0, 0);
+	g1.SetPosicion(20, 0);
+	g1.SetVelocidad(10, 0);
 
 	remy.SetPosicion(-10, 50);
 	remy.SetVelocidad(0, 0);
 
 	escenario.SetPlataformas();
-	//remy.SetObjetos();
+	
 }
 
 void Mundo::Tecla(unsigned char key)
 {
-	
-	
-		
-
 		switch (key)
 		{
-		case 'a':
-		case 'A':
-			remy.SetVelocidad(-25.0f, remy.GetYVelocidad());
-			key = 'q';
-			break;
-		case 'd':
-		case 'D':
-			remy.SetVelocidad(25.0f, remy.GetYVelocidad());
-			key = 'q';
-			break;
 		case' ':
-			if ((remy.GetYPosicion() == 0) || remy.GetYPosicion() == 21 || remy.GetYPosicion() == 41 || remy.GetYPosicion() == 61)
-				remy.SetVelocidad(remy.GetXVelocidad(), 68);
+			if (remy.GetXVelocidad() > 0)
+			{
+				Disparo* aux = new Disparo(remy.GetXPosicion(), remy.GetYPosicion() + 7.5);
+				disparos.agregar(aux);
+			}
+			else
+			{
+				Disparo* aux = new Disparo(remy.GetXPosicion(), remy.GetYPosicion() + 7.5,-50);
+				disparos.agregar(aux);
+			}
 			break;
-		
+
 			
 		}
 
-	
-
-	
-
-	
 }
 
 void Mundo::teclaEspecial(unsigned char _key) {
-	/*
+	
 	switch (_key)
 	{
 	case GLUT_KEY_LEFT:
-		remy.SetVelocidad(-5.0f, 0.0f);
+		remy.SetVelocidad(-25.0f, remy.GetYVelocidad());
 		break;
 	case GLUT_KEY_RIGHT:
-		remy.SetVelocidad(5.0f, 0.0f);
+		remy.SetVelocidad(25.0f, remy.GetYVelocidad());
+		break;
+	case GLUT_KEY_UP:
+		if ((remy.GetYPosicion() == 0) || remy.GetYPosicion() == 21 || remy.GetYPosicion() == 41 || remy.GetYPosicion() == 61)
+			remy.SetVelocidad(remy.GetXVelocidad(), 68);
 		break;
 	}
-	*/
+
+
+}
+
+void Mundo::teclaArriba(unsigned char _key)
+{
+	switch (_key)
+	{
+	case GLUT_KEY_LEFT:
+		remy.SetVelocidad(0, remy.GetYVelocidad());
+		
+		break;
+	case GLUT_KEY_RIGHT:
+		remy.SetVelocidad(0, remy.GetYVelocidad());
+		break;
+	}
 }

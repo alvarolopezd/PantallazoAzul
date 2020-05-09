@@ -2,10 +2,6 @@
 
 void Fondo::SetPlataformas()
 {
-	
-	Suelo.SetCoordenadas(-50, -1);
-	Suelo.SetLargo(1000);
-
 	Plataforma* aux = new Plataforma(0,20);	//Suelo
 	plataformas.agregar(aux);
 	aux = new Plataforma(100, 20);
@@ -38,6 +34,19 @@ void Fondo::SetPlataformas()
 	plataformas.agregar(aux);
 	aux = new Plataforma(550, 60);
 	plataformas.agregar(aux);
+
+	
+	Queso* auxq = new Queso(20,0);
+	quesos.agregar(auxq);
+	auxq = new Queso(40, 0);
+	quesos.agregar(auxq);
+	auxq = new Queso(70, 0);
+	quesos.agregar(auxq);
+	auxq = new Queso(100, 0);
+	quesos.agregar(auxq);
+	auxq = new Queso(120, 0);
+	quesos.agregar(auxq);
+	
 }
 
 void Fondo::PintarLvl1() {
@@ -45,16 +54,8 @@ void Fondo::PintarLvl1() {
 
 	//AQUI SE PINTA LAS PLATAFORMAS
 
-
-
-	q1.Dibuja();
-	q2.Dibuja();
-	q3.Dibuja();
-	q4.Dibuja();
-
-	Suelo.Pintar();
 	plataformas.Dibuja();
-	
+	quesos.Dibuja();
 
 
 
@@ -87,14 +88,14 @@ void Fondo::PintarLvl1() {
 	//AQUI SE PINTA EL FONDO
 
 	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/fondo.png").id);
+	glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/FondoSalon.png").id);
 	glDisable(GL_LIGHTING);
 	glBegin(GL_POLYGON);
 	glColor3f(1, 1, 1);
-	glTexCoord2d(0, 0); glVertex3f(-50, 90,-20 );
-	glTexCoord2d(1, 0); glVertex3f(800, 90, -20);
-	glTexCoord2d(1, 1); glVertex3f(800, -15, -20);
-	glTexCoord2d(0, 1); glVertex3f(-50, -15, -20);
+	glTexCoord2d(0, 0); glVertex3f(-80, 85,-10 );
+	glTexCoord2d(1, 0); glVertex3f(800, 85, -10);
+	glTexCoord2d(1, 1); glVertex3f(800, -10, -10);
+	glTexCoord2d(0, 1); glVertex3f(-80, -10, -10);
 	glEnd();
 	glEnable(GL_LIGHTING);
 	glDisable(GL_TEXTURE_2D);

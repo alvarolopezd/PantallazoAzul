@@ -18,8 +18,8 @@ private:
 
 	int vida;
 	float altura;
-	int estado = 0;
-
+	float limites;
+	Vector2D patrulla;
 	
 	
 	friend class Interaccion;
@@ -30,13 +30,16 @@ public:
 	
 	Gatitos();
 	//Metodos SET
-	void SetPosicion(float _XPosicion, float _YPosicion);
+	void SetPosicion(float _XPosicion, float _YPosicion,float _limites=20);
+	void SetPosicion(Vector2D _posicion);
 	void SetVelocidad(float _XVelocidad, float _YVelocidad);
 	void SetAceleracion(float _XAceleracion, float _YAceleracion);
 	void SetVida(int _vida);
 	void SetAltura(float _altura);
 	
+
 	//Metodos GET
+	Vector2D GetPosicion();
 	float GetXPosicion();
 	float GetYPosicion();
 	float GetXVelocidad();

@@ -1,14 +1,17 @@
 #include "Queso.h"
 #include "glut.h"
 
-Queso::Queso():Quesito("\Imagenes/cheese.png",1,1)
+Queso::Queso(float _x,float _y):Quesito("\Imagenes/cheese.png",1,1)
 {
 	posicion.SetCoordenadas(0, 0);
 	SetAltura(5);
 	Quesito.setCenter(5, 0);
 	Quesito.setSize(10, altura);
-	
+
+	SetPosicion(_x, _y);
 }
+
+
 
 void Queso::SetPosicion(float _x, float _y)
 {

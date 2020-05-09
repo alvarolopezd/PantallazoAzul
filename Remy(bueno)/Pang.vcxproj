@@ -88,40 +88,35 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\Cilindro.cpp" />
-    <ClCompile Include="src\Cono.cpp" />
+    <ClCompile Include="src\Disparo.cpp" />
     <ClCompile Include="src\Enemigo.cpp" />
-    <ClCompile Include="src\Esfera.cpp" />
     <ClCompile Include="src\Fondo.cpp" />
     <ClCompile Include="src\Gatitos.cpp" />
     <ClCompile Include="src\Interaccion.cpp" />
+    <ClCompile Include="src\ListaEspadas.cpp" />
     <ClCompile Include="src\ListaPlataformas.cpp" />
-    <ClCompile Include="src\Mesa.cpp" />
+    <ClCompile Include="src\ListaQuesos.cpp" />
     <ClCompile Include="src\Mundo.cpp" />
     <ClCompile Include="src\Remy_And_The_Lose_Cheese.cpp" />
     <ClCompile Include="src\Plataforma.cpp" />
     <ClCompile Include="src\Queso.cpp" />
     <ClCompile Include="src\Remy.cpp" />
-    <ClCompile Include="src\Silla.cpp" />
     <ClCompile Include="src\Trampa.cpp" />
     <ClCompile Include="src\Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Cilindro.h" />
-    <ClInclude Include="src\Cono.h" />
+    <ClInclude Include="src\Disparo.h" />
     <ClInclude Include="src\Enemigo.h" />
-    <ClInclude Include="src\Escobas.h" />
-    <ClInclude Include="src\Esfera.h" />
     <ClInclude Include="src\Fondo.h" />
     <ClInclude Include="src\Gatitos.h" />
     <ClInclude Include="src\Interaccion.h" />
+    <ClInclude Include="src\ListaEspadas.h" />
     <ClInclude Include="src\ListaPlataformas.h" />
-    <ClInclude Include="src\Mesa.h" />
+    <ClInclude Include="src\ListaQuesos.h" />
     <ClInclude Include="src\Mundo.h" />
     <ClInclude Include="src\Plataforma.h" />
     <ClInclude Include="src\Queso.h" />
     <ClInclude Include="src\Remy.h" />
-    <ClInclude Include="src\Silla.h" />
     <ClInclude Include="src\Skinner.h" />
     <ClInclude Include="src\Trampa.h" />
     <ClInclude Include="src\Vector2D.h" />
