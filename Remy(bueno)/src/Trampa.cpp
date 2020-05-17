@@ -1,11 +1,18 @@
 #include "Trampa.h"
 #include "glut.h"
 
-Trampa::Trampa() {
+Trampa::Trampa(float _x,float _y):sprite("Imagenes/bomba.png",1,1,50)
+{
+	posicion.SetCoordenadas(_x, _y);
+
+	sprite.setSize(5, 5);
+	sprite.setCenter(2.5, 0);
+
 	rojo = 204;
 	verde =  119;
 	azul = 34;
 }
+
 
 void Trampa::SetCoordenadas(float _x, float _y)
 {
@@ -20,18 +27,17 @@ void Trampa::SetColores(unsigned char _rojo, unsigned char _verde, unsigned char
 
 void Trampa::Dibuja()
 {
-	float x, y;
-	x = posicion.GetX();
-	y = posicion.GetY();
-	glBegin(GL_POLYGON);
-	glColor3ub(rojo, verde, azul);
-	glVertex3f(x, 0.5, y - 1);
-	glColor3ub(rojo, verde, azul);
-	glVertex3f(x, 0.5, y + 1);
-	glColor3ub(rojo, verde, azul);
-	glVertex3f(x - 5, 0.5, y + 1);
-	glColor3ub(rojo, verde, azul);
-	glVertex3f(x - 5, 0.5, y - 1);
-	glEnd();
+	glTranslatef(posicion.GetX(),posicion.GetY(), 0);
+	sprite.draw();
+	glTranslatef(-posicion.GetX(), -posicion.GetY(), 0);
+}
 
+float Trampa::GetX()
+{
+	return posicion.GetX();
+}
+
+float Trampa::GetY()
+{
+	return posicion.GetY();
 }

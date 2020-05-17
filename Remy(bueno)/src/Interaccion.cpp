@@ -27,6 +27,8 @@ void Interaccion::rebote(Remy& g, Fondo& f) {
 	//Interaccion::rebote(g, f.Suelo);
 	f.plataformas.Rebote(g);
 	f.quesos.Rebote(g);
+	f.bombas.Rebote(g);
+	f.vidas.Rebote(g);
 	
 
 }
@@ -92,23 +94,62 @@ bool Interaccion::rebote(Remy& r, Gatitos& g)
 
 	if (((r.GetXPosicion() - g.GetXPosicion()) > -5)&& (r.GetXPosicion()<g.GetXPosicion()) && (r.GetYPosicion() - g.GetYPosicion()) < 5)
 	{
-		
-		r.SetVida(r.GetVida() - 1);
 		r.SetPosicion(g.GetXPosicion() - 5, r.GetYPosicion());
+		r.SetAceleracion(-6000, -100);
+
+	
 		return true;
 	}
 	else if (((r.GetXPosicion() - g.GetXPosicion()) < +5.7) && (r.GetXPosicion() > g.GetXPosicion()) && (r.GetYPosicion() - g.GetYPosicion()) < 5)
 	{
-
-		r.SetVida(r.GetVida() - 1);
+		
 		r.SetPosicion(g.GetXPosicion() + 5.7, r.GetYPosicion());
+		r.SetAceleracion(6000, -100);
+		
+		
 		return true;
 	}
 
+	else
+	{
+		r.SetAceleracion(0,-100);
+		return false;
+	}
+	
+}
+
+bool Interaccion::rebote(Disparo& d, Gatitos& g)
+{
+	if (abs(d.GetPosicion().GetX() - g.GetPosicion().GetX()) < 5)
+	{
+		return true;
+	}
+	else
+		return false;
+}
+
+bool Interaccion::rebote(Disparo& d, Plataforma& p)
+{
+	if (d.GetPosicion().GetY() < 0)
+	{
+		return true;
+	}
+	else if ((d.GetPosicion().GetY() < p.GetYCoordenada() + 1) && (d.GetPosicion().GetY() > p.GetYCoordenada() - 1) && (d.GetPosicion().GetX() > p.GetXCoordenada()) && (d.GetPosicion().GetX() < p.GetXCoordenada() + p.GetLargo()))
+	{
+		return true;
+
+	}
 	else
 		return false;
 	
 }
 
-
-
+bool Interaccion::rebote(Remy& r, Trampa& t)
+{
+	if (abs(r.GetXPosicion() - t.GetX()) < 4 && abs(r.GetYPosicion() - t.GetY()) < 2.5)
+	{
+		return true;
+	}
+	else
+		return false;
+}

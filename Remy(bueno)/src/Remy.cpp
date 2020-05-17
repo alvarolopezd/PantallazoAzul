@@ -2,7 +2,7 @@
 
 Remy::Remy() :Camina("Imagenes/Remy_Anda.png", 4, 1, 50),Quieto("Imagenes/Remy_Quieto.png",1,1,50),Salto("Imagenes/Remy_Salto.png",2,1,50)
 {
-	
+	SetVida(3);
 	SetAceleracion(0, -100);
 	SetAltura(15);
 	Camina.setCenter(5, 1);

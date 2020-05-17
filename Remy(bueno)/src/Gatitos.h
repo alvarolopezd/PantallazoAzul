@@ -28,7 +28,7 @@ private:
 public:
 	
 	
-	Gatitos();
+	Gatitos(float _x,float _y);
 	//Metodos SET
 	void SetPosicion(float _XPosicion, float _YPosicion,float _limites=20);
 	void SetPosicion(Vector2D _posicion);

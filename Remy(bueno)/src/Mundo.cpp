@@ -1,4 +1,5 @@
 #include"Mundo.h"
+#include "ETSIDI.h"
 #include <math.h>
 #include <conio.h>
 #include <string.h>
@@ -13,6 +14,7 @@ void Mundo::RotarOjo()
 	x_ojo=dist*cos(ang);
 	z_ojo=dist*sin(ang);
 }
+
 void Mundo::Dibuja()
 {
 	x_ojo = remy.GetXPosicion();
@@ -22,32 +24,48 @@ void Mundo::Dibuja()
 			0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y)    
 
 	//aqui es donde hay que poner el codigo de dibujo
-	//dibujo del suelo
-	
-
-
 	
 	escenario.PintarLvl1();
 	remy.Pintar();
-	g1.Pintar();
 	disparos.Dibuja();
-	
-	//remy.Pintar();
+	gatitos.Dibuja();
+
+
+
 	
 	
 }
 
 void Mundo::Mueve()
 {
-	g1.Mover(0.025f);
-	remy.Mover(0.025f);
 	disparos.Mueve(0.025f);
+	//disparos.Rebote(gatitos);
+	disparos.Rebote(escenario.plataformas);
 
-	Interaccion::rebote(g1);
 
+	gatitos.Mueve(0.025f);
+	//gatitos.Rebote();
+	gatitos.Rebote(remy);
+	//gatitos.Rebote(disparos);
+
+	remy.Mover(0.025f);
 	Interaccion::rebote(remy);
+
 	Interaccion::rebote(remy, escenario);
-	Interaccion::rebote(remy, g1);
+
+	for (int i = 0; i < gatitos.GetNumero(); i++)
+	{
+		Interaccion::rebote(*gatitos[i]);
+		for (int j = 0; j < disparos.GetNumero(); j++)
+		{
+			if (Interaccion::rebote(*disparos[i], *gatitos[i]))
+			{
+				//Falta poner un sprite de muerte del gato
+				gatitos.Eliminar(gatitos[i]);
+				disparos.Eliminar(disparos[i]);
+			}
+		}
+	}
 
 }
 
@@ -57,14 +75,14 @@ void Mundo::Inicializa()
 	y_ojo=45;
 	z_ojo=120;
 
-	g1.SetPosicion(20, 0);
-	g1.SetVelocidad(10, 0);
 
 	remy.SetPosicion(-10, 50);
 	remy.SetVelocidad(0, 0);
 
 	escenario.SetPlataformas();
 	
+	Gatitos* auxg = new Gatitos(20, 0);
+	gatitos.agregar(auxg);
 }
 
 void Mundo::Tecla(unsigned char key)
@@ -113,11 +131,12 @@ void Mundo::teclaArriba(unsigned char _key)
 	switch (_key)
 	{
 	case GLUT_KEY_LEFT:
-		remy.SetVelocidad(0, remy.GetYVelocidad());
 		
+		remy.SetVelocidad(0, remy.GetYVelocidad());
 		break;
 	case GLUT_KEY_RIGHT:
-		remy.SetVelocidad(0, remy.GetYVelocidad());
+		
+			remy.SetVelocidad(0, remy.GetYVelocidad());
 		break;
 	}
 }

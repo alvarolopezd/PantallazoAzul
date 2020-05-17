@@ -1,4 +1,4 @@
-#include "Gatitos.h"
+#include "ListaGatitos.h"
 #include "Disparo.h"
 #include "Remy.h"
 #include "Fondo.h"
@@ -19,7 +19,7 @@ public:
 	void teclaArriba(unsigned char _key);
 public:
 
-	Gatitos g1,g2,g3,g4;
+	ListaGatitos gatitos;
 	Remy remy;
 	ListaEspadas disparos;
 	Fondo escenario;

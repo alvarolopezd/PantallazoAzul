@@ -21,6 +21,21 @@ void Disparo::SetVelocidad(float _x, float _y)
 	velocidad.SetCoordenadas(_x, _y);
 }
 
+Vector2D Disparo::GetPosicion()
+{
+	return posicion;
+}
+
+Vector2D Disparo::GetVelocidad()
+{
+	return velocidad;
+}
+
+Vector2D Disparo::GetAceleracion()
+{
+	return aceleracion;
+}
+
 void Disparo::Dibuja()
 {
 	

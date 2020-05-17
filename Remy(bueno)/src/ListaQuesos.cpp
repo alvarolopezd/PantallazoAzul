@@ -83,3 +83,13 @@ void ListaQuesos::Eliminar(Queso* q)
 		return;
 	}
 }
+
+Queso* ListaQuesos::operator [](int i)
+{
+	if (i >= numero)
+		i = numero - 1;
+	if (i < 0)
+		i = 0;
+
+	return lista[i];
+}

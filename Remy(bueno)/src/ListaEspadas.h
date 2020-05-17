@@ -1,11 +1,14 @@
 #pragma once
 #include "Disparo.h"
-#include "Remy.h"
+#include "Fondo.h"
+#include "Interaccion.h"
+#include "ListaGatitos.h"
+
 
 
 class ListaEspadas {
 private:
-	Disparo* lista[50];
+	Disparo* lista[1];
 	int numero;
 
 	friend class Interaccion;
@@ -13,7 +16,8 @@ private:
 public:
 	ListaEspadas();
 	virtual ~ListaEspadas();
-
+	Disparo GetDisparo(int j);
+	int GetNumero();
 	//AGREGAR ESFERAS devuelve un valor booleano para saber si se agrego bien la esfera (por si supero el limite de las esferas)
 	bool agregar(Disparo* q);
 
@@ -21,7 +25,8 @@ public:
 	void Dibuja();
 
 	//REBOTE
-	void Rebote(Remy& remy);
+	//void Rebote(ListaGatitos& g);
+	void Rebote(ListaPlataformas &f);
 
 	//DESTRUCTOR
 	void destruirContenido();
@@ -30,4 +35,8 @@ public:
 	void Eliminar(int index); // Elimina la esfera de posicion index
 	void Eliminar(Disparo* q);
 	void Mueve(float t);
+
+	//Operador
+	Disparo* operator [](int i);
+	
 };

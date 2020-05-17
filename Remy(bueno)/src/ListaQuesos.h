@@ -30,4 +30,7 @@ public:
 	void Eliminar(int index); // Elimina la esfera de posicion index
 	void Eliminar(Queso* q);
 
+	//OPERATOR
+	Queso* operator [](int i);
+
 };

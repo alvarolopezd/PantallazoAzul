@@ -15,6 +15,9 @@ public:
 	ListaPlataformas();
 	virtual ~ListaPlataformas();
 
+	int GetNumero();
+	Plataforma GetPlataforma(int j);
+
 	//AGREGAR ESFERAS devuelve un valor booleano para saber si se agrego bien la esfera (por si supero el limite de las esferas)
 	bool agregar(Plataforma* e);
 

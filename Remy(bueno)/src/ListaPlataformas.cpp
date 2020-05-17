@@ -17,6 +17,16 @@ ListaPlataformas::~ListaPlataformas()
 
 }
 
+int ListaPlataformas::GetNumero()
+{
+	return numero;
+}
+
+Plataforma ListaPlataformas::GetPlataforma(int j)
+{
+		return *lista[j];
+}
+
 bool ListaPlataformas::agregar(Plataforma* e)
 {
 	// Añadir que si la Plataforma ya está creatda haga un return false

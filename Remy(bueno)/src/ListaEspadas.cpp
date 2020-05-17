@@ -1,11 +1,12 @@
 #include "ListaEspadas.h"
 
+
 ListaEspadas::ListaEspadas()
 {
 	//Inicilizar el numero de Plataforma iniciales a 0
 	numero = 0;
 	//Poner a NULL todos lo selementos de la lista 
-	for (int i = 0; i <= 5; i++)
+	for (int i = 0; i <1; i++)
 	{
 		lista[i] = 0;
 	}
@@ -16,10 +17,20 @@ ListaEspadas::~ListaEspadas()
 
 }
 
+int ListaEspadas::GetNumero()
+{
+	return numero;
+}
+
+Disparo ListaEspadas::GetDisparo(int j)
+{
+	return *lista[j];
+}
+
 bool ListaEspadas::agregar(Disparo* q)
 {
 	// Añadir que si la Plataforma ya está creatda haga un return false
-	if (numero < 50)
+	if (numero < 1)
 	{
 		lista[numero] = q;
 		numero++; // Aumentar el numero para ir recorriendo la lista e ir agregando Plataforma sobre la lista
@@ -36,13 +47,36 @@ void ListaEspadas::Dibuja()
 		lista[i]->Dibuja(); // Dibujar una a una las Plataforma para llamar al metood Dibuja dentro de Plataforma
 	}
 }
-
-void ListaEspadas::Rebote(Remy& r)
+/*
+void ListaEspadas::Rebote(ListaGatitos& r)
 {
-	int j = 0;
+
 	for (int i = 0; i < numero; i++)
 	{
+		for (int j = 0; j < r.GetNumero(); j++)
+		{
+			if (Interaccion::rebote(*lista[i], r.GetGatitos(j)))
+			{
+				Eliminar(i);
+			}
+		}
+	}
+}
+*/
+void ListaEspadas::Rebote(ListaPlataformas &f)
+{
 
+	for (int i = 0; i < numero; i++)
+	{
+		for (int j = 0; j < f.GetNumero(); j++)
+		{
+			if (Interaccion::rebote(*lista[i], f.GetPlataforma(j)))
+			{
+				Eliminar(i);
+			}
+			
+				
+		}
 	}
 }
 
@@ -86,4 +120,14 @@ void ListaEspadas::Mueve(float t)
 		lista[i]->Mueve(t);
 	}
 
+}
+
+Disparo* ListaEspadas::operator [](int i)
+{
+	if (i >= numero)
+		i = numero - 1;
+	if (i < 0)
+		i = 0;
+
+	return lista[i];
 }

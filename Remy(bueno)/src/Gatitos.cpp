@@ -1,22 +1,26 @@
 #include "Gatitos.h"
 #include "glut.h"
 
-Gatitos::Gatitos() :Camina("Imagenes/GatoAndaBueno.png",8,1,50)
+Gatitos::Gatitos(float _x,float _y) :Camina("Imagenes/GatoAndaBueno.png",8,1,50)
 {
+	SetPosicion(_x, _y);
+	SetVelocidad(10, 0);
 	SetAceleracion(0, -100);
 	SetAltura(15);
 	Camina.setCenter(3.5, 1);
 	Camina.setSize(10, altura);
+
+	while (patrulla.GetX() == 0) {
+		patrulla = posicion;
+	}
+
+	limites = 20;
 }
 
 void Gatitos::SetPosicion(float _XPosicion, float _YPosicion,float _limites)
 {
 	posicion.SetCoordenadas(_XPosicion, _YPosicion);
 	limites = _limites;
-
-	while (patrulla.GetX() == 0) {
-		patrulla = posicion;
-	}
 }
 
 void Gatitos::SetPosicion(Vector2D _posicion)

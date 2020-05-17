@@ -46,6 +46,24 @@ void Fondo::SetPlataformas()
 	quesos.agregar(auxq);
 	auxq = new Queso(120, 0);
 	quesos.agregar(auxq);
+
+
+	Trampa* auxt = new Trampa(20, 0);
+	bombas.agregar(auxt);
+	auxt = new Trampa(60, 20);
+	bombas.agregar(auxt);
+	auxt = new Trampa(40, 0);
+	bombas.agregar(auxt);
+	auxt = new Trampa(80, 0);
+	bombas.agregar(auxt);
+
+	for (int i = 1; i <= 4; i++)
+	{
+		Vida* auxv = new Vida(40-12*i, 70);
+		vidas.agregar(auxv);
+	}
+
+
 	
 }
 
@@ -56,7 +74,8 @@ void Fondo::PintarLvl1() {
 
 	plataformas.Dibuja();
 	quesos.Dibuja();
-
+	bombas.Dibuja();
+	vidas.Dibuja();
 
 
 	//AQUI SE PINTA EL SUELO
@@ -124,10 +143,9 @@ void Fondo::PintarLvl1() {
 	glVertex3f(-50, 90, 1);
 	glEnd();
 
-	
-
 
 }
+
 
 
 
