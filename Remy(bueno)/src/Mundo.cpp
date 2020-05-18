@@ -6,6 +6,7 @@
 
 
 
+
 void Mundo::RotarOjo()
 {
 	float dist=sqrtf(x_ojo*x_ojo+z_ojo*z_ojo);
@@ -26,10 +27,11 @@ void Mundo::Dibuja()
 	//aqui es donde hay que poner el codigo de dibujo
 	
 	escenario.PintarLvl1();
+	escenario.PintarLvl2();
+	escenario.PintarLvl3();
 	remy.Pintar();
 	disparos.Dibuja();
 	gatitos.Dibuja();
-
 
 
 	
@@ -115,7 +117,8 @@ void Mundo::teclaEspecial(unsigned char _key) {
 		remy.SetVelocidad(-25.0f, remy.GetYVelocidad());
 		break;
 	case GLUT_KEY_RIGHT:
-		remy.SetVelocidad(25.0f, remy.GetYVelocidad());
+		//remy.SetVelocidad(25.0f, remy.GetYVelocidad());
+		remy.SetVelocidad(100.0f, remy.GetYVelocidad());//VELOCIDAD DE PRUEBA
 		break;
 	case GLUT_KEY_UP:
 		if ((remy.GetYPosicion() == 0) || remy.GetYPosicion() == 21 || remy.GetYPosicion() == 41 || remy.GetYPosicion() == 61)

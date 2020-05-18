@@ -1,10 +1,13 @@
 #include "Remy.h"
+#include <iostream>
+using namespace std;
 
 Remy::Remy() :Camina("Imagenes/Remy_Anda.png", 4, 1, 50),Quieto("Imagenes/Remy_Quieto.png",1,1,50),Salto("Imagenes/Remy_Salto.png",2,1,50)
 {
 	SetVida(3);
 	SetAceleracion(0, -100);
 	SetAltura(15);
+	SetZ(0.5);
 	Camina.setCenter(5, 1);
 	Camina.setSize(10, altura);
 
@@ -26,7 +29,10 @@ void Remy::SetPosicion(Vector2D _posicion)
 {
 	posicion = _posicion;
 }
-
+void Remy::SetZ(float _z)
+{
+	z = _z;
+}
 void Remy::SetVelocidad(float _XVelocidad, float _YVelocidad)
 {
 	velocidad.SetCoordenadas(_XVelocidad, _YVelocidad);
@@ -66,6 +72,11 @@ float Remy::GetYPosicion()
 	return posicion.GetY();
 }
 
+float Remy::GetZ()
+{
+	return z;
+}
+
 float Remy::GetXVelocidad()
 {
 	return velocidad.GetX();
@@ -103,7 +114,7 @@ int Remy :: GetQuesos()
 void Remy::Pintar()
 {
 	glPushMatrix();
-	glTranslatef(posicion.GetX(), posicion.GetY(), 0.5);
+	glTranslatef(posicion.GetX(), posicion.GetY(), GetZ());
 	glColor3f(1.0f, 1.0f, 1.0f);
 
 	if (velocidad.GetX() > 0.01  )
@@ -141,7 +152,7 @@ void Remy::Pintar()
 		Salto.draw();
 	}
 
-	glTranslatef(-posicion.GetX(), -posicion.GetY(), -0.5);
+	glTranslatef(-posicion.GetX(), -posicion.GetY(), -GetZ());
 	glPopMatrix();
 }
 
@@ -151,6 +162,8 @@ void Remy::Mover(float t)
 	velocidad = velocidad + aceleracion * t;
 	Camina.loop();
 	Salto.loop();
+	cout << posicion.x<<"\n";
+
 }
 
 void Remy::Atacar() {

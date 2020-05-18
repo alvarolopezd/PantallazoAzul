@@ -20,7 +20,7 @@ void Vida::SetPosicion(float _XPosicion, float _YPosicion, float _limites)
 
 void Vida::SetPosicion(Vector2D _posicion)
 {
-	posicion = posicion;
+	posicion = _posicion;
 }
 
 void Vida::SetVelocidad(float _XVelocidad, float _YVelocidad)
@@ -82,5 +82,4 @@ void Vida::Mover(float t)
 {
 	posicion = posicion + velocidad * t + aceleracion * (0.5f * t * t);
 	velocidad = velocidad + aceleracion * t;
-	
 }

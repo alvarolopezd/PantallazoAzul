@@ -2,7 +2,7 @@
 
 class Vector2D {
 
-private:
+public:
 	float x, y;
 public:
 	Vector2D(float _x, float _y);

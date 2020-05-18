@@ -26,6 +26,8 @@ public:
 	ListaPlataformas plataformas;
 	void SetPlataformas();
 	void PintarLvl1();
+	void PintarLvl2();
+	void PintarLvl3();
 
 };
 

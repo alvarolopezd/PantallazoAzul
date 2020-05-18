@@ -55,9 +55,18 @@ void Plataforma::Pintar() {
 	glColor3ub(rojo, verde, azul);
 	glVertex3f(x, y + 1, 0.5);
 	glColor3ub(rojo, verde, azul);
-	glVertex3f(x +largo ,y + 1, 0.5);
+	glVertex3f(x + largo, y + 1, 0.5);
 	glColor3ub(rojo, verde, azul);
-	glVertex3f(x +largo ,y - 1, 0.5);
+	glVertex3f(x + largo, y - 1, 0.5);
 	glEnd();
-
+	glBegin(GL_POLYGON);
+	glColor3ub(0, 0, 0);
+	glVertex3f(x - 0.3, y - 1.3, 0.49);
+	glColor3ub(0, 0, 0);
+	glVertex3f(x - 0.3, y + 1.3, 0.49);
+	glColor3ub(0, 0, 0);
+	glVertex3f(x + largo + 0.3, y + 1.3, 0.49);
+	glColor3ub(0, 0, 0);
+	glVertex3f(x + largo + 0.3, y - 1.3, 0.49);
+	glEnd();
 }
