@@ -28,6 +28,7 @@ public:
 	void PintarLvl1();
 	void PintarLvl2();
 	void PintarLvl3();
+	void Mueve(float _t);
 
 };
 

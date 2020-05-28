@@ -2,12 +2,16 @@
 #include <iostream>
 using namespace std;
 
-Remy::Remy() :Camina("Imagenes/Remy_Anda.png", 4, 1, 50),Quieto("Imagenes/Remy_Quieto.png",1,1,50),Salto("Imagenes/Remy_Salto.png",2,1,50)
+Remy::Remy() :Camina("Imagenes/Remy_Anda.png", 4, 1, 50),Quieto("Imagenes/Remy_Quieto.png",1,1,50),Salto("Imagenes/Remy_Salto.png",2,1,50),Muerto("Imagenes/RemyMuerto.png", 1, 1, 50)
 {
 	SetVida(3);
 	SetAceleracion(0, -100);
 	SetAltura(15);
 	SetZ(0.5);
+
+	Muerto.setCenter(5, 0);
+	Muerto.setSize(10, 7);
+
 	Camina.setCenter(5, 1);
 	Camina.setSize(10, altura);
 
@@ -117,39 +121,39 @@ void Remy::Pintar()
 	glTranslatef(posicion.GetX(), posicion.GetY(), GetZ());
 	glColor3f(1.0f, 1.0f, 1.0f);
 
-	if (velocidad.GetX() > 0.01  )
+	if (velocidad.GetX() > 0.01 && vida > 0)
 	{
 		Camina.flip(false, false);
 		Salto.flip(false, false);
+		Camina.flip(false, false);
 
 	}
-	else if (velocidad.GetX() < -0.01)
+	else if (velocidad.GetX() < -0.01 && vida > 0)
 	{
 		Camina.flip(true, false);
 		Salto.flip(true, false);
-
+		Camina.flip(true, false);
 	}
 
 
-	if (velocidad.GetX() < 0.01 && velocidad.GetX()>-0.01 && velocidad.GetY()==0)
+	if (velocidad.GetX() < 0.01 && velocidad.GetX()>-0.01 && velocidad.GetY()==0 && vida>0)
 	{
 		Quieto.setState(0);
-		Camina.setState(0);
 		Quieto.draw();
 	}
-	else if (Camina.getState() == 0)
-	{
-		Camina.setState(1, false);
-		
-	}
 
-	if (velocidad.GetY()==0 && (velocidad.GetX()>0.1 || velocidad.GetX()<-0.1)  )
+
+	if (velocidad.GetY()==0 && (velocidad.GetX()>0.1 || velocidad.GetX()<-0.1) && vida > 0)
 	{
 		Camina.draw();
 	}
-	if (velocidad.GetY()!=0)
+	if (velocidad.GetY()!=0 && vida > 0)
 	{
 		Salto.draw();
+	}
+	if (vida <= 0)
+	{
+		Muerto.draw();
 	}
 
 	glTranslatef(-posicion.GetX(), -posicion.GetY(), -GetZ());
@@ -158,11 +162,14 @@ void Remy::Pintar()
 
 void Remy::Mover(float t)
 {
-	posicion = posicion + velocidad * t + aceleracion * (0.5f * t * t);
-	velocidad = velocidad + aceleracion * t;
-	Camina.loop();
-	Salto.loop();
-	cout << posicion.x<<"\n";
+	if (vida > 0)
+	{
+		posicion = posicion + velocidad * t + aceleracion * (0.5f * t * t);
+		velocidad = velocidad + aceleracion * t;
+		Camina.loop();
+		Salto.loop();
+		cout << posicion.x << "\n";
+	}
 
 }
 

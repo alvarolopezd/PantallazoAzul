@@ -51,10 +51,8 @@ void ListaVidas::Rebote(Remy& r)
 	for (int i = 0; i < numero; i++)
 	{
 		
-
-
-
 		lista[i]->SetVelocidad(r.GetXVelocidad(), 0);
+		lista[i]->SetPosicion(r.GetXPosicion()+50 - 12 * i, 70);
 		
 	}
 	
@@ -102,4 +100,13 @@ Vida* ListaVidas::operator [](int i)
 		i = 0;
 
 	return lista[i];
+}
+
+void ListaVidas::Mueve(float t)
+{
+	for (int i = 0; i < numero; i++)
+	{
+		lista[i]->Mover(t);
+	}
+
 }

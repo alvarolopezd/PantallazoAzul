@@ -35,4 +35,7 @@ public:
 	//OPERATOR
 	Vida* operator [](int i);
 
+	//Movimiento
+	void Mueve(float t);
+
 };

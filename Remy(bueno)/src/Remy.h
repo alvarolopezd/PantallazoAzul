@@ -12,7 +12,7 @@ private:
 	SpriteSequence Camina;
 	SpriteSequence Quieto;
 	SpriteSequence Salto;
-
+	SpriteSequence Muerto;
 
 	Vector2D posicion;
 	Vector2D velocidad;

@@ -27,11 +27,18 @@ void Mundo::Dibuja()
 	//aqui es donde hay que poner el codigo de dibujo
 	
 	escenario.PintarLvl1();
-	escenario.PintarLvl2();
-	escenario.PintarLvl3();
+	
+	//escenario.PintarLvl3();
 	remy.Pintar();
 	disparos.Dibuja();
 	gatitos.Dibuja();
+
+	if (remy.GetXPosicion() > 800 && remy.GetQuesos()==0)
+	{
+		escenario.plataformas.destruirContenido();
+		escenario.PintarLvl2();
+
+	}
 
 
 	
@@ -40,6 +47,7 @@ void Mundo::Dibuja()
 
 void Mundo::Mueve()
 {
+	escenario.Mueve(0.025f);
 	disparos.Mueve(0.025f);
 	//disparos.Rebote(gatitos);
 	disparos.Rebote(escenario.plataformas);
@@ -114,7 +122,7 @@ void Mundo::teclaEspecial(unsigned char _key) {
 	switch (_key)
 	{
 	case GLUT_KEY_LEFT:
-		remy.SetVelocidad(-25.0f, remy.GetYVelocidad());
+		remy.SetVelocidad(-100.0f, remy.GetYVelocidad());
 		break;
 	case GLUT_KEY_RIGHT:
 		//remy.SetVelocidad(25.0f, remy.GetYVelocidad());

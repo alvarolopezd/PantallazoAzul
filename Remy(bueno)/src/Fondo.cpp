@@ -236,4 +236,9 @@ void Fondo::PintarLvl3()
 	glDisable(GL_TEXTURE_2D);
 }
 
+void Fondo::Mueve(float _t)
+{
+	vidas.Mueve(_t);
+}
+
 
