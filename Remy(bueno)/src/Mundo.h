@@ -17,6 +17,8 @@ public:
 	void Dibuja();
 	void teclaEspecial(unsigned char _key);
 	void teclaArriba(unsigned char _key);
+	int GetVida();
+	bool CargarNivel();
 public:
 
 	ListaGatitos gatitos;
@@ -26,4 +28,5 @@ public:
 	float x_ojo;
 	float y_ojo;
 	float z_ojo;
+	int nivel;
 };

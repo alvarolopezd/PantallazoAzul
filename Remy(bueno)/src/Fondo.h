@@ -14,9 +14,9 @@ private:
 	// INCLUIR CLASES :MESA, PLATAFORMAS, QUESOS, CUCHILLOS, TECHO, FONDO Y SUELO
 	// Mesa mesa2lv1
 	
-	ListaQuesos quesos;
+	/*ListaQuesos quesos;
 	ListaVidas vidas;
-	ListaBombas bombas;
+	ListaBombas bombas;*/
 
 
 	friend class Interaccion;
@@ -24,11 +24,19 @@ private:
 
 public:
 	ListaPlataformas plataformas;
-	void SetPlataformas();
+	void SetLvl1();
+	void SetLvl2();
+	void SetLvl3();
+	void SetLvl4();
 	void PintarLvl1();
 	void PintarLvl2();
 	void PintarLvl3();
+	void PintarLvl4();
 	void Mueve(float _t);
+
+	ListaQuesos quesos;
+	ListaVidas vidas;
+	ListaBombas bombas;
 
 };
 

@@ -16,33 +16,74 @@ void Mundo::RotarOjo()
 	z_ojo=dist*sin(ang);
 }
 
+bool Mundo::CargarNivel()
+{
+	nivel++;
+	remy.SetPosicion(-10, 50);
+	remy.SetVelocidad(0, 0);
+	gatitos.destruirContenido();
+	escenario.bombas.destruirContenido();
+	escenario.plataformas.destruirContenido();
+	escenario.quesos.destruirContenido();
+	escenario.vidas.destruirContenido();
+	remy.SetQuesos(5);
+	remy.SetVida(3);
+
+	if (nivel == 1)
+	{
+		Gatitos* auxg = new Gatitos(20, 0);
+		gatitos.agregar(auxg);
+		escenario.SetLvl1();
+	}
+	if (nivel == 2)
+	{
+		escenario.SetLvl2();
+	}
+	if (nivel == 3)
+	{
+		escenario.SetLvl3();
+	}
+	if (nivel == 4)
+	{
+		escenario.SetLvl4();
+	}
+	if (nivel <= 4)
+	{
+		return true;
+	}
+	return false;
+}
+
 void Mundo::Dibuja()
 {
 	x_ojo = remy.GetXPosicion();
 
 	gluLookAt(x_ojo, y_ojo, z_ojo,  // posicion del ojo
-			x_ojo, 40, 0.0,      // hacia que punto mira  (0,0,0) 
-			0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y)    
+		x_ojo, 40, 0.0,      // hacia que punto mira  (0,0,0)
+		0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y)    
 
-	//aqui es donde hay que poner el codigo de dibujo
-	
-	escenario.PintarLvl1();
-	
-	//escenario.PintarLvl3();
+		//aqui es donde hay que poner el codigo de dibujo
+
 	remy.Pintar();
 	disparos.Dibuja();
 	gatitos.Dibuja();
 
-	if (remy.GetXPosicion() > 800 && remy.GetQuesos()==0)
+	if (nivel == 1)
 	{
-		escenario.plataformas.destruirContenido();
-		escenario.PintarLvl2();
-
+		escenario.PintarLvl1();
 	}
-
-
-	
-	
+	if (nivel == 2)
+	{
+		escenario.PintarLvl2();
+	}
+	if (nivel == 3)
+	{
+		escenario.PintarLvl3();
+	}
+	if (nivel == 4)
+	{
+		escenario.PintarLvl4();
+	}
 }
 
 void Mundo::Mueve()
@@ -88,33 +129,43 @@ void Mundo::Inicializa()
 
 	remy.SetPosicion(-10, 50);
 	remy.SetVelocidad(0, 0);
+	remy.SetVida(3);
 
-	escenario.SetPlataformas();
+	nivel = 0;
+	CargarNivel();
+
+	/*escenario.SetPlataformas();
 	
 	Gatitos* auxg = new Gatitos(20, 0);
-	gatitos.agregar(auxg);
+	gatitos.agregar(auxg);*/
+}
+
+int Mundo::GetVida()
+{
+	return remy.GetVida();
 }
 
 void Mundo::Tecla(unsigned char key)
 {
-		switch (key)
+	switch (key)
+	{
+	case' ':
+		if (remy.GetXVelocidad() >= 0)
 		{
-		case' ':
-			if (remy.GetXVelocidad() > 0)
-			{
-				Disparo* aux = new Disparo(remy.GetXPosicion(), remy.GetYPosicion() + 7.5);
-				disparos.agregar(aux);
-			}
-			else
-			{
-				Disparo* aux = new Disparo(remy.GetXPosicion(), remy.GetYPosicion() + 7.5,-50);
-				disparos.agregar(aux);
-			}
-			break;
-
-			
+			if (disparos.GetNumero() == 0)
+				ETSIDI::play("sonidos/espada.mp3");
+			Disparo* aux = new Disparo(remy.GetXPosicion(), remy.GetYPosicion() + 7.5);
+			disparos.agregar(aux);
 		}
-
+		else
+		{
+			if (disparos.GetNumero() == 0)
+				ETSIDI::play("sonidos/espada.mp3");
+			Disparo* aux = new Disparo(remy.GetXPosicion(), remy.GetYPosicion() + 7.5, -50);
+			disparos.agregar(aux);
+		}
+		break;
+	}
 }
 
 void Mundo::teclaEspecial(unsigned char _key) {
@@ -122,19 +173,16 @@ void Mundo::teclaEspecial(unsigned char _key) {
 	switch (_key)
 	{
 	case GLUT_KEY_LEFT:
-		remy.SetVelocidad(-100.0f, remy.GetYVelocidad());
+		remy.SetVelocidad(-65.0f, remy.GetYVelocidad());
 		break;
 	case GLUT_KEY_RIGHT:
-		//remy.SetVelocidad(25.0f, remy.GetYVelocidad());
-		remy.SetVelocidad(100.0f, remy.GetYVelocidad());//VELOCIDAD DE PRUEBA
+		remy.SetVelocidad(65.0f, remy.GetYVelocidad());
 		break;
 	case GLUT_KEY_UP:
 		if ((remy.GetYPosicion() == 0) || remy.GetYPosicion() == 21 || remy.GetYPosicion() == 41 || remy.GetYPosicion() == 61)
 			remy.SetVelocidad(remy.GetXVelocidad(), 68);
 		break;
 	}
-
-
 }
 
 void Mundo::teclaArriba(unsigned char _key)

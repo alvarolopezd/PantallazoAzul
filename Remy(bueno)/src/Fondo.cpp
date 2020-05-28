@@ -1,6 +1,6 @@
 #include "Fondo.h"
 
-void Fondo::SetPlataformas()
+void Fondo::SetLvl1()
 {
 	Plataforma* aux = new Plataforma(0,20);	//Suelo
 	plataformas.agregar(aux);
@@ -36,15 +36,15 @@ void Fondo::SetPlataformas()
 	plataformas.agregar(aux);
 
 	
-	Queso* auxq = new Queso(20,0);
+	Queso* auxq = new Queso(100,0);
 	quesos.agregar(auxq);
-	auxq = new Queso(40, 0);
-	quesos.agregar(auxq);
-	auxq = new Queso(70, 0);
-	quesos.agregar(auxq);
-	auxq = new Queso(100, 0);
+	auxq = new Queso(110, 0);
 	quesos.agregar(auxq);
 	auxq = new Queso(120, 0);
+	quesos.agregar(auxq);
+	auxq = new Queso(130, 0);
+	quesos.agregar(auxq);
+	auxq = new Queso(140, 0);
 	quesos.agregar(auxq);
 
 
@@ -62,14 +62,33 @@ void Fondo::SetPlataformas()
 		Vida* auxv = new Vida(40-12*i, 70);
 		vidas.agregar(auxv);
 	}
-
-
-	
+}
+void Fondo::SetLvl2()
+{
+	for (int i = 1; i <= 4; i++)
+	{
+		Vida* auxv = new Vida(40 - 12 * i, 70);
+		vidas.agregar(auxv);
+	}
+}
+void Fondo::SetLvl3()
+{
+	for (int i = 1; i <= 4; i++)
+	{
+		Vida* auxv = new Vida(40 - 12 * i, 70);
+		vidas.agregar(auxv);
+	}
+}
+void Fondo::SetLvl4()
+{
+	for (int i = 1; i <= 4; i++)
+	{
+		Vida* auxv = new Vida(40 - 12 * i, 70);
+		vidas.agregar(auxv);
+	}
 }
 
 void Fondo::PintarLvl1() {
-
-
 	//AQUI SE PINTA LAS PLATAFORMAS
 
 	plataformas.Dibuja();
@@ -100,7 +119,7 @@ void Fondo::PintarLvl1() {
 	glVertex3f(-80, 90, 1);
 	glEnd();
 
-	//AQUI SE PINTA LA PARED LVL1 -> LVL2
+	//AQUI SE PINTA LA PARED FINAL
 
 	glBegin(GL_POLYGON);
 	glColor3ub(20, 32, 64);
@@ -112,39 +131,13 @@ void Fondo::PintarLvl1() {
 	glColor3ub(20, 32, 64);
 	glVertex3f(805, -10, -9);
 	glEnd();
-	
-	//AQUI SE PINTA LA PARED LVL2 -> LVL3
-
-	glBegin(GL_POLYGON);
-	glColor3ub(20, 32, 64);
-	glVertex3f(1678, -10, -9);
-	glColor3ub(20, 32, 64);
-	glVertex3f(1678, 90, -9);
-	glColor3ub(20, 32, 64);
-	glVertex3f(1685, 90, -9);
-	glColor3ub(20, 32, 64);
-	glVertex3f(1685, -10, -9);
-	glEnd();
-
-	//AQUI SE PINTA LA PARED LVL3 -> LVL4
-
-	glBegin(GL_POLYGON);
-	glColor3ub(20, 32, 64);
-	glVertex3f(2558, -10, -9);
-	glColor3ub(20, 32, 64);
-	glVertex3f(2558, 90, -9);
-	glColor3ub(20, 32, 64);
-	glVertex3f(2565, 90, -9);
-	glColor3ub(20, 32, 64);
-	glVertex3f(2565, -10, -9);
-	glEnd();
 
 	//AQUI SE PINTA EL SUELO
 
-	glBegin(GL_POLYGON);										//////////////////////////////////////////////////////////////////////////
-	glColor3ub(201, 60, 32);									//(50,0.0,0.1)												(-200,0,0.1)//
-	glVertex3f(-80, -0.1, 0.0);									//(50,1,-0.1)											 (-200,1,-0.1)  //
-	glColor3ub(201, 60, 32);									//////////////////////////////////////////////////////////////////////////
+	glBegin(GL_POLYGON);
+	glColor3ub(201, 60, 32);
+	glVertex3f(-80, -0.1, 0.0);
+	glColor3ub(201, 60, 32);
 	glVertex3f(-80, -0.1, -1);
 	glColor3ub(201, 60, 32);
 	glVertex3f(2560, -0.1, -1);
@@ -203,42 +196,62 @@ void Fondo::PintarLvl1() {
 
 void Fondo::PintarLvl2()
 {
+	quesos.Dibuja();
+	bombas.Dibuja();
+	vidas.Dibuja();
 	//AQUI SE PINTA EL FONDO
-
 	glEnable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/FondoDormitorio.png").id);
 	glDisable(GL_LIGHTING);
 	glBegin(GL_POLYGON);
 	glColor3f(1, 1, 1);
-	glTexCoord2d(0, 0); glVertex3f(800, 85, -10);
-	glTexCoord2d(1, 0); glVertex3f(1680, 85, -10);
-	glTexCoord2d(1, 1); glVertex3f(1680, -10, -10);
-	glTexCoord2d(0, 1); glVertex3f(800, -10, -10);
+	glTexCoord2d(0, 0); glVertex3f(-80, 85, -10);
+	glTexCoord2d(1, 0); glVertex3f(800, 85, -10);
+	glTexCoord2d(1, 1); glVertex3f(800, -10, -10);
+	glTexCoord2d(0, 1); glVertex3f(-80, -10, -10);
 	glEnd();
 	glEnable(GL_LIGHTING);
 	glDisable(GL_TEXTURE_2D);
 }
 void Fondo::PintarLvl3()
 {
+	quesos.Dibuja();
+	bombas.Dibuja();
+	vidas.Dibuja();
 	//AQUI SE PINTA EL FONDO
-
 	glEnable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/FondoCocina.png").id);
 	glDisable(GL_LIGHTING);
 	glBegin(GL_POLYGON);
 	glColor3f(1, 1, 1);
-	glTexCoord2d(0, 0); glVertex3f(1680, 85, -10);
-	glTexCoord2d(1, 0); glVertex3f(2560, 85, -10);
-	glTexCoord2d(1, 1); glVertex3f(2560, -10, -10);
-	glTexCoord2d(0, 1); glVertex3f(1680, -10, -10);
+	glTexCoord2d(0, 0); glVertex3f(-80, 85, -10);
+	glTexCoord2d(1, 0); glVertex3f(800, 85, -10);
+	glTexCoord2d(1, 1); glVertex3f(800, -10, -10);
+	glTexCoord2d(0, 1); glVertex3f(-80, -10, -10);
 	glEnd();
 	glEnable(GL_LIGHTING);
 	glDisable(GL_TEXTURE_2D);
 }
-
+void Fondo::PintarLvl4()
+{
+	quesos.Dibuja();
+	bombas.Dibuja();
+	vidas.Dibuja();
+	//AQUI SE PINTA EL FONDO
+	glEnable(GL_TEXTURE_2D);
+	glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/FondoDormitorio.png").id);
+	glDisable(GL_LIGHTING);
+	glBegin(GL_POLYGON);
+	glColor3f(1, 1, 1);
+	glTexCoord2d(0, 0); glVertex3f(-80, 85, -10);
+	glTexCoord2d(1, 0); glVertex3f(800, 85, -10);
+	glTexCoord2d(1, 1); glVertex3f(800, -10, -10);
+	glTexCoord2d(0, 1); glVertex3f(-80, -10, -10);
+	glEnd();
+	glEnable(GL_LIGHTING);
+	glDisable(GL_TEXTURE_2D);
+}
 void Fondo::Mueve(float _t)
 {
 	vidas.Mueve(_t);
 }
-
-

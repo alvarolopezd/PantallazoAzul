@@ -14,49 +14,25 @@ void Interaccion::rebote(Gatitos& g) {
 
 void Interaccion::rebote(Remy& g) {
 
-	if (g.GetYPosicion() < 0)
+	if (g.GetYPosicion() < 0)						//COLISION CON EL SUELO
 	{
 		g.SetPosicion(g.GetXPosicion(), 0);
 		g.SetVelocidad(g.GetXVelocidad(), 0);
 	}
-	else if (g.GetYPosicion() > 68)
+	else if (g.GetYPosicion() > 68)					//COLISION CON EL TECHO
 	{
 		g.SetPosicion(g.GetXPosicion(), 68);
 		g.SetVelocidad(g.GetXVelocidad(), -0.01);
 	}
-	if (g.GetXPosicion() < -75)
+	if (g.GetXPosicion() < -75)						//COLISION CON LA PARED INICIAL
 	{
 		g.SetPosicion(-75, g.GetYPosicion());
 		g.SetVelocidad(0.0, g.GetYVelocidad());
 	}
-	//CAMBIOS DE NIVEL
-	if (g.GetXPosicion() < 787.95)
+	if (g.GetXPosicion() > 800)						//COLISION CON LA PARED FINAL
 	{
-		g.SetZ(0.5);
-	}
-	if (g.GetXPosicion() > 787.95 && g.GetXPosicion() < 842.325 && g.GetYPosicion() == 0)
-	{
-		g.SetZ(-10.5);
-	}
-	if (g.GetXPosicion() > 842.325 && g.GetXPosicion() < 1643.57)
-	{
-		g.SetZ(0.5);
-	}
-	if (g.GetXPosicion() > 1643.57 && g.GetXPosicion() < 1729.2 && g.GetYPosicion() == 0)
-	{
-		g.SetZ(-10.5);
-	}
-	if (g.GetXPosicion() > 1729.2 && g.GetXPosicion() < 2503.57)
-	{
-		g.SetZ(0.5);
-	}
-	if (g.GetXPosicion() > 2503.57 && g.GetXPosicion() < 2580 && g.GetYPosicion() == 0)
-	{
-		g.SetZ(-10.5);
-	}
-	if (g.GetXPosicion() > 2580)
-	{
-		g.SetZ(0.5);
+		g.SetPosicion(800, g.GetYPosicion());
+		g.SetVelocidad(0.0, g.GetYVelocidad());
 	}
 
 }

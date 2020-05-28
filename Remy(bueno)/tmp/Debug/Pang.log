@@ -1,4 +1,4 @@
 ﻿  Remy.cpp
-C:\Users\Luis Quintana\Desktop\Universidad\2019-2020\SEMESTRE_2\TRABAJO_INFORMATICA\PantallazoAzul\Remy(bueno)\src\Remy.cpp(18,25): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Luis Quintana\Desktop\Universidad\2019-2020\SEMESTRE_2\TRABAJO_INFORMATICA\PantallazoAzul\Remy(bueno)\src\Remy.cpp(21,24): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-  Pang.vcxproj -> C:\Users\Luis Quintana\Desktop\Universidad\2019-2020\SEMESTRE_2\TRABAJO_INFORMATICA\PantallazoAzul\Remy(bueno)\bin\Pang.exe
+C:\Users\peina\Desktop\UNI\ASIGNATURAS 3º\2o SEMESTRE\INFORMÁTICA INDUSTRIAL Y COMUNICACIONES\GIT\PantallazoAzul\Remy(bueno)\src\Remy.cpp(18,25): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\peina\Desktop\UNI\ASIGNATURAS 3º\2o SEMESTRE\INFORMÁTICA INDUSTRIAL Y COMUNICACIONES\GIT\PantallazoAzul\Remy(bueno)\src\Remy.cpp(21,24): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+  Pang.vcxproj -> C:\Users\peina\Desktop\UNI\ASIGNATURAS 3º\2o SEMESTRE\INFORMÁTICA INDUSTRIAL Y COMUNICACIONES\GIT\PantallazoAzul\Remy(bueno)\bin\Pang.exe
