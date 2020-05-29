@@ -3,7 +3,7 @@
 Coordinador::Coordinador()
 {
 	estado = INICIO;
-	ETSIDI::playMusica("sonidos/avengers2.mp3");
+	//ETSIDI::playMusica("sonidos/avengers2.mp3");
 }
 Coordinador::~Coordinador()
 {
@@ -162,7 +162,7 @@ void Coordinador::Mueve()
 	if (estado == JUEGO)
 	{
 		mundo.Mueve();
-		if (mundo.remy.GetXPosicion() >= 787 && mundo.remy.GetXPosicion() <= 788 && mundo.remy.GetYPosicion() == 0 && mundo.remy.GetQuesos() <= 0)
+		if (mundo.remy.GetXPosicion() >= 787 && mundo.remy.GetXPosicion() <= 788 && mundo.remy.GetYPosicion() == 0 && mundo.remy.GetQuesos() >= 5)
 		{
 			if (!mundo.CargarNivel())
 			{

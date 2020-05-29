@@ -40,13 +40,12 @@ void ListaQuesos::Dibuja()
 
 void ListaQuesos::Rebote(Remy& r)
 {
-	int j = 0;
 	for (int i = 0; i < numero; i++)
 	{
 		if (Interaccion::rebote(r, *(lista[i])))
 		{
 			Eliminar(i);
-			r.SetQuesos(j++);
+			r.SetQuesos((r.GetQuesos())+1);
 			ETSIDI::play("sonidos/comequeso.mp3");
 		}
 	}

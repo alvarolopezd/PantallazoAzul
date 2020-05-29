@@ -4,13 +4,6 @@
 #include <conio.h>
 #include <string.h>
 
-
-void Mundo::SetVidas(int _vidas)
-{
-	remy.SetVida(_vidas);
-}
-
-
 void Mundo::RotarOjo()
 {
 	float dist=sqrtf(x_ojo*x_ojo+z_ojo*z_ojo);
@@ -23,6 +16,7 @@ void Mundo::RotarOjo()
 bool Mundo::CargarNivel()
 {
 	nivel++;
+	remy.SetVida(vidas);
 	remy.SetPosicion(-65, 50);
 	remy.SetVelocidad(0, 0);
 	gatitos.destruirContenido();
@@ -30,13 +24,23 @@ bool Mundo::CargarNivel()
 	escenario.plataformas.destruirContenido();
 	escenario.quesos.destruirContenido();
 	escenario.vidas.destruirContenido();
-	remy.SetQuesos(5);
-	remy.SetVida(vidas);
+	remy.SetQuesos(0);
 
 	if (nivel == 1)
 	{
-		Gatitos* auxg = new Gatitos(20, 0);
+		Gatitos* auxg = new Gatitos(140, 0);
 		gatitos.agregar(auxg);
+		auxg = new Gatitos(300, 0);
+		gatitos.agregar(auxg);
+		auxg = new Gatitos(380, 60);
+		gatitos.agregar(auxg);
+		auxg = new Gatitos(450, 40);
+		gatitos.agregar(auxg);
+		auxg = new Gatitos(600, 0);
+		gatitos.agregar(auxg);
+		auxg = new Gatitos(700, 0);
+		gatitos.agregar(auxg);
+
 		escenario.SetLvl1();
 	}
 	if (nivel == 2)
@@ -116,7 +120,7 @@ void Mundo::Mueve()
 			if (Interaccion::rebote(*disparos[i], *gatitos[i]))
 			{
 				//Falta poner un sprite de muerte del gato
-				gatitos.Eliminar(gatitos[i]);
+				gatitos.Eliminar(i);
 				disparos.Eliminar(disparos[i]);
 			}
 		}
@@ -137,15 +141,19 @@ void Mundo::Inicializa()
 	nivel = 0;
 	CargarNivel();
 
-	/*escenario.SetPlataformas();
-	
-	Gatitos* auxg = new Gatitos(20, 0);
+	/*Gatitos* auxg = new Gatitos(20, 0);
 	gatitos.agregar(auxg);*/
 }
 
 int Mundo::GetVida()
 {
 	return remy.GetVida();
+}
+
+void Mundo::SetVidas(int _vidas)
+{
+	remy.SetVida(_vidas);
+	vidas = _vidas;
 }
 
 void Mundo::Tecla(unsigned char key)

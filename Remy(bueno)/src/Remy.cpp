@@ -7,6 +7,7 @@ Remy::Remy() :Camina("Imagenes/Remy_Anda.png", 4, 1, 50), Quieto("Imagenes/Remy_
 	SetVida(3);
 	SetAceleracion(0, -100);
 	SetAltura(15);
+	quesos = 0;
 
 	Muerto.setCenter(5, 0);
 	Muerto.setSize(10, 7);
@@ -158,6 +159,8 @@ void Remy::Mover(float t)
 		Camina.loop();
 		Salto.loop();
 		cout << posicion.x << "\n";
+		//cout << quesos << "\n";
+
 	}
 }
 

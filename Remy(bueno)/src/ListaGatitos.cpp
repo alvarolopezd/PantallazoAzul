@@ -63,8 +63,8 @@ void ListaGatitos::Rebote(Remy& r)
 	
 	}
 }
-/*
-void ListaGatitos::Rebote(ListaEspadas& r)
+
+/*void ListaGatitos::Rebote(ListaEspadas& r)
 {
 
 	for (int i = 0; i < numero; i++)
@@ -77,8 +77,8 @@ void ListaGatitos::Rebote(ListaEspadas& r)
 			}
 		}
 	}
-}
-*/
+}*/
+
 void ListaGatitos::Rebote()
 {
 	for (int i = 0; i < NUM_MAX_GATOS; i++)
