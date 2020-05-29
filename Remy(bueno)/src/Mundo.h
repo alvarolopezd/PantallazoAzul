@@ -17,6 +17,7 @@ public:
 	void Dibuja();
 	void teclaEspecial(unsigned char _key);
 	void teclaArriba(unsigned char _key);
+	void SetVidas(int);
 	int GetVida();
 	bool CargarNivel();
 public:
@@ -29,4 +30,5 @@ public:
 	float y_ojo;
 	float z_ojo;
 	int nivel;
+	int vidas;
 };

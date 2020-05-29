@@ -36,7 +36,7 @@ void Fondo::SetLvl1()
 	plataformas.agregar(aux);
 
 	
-	Queso* auxq = new Queso(100,0);
+	Queso* auxq = new Queso(140, 26);
 	quesos.agregar(auxq);
 	auxq = new Queso(110, 0);
 	quesos.agregar(auxq);
@@ -95,9 +95,7 @@ void Fondo::PintarLvl1() {
 	quesos.Dibuja();
 	bombas.Dibuja();
 	vidas.Dibuja();
-
 	//AQUI SE PINTA LA PARED DEL PRINCIPIO
-	
 	glBegin(GL_POLYGON);
 	glColor3ub(20, 60, 32);
 	glVertex3f(-150, -10, 1);
@@ -118,41 +116,16 @@ void Fondo::PintarLvl1() {
 	glColor3ub(20, 60, 32);
 	glVertex3f(-80, 90, 1);
 	glEnd();
-
 	//AQUI SE PINTA LA PARED FINAL
-
 	glBegin(GL_POLYGON);
 	glColor3ub(20, 32, 64);
-	glVertex3f(798, -10, -9);
+	glVertex3f(800, -10, -10);
 	glColor3ub(20, 32, 64);
-	glVertex3f(798, 90, -9);
+	glVertex3f(800, 90, -10);
 	glColor3ub(20, 32, 64);
-	glVertex3f(805, 90, -9);
+	glVertex3f(880, 90, -10);
 	glColor3ub(20, 32, 64);
-	glVertex3f(805, -10, -9);
-	glEnd();
-
-	//AQUI SE PINTA EL SUELO
-
-	glBegin(GL_POLYGON);
-	glColor3ub(201, 60, 32);
-	glVertex3f(-80, -0.1, 0.0);
-	glColor3ub(201, 60, 32);
-	glVertex3f(-80, -0.1, -1);
-	glColor3ub(201, 60, 32);
-	glVertex3f(2560, -0.1, -1);
-	glColor3ub(201, 60, 32);
-	glVertex3f(2560, -0.1, 0.0);
-	glEnd();
-	glBegin(GL_POLYGON);
-	glColor3ub(201, 60, 32);
-	glVertex3f(-80, 0.50, 1);
-	glColor3ub(201, 60, 32);
-	glVertex3f(2560, 0.50, 1);
-	glColor3ub(201, 60, 32);
-	glVertex3f(2560, -10, 1);
-	glColor3ub(201, 60, 32);
-	glVertex3f(-80, -10, 1);
+	glVertex3f(880, -10, -10);
 	glEnd();
 
 	//AQUI SE PINTA EL FONDO
@@ -192,6 +165,29 @@ void Fondo::PintarLvl1() {
 	glColor3ub(244, 244, 244);
 	glVertex3f(-80, 90, 1);
 	glEnd();
+
+	//AQUI SE PINTA EL SUELO
+
+	glBegin(GL_POLYGON);
+	glColor3ub(201, 60, 32);
+	glVertex3f(-80, -0.1, 0.0);
+	glColor3ub(201, 60, 32);
+	glVertex3f(-80, -0.1, -1);
+	glColor3ub(201, 60, 32);
+	glVertex3f(2560, -0.1, -1);
+	glColor3ub(201, 60, 32);
+	glVertex3f(2560, -0.1, 0.0);
+	glEnd();
+	glBegin(GL_POLYGON);
+	glColor3ub(201, 60, 32);
+	glVertex3f(-80, 0.50, 1);
+	glColor3ub(201, 60, 32);
+	glVertex3f(2560, 0.50, 1);
+	glColor3ub(201, 60, 32);
+	glVertex3f(2560, -10, 1);
+	glColor3ub(201, 60, 32);
+	glVertex3f(-80, -10, 1);
+	glEnd();
 }
 
 void Fondo::PintarLvl2()
@@ -212,6 +208,83 @@ void Fondo::PintarLvl2()
 	glEnd();
 	glEnable(GL_LIGHTING);
 	glDisable(GL_TEXTURE_2D);
+	//AQUI SE PINTA LA PARED DEL PRINCIPIO
+	glBegin(GL_POLYGON);
+	glColor3ub(20, 60, 32);
+	glVertex3f(-150, -10, 1);
+	glColor3ub(20, 60, 32);
+	glVertex3f(-150, 90, 1);
+	glColor3ub(20, 60, 32);
+	glVertex3f(-80, 90, 1);
+	glColor3ub(20, 60, 32);
+	glVertex3f(-80, -10, 1);
+	glEnd();
+	glBegin(GL_POLYGON);
+	glColor3ub(20, 60, 32);
+	glVertex3f(-80, -10, 1);
+	glColor3ub(20, 60, 32);
+	glVertex3f(-80, -10, -10);
+	glColor3ub(20, 60, 32);
+	glVertex3f(-80, 90, -10);
+	glColor3ub(20, 60, 32);
+	glVertex3f(-80, 90, 1);
+	glEnd();
+	//AQUI SE PINTA LA PARED FINAL
+	glBegin(GL_POLYGON);
+	glColor3ub(20, 32, 64);
+	glVertex3f(800, -10, -10);
+	glColor3ub(20, 32, 64);
+	glVertex3f(800, 90, -10);
+	glColor3ub(20, 32, 64);
+	glVertex3f(880, 90, -10);
+	glColor3ub(20, 32, 64);
+	glVertex3f(880, -10, -10);
+	glEnd();
+	// AQUI SE PINTA EL TECHO
+
+	glBegin(GL_POLYGON);
+	glColor3ub(244, 244, 244);
+	glVertex3f(-80, 80.1, 0.0);
+	glColor3ub(244, 244, 244);
+	glVertex3f(-80, 79.9, 1);
+	glColor3ub(244, 244, 244);
+	glVertex3f(2560, 79.9, 1);
+	glColor3ub(244, 244, 244);
+	glVertex3f(2560, 80.1, 0);
+	glEnd();
+	glBegin(GL_POLYGON);
+	glColor3ub(244, 244, 244);
+	glVertex3f(-80, 79.9, 1);
+	glColor3ub(244, 244, 244);
+	glVertex3f(2560, 79.9, 1);
+	glColor3ub(244, 244, 244);
+	glVertex3f(2560, 90, 1);
+	glColor3ub(244, 244, 244);
+	glVertex3f(-80, 90, 1);
+	glEnd();
+
+	//AQUI SE PINTA EL SUELO
+
+	glBegin(GL_POLYGON);
+	glColor3ub(201, 60, 32);
+	glVertex3f(-80, -0.1, 0.0);
+	glColor3ub(201, 60, 32);
+	glVertex3f(-80, -0.1, -1);
+	glColor3ub(201, 60, 32);
+	glVertex3f(2560, -0.1, -1);
+	glColor3ub(201, 60, 32);
+	glVertex3f(2560, -0.1, 0.0);
+	glEnd();
+	glBegin(GL_POLYGON);
+	glColor3ub(201, 60, 32);
+	glVertex3f(-80, 0.50, 1);
+	glColor3ub(201, 60, 32);
+	glVertex3f(2560, 0.50, 1);
+	glColor3ub(201, 60, 32);
+	glVertex3f(2560, -10, 1);
+	glColor3ub(201, 60, 32);
+	glVertex3f(-80, -10, 1);
+	glEnd();
 }
 void Fondo::PintarLvl3()
 {
@@ -231,6 +304,83 @@ void Fondo::PintarLvl3()
 	glEnd();
 	glEnable(GL_LIGHTING);
 	glDisable(GL_TEXTURE_2D);
+	//AQUI SE PINTA LA PARED DEL PRINCIPIO
+	glBegin(GL_POLYGON);
+	glColor3ub(20, 60, 32);
+	glVertex3f(-150, -10, 1);
+	glColor3ub(20, 60, 32);
+	glVertex3f(-150, 90, 1);
+	glColor3ub(20, 60, 32);
+	glVertex3f(-80, 90, 1);
+	glColor3ub(20, 60, 32);
+	glVertex3f(-80, -10, 1);
+	glEnd();
+	glBegin(GL_POLYGON);
+	glColor3ub(20, 60, 32);
+	glVertex3f(-80, -10, 1);
+	glColor3ub(20, 60, 32);
+	glVertex3f(-80, -10, -10);
+	glColor3ub(20, 60, 32);
+	glVertex3f(-80, 90, -10);
+	glColor3ub(20, 60, 32);
+	glVertex3f(-80, 90, 1);
+	glEnd();
+	//AQUI SE PINTA LA PARED FINAL
+	glBegin(GL_POLYGON);
+	glColor3ub(20, 32, 64);
+	glVertex3f(800, -10, -10);
+	glColor3ub(20, 32, 64);
+	glVertex3f(800, 90, -10);
+	glColor3ub(20, 32, 64);
+	glVertex3f(880, 90, -10);
+	glColor3ub(20, 32, 64);
+	glVertex3f(880, -10, -10);
+	glEnd();
+	// AQUI SE PINTA EL TECHO
+
+	glBegin(GL_POLYGON);
+	glColor3ub(244, 244, 244);
+	glVertex3f(-80, 80.1, 0.0);
+	glColor3ub(244, 244, 244);
+	glVertex3f(-80, 79.9, 1);
+	glColor3ub(244, 244, 244);
+	glVertex3f(2560, 79.9, 1);
+	glColor3ub(244, 244, 244);
+	glVertex3f(2560, 80.1, 0);
+	glEnd();
+	glBegin(GL_POLYGON);
+	glColor3ub(244, 244, 244);
+	glVertex3f(-80, 79.9, 1);
+	glColor3ub(244, 244, 244);
+	glVertex3f(2560, 79.9, 1);
+	glColor3ub(244, 244, 244);
+	glVertex3f(2560, 90, 1);
+	glColor3ub(244, 244, 244);
+	glVertex3f(-80, 90, 1);
+	glEnd();
+
+	//AQUI SE PINTA EL SUELO
+
+	glBegin(GL_POLYGON);
+	glColor3ub(201, 60, 32);
+	glVertex3f(-80, -0.1, 0.0);
+	glColor3ub(201, 60, 32);
+	glVertex3f(-80, -0.1, -1);
+	glColor3ub(201, 60, 32);
+	glVertex3f(2560, -0.1, -1);
+	glColor3ub(201, 60, 32);
+	glVertex3f(2560, -0.1, 0.0);
+	glEnd();
+	glBegin(GL_POLYGON);
+	glColor3ub(201, 60, 32);
+	glVertex3f(-80, 0.50, 1);
+	glColor3ub(201, 60, 32);
+	glVertex3f(2560, 0.50, 1);
+	glColor3ub(201, 60, 32);
+	glVertex3f(2560, -10, 1);
+	glColor3ub(201, 60, 32);
+	glVertex3f(-80, -10, 1);
+	glEnd();
 }
 void Fondo::PintarLvl4()
 {
@@ -250,6 +400,83 @@ void Fondo::PintarLvl4()
 	glEnd();
 	glEnable(GL_LIGHTING);
 	glDisable(GL_TEXTURE_2D);
+	//AQUI SE PINTA LA PARED DEL PRINCIPIO
+	glBegin(GL_POLYGON);
+	glColor3ub(20, 60, 32);
+	glVertex3f(-150, -10, 1);
+	glColor3ub(20, 60, 32);
+	glVertex3f(-150, 90, 1);
+	glColor3ub(20, 60, 32);
+	glVertex3f(-80, 90, 1);
+	glColor3ub(20, 60, 32);
+	glVertex3f(-80, -10, 1);
+	glEnd();
+	glBegin(GL_POLYGON);
+	glColor3ub(20, 60, 32);
+	glVertex3f(-80, -10, 1);
+	glColor3ub(20, 60, 32);
+	glVertex3f(-80, -10, -10);
+	glColor3ub(20, 60, 32);
+	glVertex3f(-80, 90, -10);
+	glColor3ub(20, 60, 32);
+	glVertex3f(-80, 90, 1);
+	glEnd();
+	//AQUI SE PINTA LA PARED FINAL
+	glBegin(GL_POLYGON);
+	glColor3ub(20, 32, 64);
+	glVertex3f(800, -10, -10);
+	glColor3ub(20, 32, 64);
+	glVertex3f(800, 90, -10);
+	glColor3ub(20, 32, 64);
+	glVertex3f(880, 90, -10);
+	glColor3ub(20, 32, 64);
+	glVertex3f(880, -10, -10);
+	glEnd();
+	// AQUI SE PINTA EL TECHO
+
+	glBegin(GL_POLYGON);
+	glColor3ub(244, 244, 244);
+	glVertex3f(-80, 80.1, 0.0);
+	glColor3ub(244, 244, 244);
+	glVertex3f(-80, 79.9, 1);
+	glColor3ub(244, 244, 244);
+	glVertex3f(2560, 79.9, 1);
+	glColor3ub(244, 244, 244);
+	glVertex3f(2560, 80.1, 0);
+	glEnd();
+	glBegin(GL_POLYGON);
+	glColor3ub(244, 244, 244);
+	glVertex3f(-80, 79.9, 1);
+	glColor3ub(244, 244, 244);
+	glVertex3f(2560, 79.9, 1);
+	glColor3ub(244, 244, 244);
+	glVertex3f(2560, 90, 1);
+	glColor3ub(244, 244, 244);
+	glVertex3f(-80, 90, 1);
+	glEnd();
+
+	//AQUI SE PINTA EL SUELO
+
+	glBegin(GL_POLYGON);
+	glColor3ub(201, 60, 32);
+	glVertex3f(-80, -0.1, 0.0);
+	glColor3ub(201, 60, 32);
+	glVertex3f(-80, -0.1, -1);
+	glColor3ub(201, 60, 32);
+	glVertex3f(2560, -0.1, -1);
+	glColor3ub(201, 60, 32);
+	glVertex3f(2560, -0.1, 0.0);
+	glEnd();
+	glBegin(GL_POLYGON);
+	glColor3ub(201, 60, 32);
+	glVertex3f(-80, 0.50, 1);
+	glColor3ub(201, 60, 32);
+	glVertex3f(2560, 0.50, 1);
+	glColor3ub(201, 60, 32);
+	glVertex3f(2560, -10, 1);
+	glColor3ub(201, 60, 32);
+	glVertex3f(-80, -10, 1);
+	glEnd();
 }
 void Fondo::Mueve(float _t)
 {

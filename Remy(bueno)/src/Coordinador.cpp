@@ -3,8 +3,7 @@
 Coordinador::Coordinador()
 {
 	estado = INICIO;
-	ETSIDI::playMusica("sonidos/avengers2.mp3", TRUE);
-
+	ETSIDI::playMusica("sonidos/avengers2.mp3");
 }
 Coordinador::~Coordinador()
 {
@@ -23,6 +22,22 @@ void Coordinador::Dibuja()
 		//SPRITE INTRO
 		glEnable(GL_TEXTURE_2D);
 		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/Intro1.png").id);
+		glDisable(GL_LIGHTING);
+		glBegin(GL_POLYGON);
+		glColor3f(1, 1, 1);
+		glTexCoord2d(0, 0); glVertex3f(-8, 5, -20);
+		glTexCoord2d(1, 0); glVertex3f(8, 5, -20);
+		glTexCoord2d(1, 1); glVertex3f(8, -5, -20);
+		glTexCoord2d(0, 1); glVertex3f(-8, -5, -20);
+		glEnd();
+		glEnable(GL_LIGHTING);
+		glDisable(GL_TEXTURE_2D);
+	}
+	else if (estado == DIFICULTAD)
+	{
+		//SPRITE DIFICULTAD
+		glEnable(GL_TEXTURE_2D);
+		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/Dificultad.png").id);
 		glDisable(GL_LIGHTING);
 		glBegin(GL_POLYGON);
 		glColor3f(1, 1, 1);
@@ -81,12 +96,35 @@ void Coordinador::Tecla(unsigned char key)
 	{
 		if (key == ' ')
 		{
-			ETSIDI::stopMusica();
+			//ETSIDI::stopMusica();
 			mundo.Inicializa();
-			estado = JUEGO;
+			estado = DIFICULTAD;
 		}
 		if (key == 's' || key == 'S')
 			exit(0);
+	}
+	else if (estado == DIFICULTAD)
+	{
+		if (key == '1')
+		{
+			mundo.SetVidas(1);
+			estado = JUEGO;
+		}
+		if (key == '2')
+		{
+			mundo.SetVidas(2);
+			estado = JUEGO;
+		}
+		if (key == '3')
+		{
+			mundo.SetVidas(3);
+			estado = JUEGO;
+		}
+		if (key == '4')
+		{
+			mundo.SetVidas(4);
+			estado = JUEGO;
+		}
 	}
 	else if (estado == JUEGO)
 	{
@@ -114,6 +152,7 @@ void Coordinador::Tecla(unsigned char key)
 	{
 		if (key == 'p' || key == 'P')
 		{
+			//Queda modo pausa
 			estado = INICIO;
 		}
 	}
@@ -123,7 +162,7 @@ void Coordinador::Mueve()
 	if (estado == JUEGO)
 	{
 		mundo.Mueve();
-		if (mundo.remy.GetXPosicion() >= 800 && mundo.remy.GetQuesos() <= 0)
+		if (mundo.remy.GetXPosicion() >= 787 && mundo.remy.GetXPosicion() <= 788 && mundo.remy.GetYPosicion() == 0 && mundo.remy.GetQuesos() <= 0)
 		{
 			if (!mundo.CargarNivel())
 			{
@@ -132,6 +171,7 @@ void Coordinador::Mueve()
 		}
 		if (mundo.GetVida() <= 0)
 		{
+			ETSIDI::stopMusica();
 			ETSIDI::play("sonidos/gameover.mp3");
 			estado = GAMEOVER;
 		}

@@ -29,9 +29,9 @@ void Interaccion::rebote(Remy& g) {
 		g.SetPosicion(-75, g.GetYPosicion());
 		g.SetVelocidad(0.0, g.GetYVelocidad());
 	}
-	if (g.GetXPosicion() > 800)						//COLISION CON LA PARED FINAL
+	if (g.GetXPosicion() > 796.75)						//COLISION CON LA PARED FINAL
 	{
-		g.SetPosicion(800, g.GetYPosicion());
+		g.SetPosicion(796.75, g.GetYPosicion());
 		g.SetVelocidad(0.0, g.GetYVelocidad());
 	}
 

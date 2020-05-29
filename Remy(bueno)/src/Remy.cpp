@@ -2,12 +2,11 @@
 #include <iostream>
 using namespace std;
 
-Remy::Remy() :Camina("Imagenes/Remy_Anda.png", 4, 1, 50),Quieto("Imagenes/Remy_Quieto.png",1,1,50),Salto("Imagenes/Remy_Salto.png",2,1,50),Muerto("Imagenes/RemyMuerto.png", 1, 1, 50)
+Remy::Remy() :Camina("Imagenes/Remy_Anda.png", 4, 1, 50), Quieto("Imagenes/Remy_Quieto.png", 1, 1, 50), Salto("Imagenes/Remy_Salto.png", 2, 1, 50), Muerto("Imagenes/RemyMuerto.png", 1, 1, 50)
 {
 	SetVida(3);
 	SetAceleracion(0, -100);
 	SetAltura(15);
-	SetZ(0.5);
 
 	Muerto.setCenter(5, 0);
 	Muerto.setSize(10, 7);
@@ -16,7 +15,7 @@ Remy::Remy() :Camina("Imagenes/Remy_Anda.png", 4, 1, 50),Quieto("Imagenes/Remy_Q
 	Camina.setSize(10, altura);
 
 	Quieto.setCenter(5, 1.9);
-	Quieto.setSize(10, altura-1);
+	Quieto.setSize(10, altura - 1);
 
 	Salto.setCenter(5, 1.9);
 	Salto.setSize(10, altura);
@@ -33,10 +32,7 @@ void Remy::SetPosicion(Vector2D _posicion)
 {
 	posicion = _posicion;
 }
-void Remy::SetZ(float _z)
-{
-	z = _z;
-}
+
 void Remy::SetVelocidad(float _XVelocidad, float _YVelocidad)
 {
 	velocidad.SetCoordenadas(_XVelocidad, _YVelocidad);
@@ -76,11 +72,6 @@ float Remy::GetYPosicion()
 	return posicion.GetY();
 }
 
-float Remy::GetZ()
-{
-	return z;
-}
-
 float Remy::GetXVelocidad()
 {
 	return velocidad.GetX();
@@ -118,7 +109,7 @@ int Remy :: GetQuesos()
 void Remy::Pintar()
 {
 	glPushMatrix();
-	glTranslatef(posicion.GetX(), posicion.GetY(), GetZ());
+	glTranslatef(posicion.GetX(), posicion.GetY(), 0.5f);
 	glColor3f(1.0f, 1.0f, 1.0f);
 
 	if (velocidad.GetX() > 0.01 && vida > 0)
@@ -135,13 +126,11 @@ void Remy::Pintar()
 		Camina.flip(true, false);
 	}
 
-
 	if (velocidad.GetX() < 0.01 && velocidad.GetX()>-0.01 && velocidad.GetY()==0 && vida>0)
 	{
 		Quieto.setState(0);
 		Quieto.draw();
 	}
-
 
 	if (velocidad.GetY()==0 && (velocidad.GetX()>0.1 || velocidad.GetX()<-0.1) && vida > 0)
 	{
@@ -156,7 +145,7 @@ void Remy::Pintar()
 		Muerto.draw();
 	}
 
-	glTranslatef(-posicion.GetX(), -posicion.GetY(), -GetZ());
+	glTranslatef(-posicion.GetX(), -posicion.GetY(), -0.5f);
 	glPopMatrix();
 }
 
@@ -170,7 +159,6 @@ void Remy::Mover(float t)
 		Salto.loop();
 		cout << posicion.x << "\n";
 	}
-
 }
 
 void Remy::Atacar() {

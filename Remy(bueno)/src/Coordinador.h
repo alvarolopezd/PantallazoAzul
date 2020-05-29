@@ -1,4 +1,5 @@
 #pragma once
+
 #include "Mundo.h"
 
 class Coordinador
@@ -17,7 +18,6 @@ public:
 protected:
 	Mundo mundo;
 
-	enum Estado{INICIO, JUEGO, GAMEOVER, EXITO, PAUSA};
+	enum Estado{INICIO, JUEGO, GAMEOVER, EXITO, PAUSA, DIFICULTAD};
 	Estado estado;
 };
-

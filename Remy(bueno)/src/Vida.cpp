@@ -9,8 +9,6 @@ Vida::Vida(float _x, float _y) :vida("Imagenes/vida.png", 1, 1, 50)
 
 	vida.setCenter(5, 5);
 	vida.setSize(10, 10);
-
-
 }
 
 void Vida::SetPosicion(float _XPosicion, float _YPosicion, float _limites)
@@ -69,13 +67,9 @@ float Vida::GetYAceleracion()
 }
 
 void Vida::Dibuja() {
-
-
-	
 	glTranslatef(posicion.GetX(), posicion.GetY(), 0.5);
 	vida.draw();
 	glTranslatef(-posicion.GetX(), -posicion.GetY(), -0.5);
-	
 }
 
 void Vida::Mover(float t)

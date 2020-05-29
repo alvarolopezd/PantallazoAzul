@@ -5,6 +5,10 @@
 #include <string.h>
 
 
+void Mundo::SetVidas(int _vidas)
+{
+	remy.SetVida(_vidas);
+}
 
 
 void Mundo::RotarOjo()
@@ -19,7 +23,7 @@ void Mundo::RotarOjo()
 bool Mundo::CargarNivel()
 {
 	nivel++;
-	remy.SetPosicion(-10, 50);
+	remy.SetPosicion(-65, 50);
 	remy.SetVelocidad(0, 0);
 	gatitos.destruirContenido();
 	escenario.bombas.destruirContenido();
@@ -27,7 +31,7 @@ bool Mundo::CargarNivel()
 	escenario.quesos.destruirContenido();
 	escenario.vidas.destruirContenido();
 	remy.SetQuesos(5);
-	remy.SetVida(3);
+	remy.SetVida(vidas);
 
 	if (nivel == 1)
 	{
@@ -117,7 +121,6 @@ void Mundo::Mueve()
 			}
 		}
 	}
-
 }
 
 void Mundo::Inicializa()
@@ -126,10 +129,10 @@ void Mundo::Inicializa()
 	y_ojo=45;
 	z_ojo=120;
 
+	remy.SetVida(vidas);
 
-	remy.SetPosicion(-10, 50);
+	remy.SetPosicion(-65, 50);
 	remy.SetVelocidad(0, 0);
-	remy.SetVida(3);
 
 	nivel = 0;
 	CargarNivel();

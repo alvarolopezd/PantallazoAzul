@@ -20,7 +20,6 @@ private:
 	int vida;
 	int quesos;
 	float altura;
-	float z;
 
 	friend class Interaccion;
 
@@ -31,7 +30,6 @@ public:
 	//Metodos SET
 	void SetPosicion(float _XPosicion, float _YPosicion);
 	void SetPosicion(Vector2D _posicion);
-	void SetZ(float _z);
 	void SetVelocidad(float _XVelocidad, float _YVelocidad);
 	void SetAceleracion(float _XAceleracion, float _YAceleracion);
 	void SetVida(int _vida);
@@ -41,7 +39,6 @@ public:
 	//Metodos GET
 	float GetXPosicion();
 	float GetYPosicion();
-	float GetZ();
 	float GetXVelocidad();
 	float GetYVelocidad();
 	float GetXAceleracion();
