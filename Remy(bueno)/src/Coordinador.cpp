@@ -3,7 +3,7 @@
 Coordinador::Coordinador()
 {
 	estado = INICIO;
-	//ETSIDI::playMusica("sonidos/avengers2.mp3");
+	ETSIDI::playMusica("sonidos/avengerscorto.mp3");
 }
 Coordinador::~Coordinador()
 {
@@ -53,6 +53,23 @@ void Coordinador::Dibuja()
 	{
 		mundo.Dibuja();
 	}
+	else if (estado == PAUSA)
+	{
+		//SPRITE PAUSA
+		glEnable(GL_TEXTURE_2D);
+		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/Pausa.png").id);
+		glDisable(GL_LIGHTING);
+		glBegin(GL_POLYGON);
+		glColor3f(1, 1, 1);
+		glTexCoord2d(0, 0); glVertex3f(-4.2, 3, -10);
+		glTexCoord2d(1, 0); glVertex3f(-1, 3, -10);
+		glTexCoord2d(1, 1); glVertex3f(-1, 1, -10);
+		glTexCoord2d(0, 1); glVertex3f(-4.2, 1, -10);
+		glEnd();
+		glEnable(GL_LIGHTING);
+		glDisable(GL_TEXTURE_2D);
+		mundo.Dibuja();
+	}
 	else if (estado == GAMEOVER)
 	{
 		//SPRITE GAMEOVER
@@ -84,10 +101,6 @@ void Coordinador::Dibuja()
 		glEnd();
 		glEnable(GL_LIGHTING);
 		glDisable(GL_TEXTURE_2D);
-	}
-	else if (estado == PAUSA)
-	{
-
 	}
 }
 void Coordinador::Tecla(unsigned char key)
@@ -126,9 +139,22 @@ void Coordinador::Tecla(unsigned char key)
 			estado = JUEGO;
 		}
 	}
+	else if (estado == JUEGO && (key == 'p' || key == 'P'))
+	{
+		estado = PAUSA;
+	}
 	else if (estado == JUEGO)
 	{
 		mundo.Tecla(key);
+	}
+	else if (estado == PAUSA)
+	{
+		if (key == ' ')
+		{
+			estado = JUEGO;
+		}
+		if (key == 's' || key == 'S')
+			exit(0);
 	}
 	else if (estado == GAMEOVER)
 	{
@@ -148,21 +174,13 @@ void Coordinador::Tecla(unsigned char key)
 		if (key == 's' || key == 'S')
 			exit(0);
 	}
-	else if (estado == JUEGO)
-	{
-		if (key == 'p' || key == 'P')
-		{
-			//Queda modo pausa
-			estado = INICIO;
-		}
-	}
 }
 void Coordinador::Mueve()
 {
 	if (estado == JUEGO)
 	{
 		mundo.Mueve();
-		if (mundo.remy.GetXPosicion() >= 787 && mundo.remy.GetXPosicion() <= 788 && mundo.remy.GetYPosicion() == 0 && mundo.remy.GetQuesos() >= 5)
+		if (mundo.remy.GetXPosicion() >= 787 && mundo.remy.GetXPosicion() <= 790 && mundo.remy.GetYPosicion() == 0 && mundo.remy.GetQuesos() >= 5)
 		{
 			if (!mundo.CargarNivel())
 			{

@@ -160,7 +160,6 @@ void Remy::Mover(float t)
 		Salto.loop();
 		cout << posicion.x << "\n";
 		//cout << quesos << "\n";
-
 	}
 }
 

@@ -66,6 +66,17 @@ void Fondo::SetLvl1()
 }
 void Fondo::SetLvl2()
 {
+	Queso* auxq = new Queso(140, 0);
+	quesos.agregar(auxq);
+	auxq = new Queso(340, 0);
+	quesos.agregar(auxq);
+	auxq = new Queso(460, 0);
+	quesos.agregar(auxq);
+	auxq = new Queso(560, 0);
+	quesos.agregar(auxq);
+	auxq = new Queso(740, 0);
+	quesos.agregar(auxq);
+
 	for (int i = 1; i <= 4; i++)
 	{
 		Vida* auxv = new Vida(40 - 12 * i, 70);
@@ -74,6 +85,17 @@ void Fondo::SetLvl2()
 }
 void Fondo::SetLvl3()
 {
+	Queso* auxq = new Queso(140, 0);
+	quesos.agregar(auxq);
+	auxq = new Queso(340, 0);
+	quesos.agregar(auxq);
+	auxq = new Queso(460, 0);
+	quesos.agregar(auxq);
+	auxq = new Queso(560, 0);
+	quesos.agregar(auxq);
+	auxq = new Queso(740, 0);
+	quesos.agregar(auxq);
+
 	for (int i = 1; i <= 4; i++)
 	{
 		Vida* auxv = new Vida(40 - 12 * i, 70);
@@ -82,6 +104,17 @@ void Fondo::SetLvl3()
 }
 void Fondo::SetLvl4()
 {
+	Queso* auxq = new Queso(140, 21);
+	quesos.agregar(auxq);
+	auxq = new Queso(340, 0);
+	quesos.agregar(auxq);
+	auxq = new Queso(460, 0);
+	quesos.agregar(auxq);
+	auxq = new Queso(560, 0);
+	quesos.agregar(auxq);
+	auxq = new Queso(740, 0);
+	quesos.agregar(auxq);
+
 	for (int i = 1; i <= 4; i++)
 	{
 		Vida* auxv = new Vida(40 - 12 * i, 70);
