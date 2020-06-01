@@ -98,6 +98,11 @@ int Remy::GetVida()
 	return vida;
 }
 
+double Remy::GetTiempoInmortal()
+{
+	return tiempo_inmortal;
+}
+
 float Remy::GetAltura() {
 	return altura;
 }
@@ -158,7 +163,7 @@ void Remy::Mover(float t)
 		velocidad = velocidad + aceleracion * t;
 		Camina.loop();
 		Salto.loop();
-		cout << posicion.x << "\n";
+		//cout << posicion.x << "\n";
 		//cout << quesos << "\n";
 	}
 }

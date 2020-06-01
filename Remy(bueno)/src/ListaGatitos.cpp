@@ -1,6 +1,7 @@
+#include <iostream>
 #include "ListaGatitos.h"
 
-
+using namespace std;
 
 ListaGatitos::ListaGatitos()
 {
@@ -51,15 +52,47 @@ void ListaGatitos::Dibuja()
 
 void ListaGatitos::Rebote(Remy& r)
 {
-	int j = 0;
+	
+
 	for (int i = 0; i < numero; i++)
 	{
 		if (Interaccion::rebote(r, *(lista[i])))
 		{
+			//tiempo_pasado = (double(clock() / CLOCKS_PER_SEC));
 			
+			
+
 			r.SetVida(r.GetVida() - 1);
-			
+				
 		}
+
+		//ATAQUE GATO HACIA LA IZQUIERDA
+		if (abs(r.GetXPosicion() - lista[i]->GetXPosicion()) < 8 && (r.GetYPosicion() < 15) && r.GetXPosicion() < lista[i]->GetXPosicion())
+		{
+			lista[i]->SetAtaque(1);
+			lista[i]->Ataque.flip(true, false);
+		}
+		else if (abs(r.GetXPosicion() - lista[i]->GetXPosicion()) < 8 && r.GetYPosicion() < 15 && r.GetXPosicion() > lista[i]->GetXPosicion())
+		{
+			lista[i]->SetAtaque(1);
+			lista[i]->Ataque.flip(false, false);
+		}
+		else
+			lista[i]->SetAtaque(0);
+
+		//ATAQUE GATO HACIA LA DERECHA
+		/*
+		if (abs(r.GetXPosicion() - lista[i]->GetXPosicion()) < 10 && r.GetYPosicion() < 15 && r.GetXPosicion() > lista[i]->GetXPosicion())
+		{
+			lista[i]->SetAtaque(1);
+			lista[i]->Ataque.flip(false, false);
+		}
+		else
+			lista[i]->SetAtaque(0);
+			*/
+			
+
+		//lista[i]->SetAtaque(0);
 	
 	}
 }

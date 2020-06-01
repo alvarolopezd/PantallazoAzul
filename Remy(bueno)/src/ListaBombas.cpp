@@ -46,7 +46,7 @@ void ListaBombas::Rebote(Remy& r)
 		if (Interaccion::rebote(r, *(lista[i])))
 		{
 			Eliminar(i);
-			r.SetVida(0);
+			r.SetVida(r.GetVida()-3);
 		}
 	}
 

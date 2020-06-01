@@ -18,7 +18,7 @@ bool Mundo::CargarNivel()
 {
 	nivel++;
 	remy.SetVida(vidas);
-	remy.SetPosicion(-65, 50);
+	remy.SetPosicion(-65, 20);
 	remy.SetVelocidad(0, 0);
 	gatitos.destruirContenido();
 	escenario.bombas.destruirContenido();
@@ -113,11 +113,13 @@ void Mundo::Mueve()
 	//disparos.Rebote(gatitos);
 	disparos.Rebote(escenario.plataformas);
 
-
+	
+	
 	gatitos.Mueve(0.025f);
-	//gatitos.Rebote();
+	
+	
 	gatitos.Rebote(remy);
-	//gatitos.Rebote(disparos);
+	
 
 	remy.Mover(0.025f);
 	Interaccion::rebote(remy);
@@ -147,7 +149,7 @@ void Mundo::Inicializa()
 
 	remy.SetVida(vidas);
 
-	remy.SetPosicion(-65, 50);
+	remy.SetPosicion(-65, 20);
 	remy.SetVelocidad(0, 0);
 
 	nivel = 0;

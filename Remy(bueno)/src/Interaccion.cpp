@@ -1,5 +1,8 @@
+
 #include "Interaccion.h"
+
 #include <math.h>
+
 
 
 void Interaccion::rebote(Gatitos& g) {
@@ -16,8 +19,14 @@ void Interaccion::rebote(Remy& g) {
 
 	if (g.GetYPosicion() < 0)						//COLISION CON EL SUELO
 	{
+		if (g.GetYVelocidad() < -75 && g.GetYVelocidad() >= -110)
+			g.SetVida(g.GetVida() - 1);
+		if (g.GetYVelocidad() < -110)
+			g.SetVida(g.GetVida() - 2);
+
 		g.SetPosicion(g.GetXPosicion(), 0);
 		g.SetVelocidad(g.GetXVelocidad(), 0);
+		
 	}
 	else if (g.GetYPosicion() > 68)					//COLISION CON EL TECHO
 	{
@@ -52,6 +61,10 @@ void Interaccion::rebote(Remy& g, Plataforma& p) {
 
 	if ((g.GetYPosicion() < p.GetYCoordenada() + 1 ) && (g.GetYPosicion() > p.GetYCoordenada() -1) && ( g.GetXPosicion() > p.GetXCoordenada() ) && ( g.GetXPosicion() < p.GetXCoordenada() + p.GetLargo()))
 	{
+		if (g.GetYVelocidad() < -75 && g.GetYVelocidad() >= -110)
+			g.SetVida(g.GetVida() - 1);
+		if (g.GetYVelocidad() < -110)
+			g.SetVida(g.GetVida() - 2);
 		g.SetPosicion(g.GetXPosicion(), p.GetYCoordenada() + 1);
 		g.SetVelocidad(g.GetXVelocidad(), 0);
 		
@@ -102,26 +115,32 @@ bool Interaccion::rebote(Remy& g, Queso& q)
 
 bool Interaccion::rebote(Remy& r, Gatitos& g)
 {
-	Vector2D res = r.GetPosicion() - g.GetPosicion();
-	float modulo = res.Modulo();
+		
 
-	if (((r.GetXPosicion() - g.GetXPosicion()) > -5) && (r.GetXPosicion() < g.GetXPosicion()) && (r.GetYPosicion() - g.GetYPosicion()) < 8)
-	{
-		r.SetPosicion(g.GetXPosicion() - 15, r.GetYPosicion() + 5);
-		r.SetVelocidad(0, 0);
-		return true;
-	}
-	else if (((r.GetXPosicion() - g.GetXPosicion()) < 5.7) && (r.GetXPosicion() > g.GetXPosicion()) && (r.GetYPosicion() - g.GetYPosicion()) < 8)
-	{
-		r.SetPosicion(g.GetXPosicion() + 15.7, r.GetYPosicion() + 5);
-		r.SetVelocidad(-0.01, 0);
-		return true;
-	}
-	else
-	{
-		r.SetAceleracion(0,-100);
-		return false;
-	}
+		Vector2D res = r.GetPosicion() - g.GetPosicion();
+		float modulo = res.Modulo();
+
+		if (((r.GetXPosicion() - g.GetXPosicion()) > -7) && (r.GetXPosicion() < g.GetXPosicion()) && (r.GetYPosicion() - g.GetYPosicion()) < 9)
+		{
+			r.SetPosicion(g.GetXPosicion() - 8, r.GetYPosicion() + 2.5);
+			r.SetVelocidad(0, 0);
+			return true;
+		}
+		else if (((r.GetXPosicion() - g.GetXPosicion()) < 7.7) && (r.GetXPosicion() > g.GetXPosicion()) && (r.GetYPosicion() - g.GetYPosicion()) < 9)
+		{
+			r.SetPosicion(g.GetXPosicion() + 18, r.GetYPosicion() + 2.5);
+			r.SetVelocidad(0, 0);
+			return true;
+		}
+		else
+		{
+			r.SetAceleracion(0, -100);
+			return false;
+		}
+	 
+
+	
+
 }
 
 bool Interaccion::rebote(Disparo& d, Gatitos& g)

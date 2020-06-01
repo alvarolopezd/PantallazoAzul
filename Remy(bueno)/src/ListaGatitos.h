@@ -1,4 +1,5 @@
 #pragma once
+#include <ctime>
 #include "Gatitos.h"
 #include "Remy.h"
 #include "ListaEspadas.h"

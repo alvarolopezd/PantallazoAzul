@@ -20,6 +20,7 @@ private:
 	int vida;
 	int quesos;
 	float altura;
+	double tiempo_inmortal = 10;
 
 	friend class Interaccion;
 
@@ -47,6 +48,7 @@ public:
 	int GetVida();
 	int GetQuesos();
 	Vector2D GetPosicion();
+	double GetTiempoInmortal();
 
 
 	//Metodos GLUT
