@@ -18,7 +18,7 @@ bool Mundo::CargarNivel()
 {
 	nivel++;
 	remy.SetVida(vidas);
-	remy.SetPosicion(-65, 50);
+	remy.SetPosicion(-65, 0);
 	remy.SetVelocidad(0, 0);
 	gatitos.destruirContenido();
 	escenario.bombas.destruirContenido();
@@ -47,6 +47,9 @@ bool Mundo::CargarNivel()
 	}
 	else if (nivel == 2)
 	{
+		Gatitos* auxg = new Gatitos(140, 0);
+		gatitos.agregar(auxg);
+
 		escenario.SetLvl2();
 		ETSIDI::stopMusica();
 		ETSIDI::playMusica("sonidos/LVL2 Sea of Thieves OST (The Voyage of the Secret Shrine).mp3", TRUE);
@@ -82,8 +85,6 @@ void Mundo::Dibuja()
 		x_ojo, 40, 0.0,      // hacia que punto mira  (0,0,0)
 		0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y)    
 
-		//aqui es donde hay que poner el codigo de dibujo
-
 	remy.Pintar();
 	disparos.Dibuja();
 	gatitos.Dibuja();
@@ -118,9 +119,8 @@ void Mundo::Mueve()
 	//gatitos.Rebote();
 	gatitos.Rebote(remy);
 	//gatitos.Rebote(disparos);
-
 	remy.Mover(0.025f);
-	Interaccion::rebote(remy);
+	Interaccion::rebote(remy, nivel);
 
 	Interaccion::rebote(remy, escenario);
 
@@ -147,14 +147,12 @@ void Mundo::Inicializa()
 
 	remy.SetVida(vidas);
 
-	remy.SetPosicion(-65, 50);
+	remy.SetPosicion(-65, 0);
 	remy.SetVelocidad(0, 0);
 
 	nivel = 0;
 	CargarNivel();
 
-	/*Gatitos* auxg = new Gatitos(20, 0);
-	gatitos.agregar(auxg);*/
 }
 
 int Mundo::GetVida()
@@ -209,7 +207,7 @@ void Mundo::teclaEspecial(unsigned char _key) {
 		remy.SetVelocidad(65.0f, remy.GetYVelocidad());
 		break;
 	case GLUT_KEY_UP:
-		if ((remy.GetYPosicion() == 0) || remy.GetYPosicion() == 21 || remy.GetYPosicion() == 41 || remy.GetYPosicion() == 61)
+		if ((remy.GetYPosicion() == 0) || remy.GetYPosicion() == 11 || remy.GetYPosicion() == 21 || remy.GetYPosicion() == 31 || remy.GetYPosicion() == 41 || remy.GetYPosicion() == 51 || remy.GetYPosicion() == 61)
 			remy.SetVelocidad(remy.GetXVelocidad(), 68);
 		break;
 	}

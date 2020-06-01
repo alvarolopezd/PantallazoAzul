@@ -16,7 +16,7 @@ void Fondo::SetLvl1()
 	plataformas.agregar(aux);
 	aux = new Plataforma(390, 20);
 	plataformas.agregar(aux);
-	aux = new Plataforma(430,40,40);
+	aux = new Plataforma(430, 40, 40);
 	plataformas.agregar(aux);
 	aux = new Plataforma(490, 20);
 	plataformas.agregar(aux);
@@ -33,7 +33,7 @@ void Fondo::SetLvl1()
 	aux = new Plataforma(730, 60);
 	plataformas.agregar(aux);
 	
-	Queso* auxq = new Queso(140, 21);
+	Queso* auxq = new Queso(-10, 21);
 	quesos.agregar(auxq);
 	auxq = new Queso(340, 61);
 	quesos.agregar(auxq);
@@ -43,7 +43,6 @@ void Fondo::SetLvl1()
 	quesos.agregar(auxq);
 	auxq = new Queso(740, 61);
 	quesos.agregar(auxq);
-
 
 	Trampa* auxt = new Trampa(240, 0);
 	bombas.agregar(auxt);
@@ -66,6 +65,11 @@ void Fondo::SetLvl1()
 }
 void Fondo::SetLvl2()
 {
+	Plataforma* aux = new Plataforma(130, 20);
+	plataformas.agregar(aux);
+	aux = new Plataforma(260, 20);
+	plataformas.agregar(aux);
+
 	Queso* auxq = new Queso(140, 0);
 	quesos.agregar(auxq);
 	auxq = new Queso(340, 0);
@@ -85,6 +89,9 @@ void Fondo::SetLvl2()
 }
 void Fondo::SetLvl3()
 {
+	Plataforma* aux = new Plataforma(130, 20);
+	plataformas.agregar(aux);
+
 	Queso* auxq = new Queso(140, 0);
 	quesos.agregar(auxq);
 	auxq = new Queso(340, 0);
@@ -104,15 +111,26 @@ void Fondo::SetLvl3()
 }
 void Fondo::SetLvl4()
 {
-	Queso* auxq = new Queso(140, 21);
+	Plataforma* aux = new Plataforma(0, 20, 30);
+	plataformas.agregar(aux);
+	aux = new Plataforma(35, 30, 30);
+	plataformas.agregar(aux);
+	aux = new Plataforma(70, 40, 30);
+	plataformas.agregar(aux);
+	aux = new Plataforma(105, 50, 30);
+	plataformas.agregar(aux);
+	aux = new Plataforma(140, 60, 30);
+	plataformas.agregar(aux);
+
+	Queso* auxq = new Queso(25, 21);
 	quesos.agregar(auxq);
-	auxq = new Queso(340, 0);
+	auxq = new Queso(60, 31);
 	quesos.agregar(auxq);
-	auxq = new Queso(460, 0);
+	auxq = new Queso(95, 41);
 	quesos.agregar(auxq);
-	auxq = new Queso(560, 0);
+	auxq = new Queso(130, 51);
 	quesos.agregar(auxq);
-	auxq = new Queso(740, 0);
+	auxq = new Queso(165, 61);
 	quesos.agregar(auxq);
 
 	for (int i = 1; i <= 4; i++)
@@ -169,8 +187,8 @@ void Fondo::PintarLvl1() {
 	glDisable(GL_LIGHTING);
 	glBegin(GL_POLYGON);
 	glColor3f(1, 1, 1);
-	glTexCoord2d(0, 0); glVertex3f(-80, 85, -10);
-	glTexCoord2d(1, 0); glVertex3f(800, 85, -10);
+	glTexCoord2d(0, 0); glVertex3f(-80, 87, -10);
+	glTexCoord2d(1, 0); glVertex3f(800, 87, -10);
 	glTexCoord2d(1, 1); glVertex3f(800, -10, -10);
 	glTexCoord2d(0, 1); glVertex3f(-80, -10, -10);
 	glEnd();
@@ -179,7 +197,7 @@ void Fondo::PintarLvl1() {
 
 	// AQUI SE PINTA EL TECHO
 
-	glBegin(GL_POLYGON);
+	/*glBegin(GL_POLYGON);
 	glColor3ub(244, 244, 244);
 	glVertex3f(-80, 80.1, 0.0);
 	glColor3ub(244, 244, 244);
@@ -221,11 +239,12 @@ void Fondo::PintarLvl1() {
 	glVertex3f(2560, -10, 1);
 	glColor3ub(201, 60, 32);
 	glVertex3f(-80, -10, 1);
-	glEnd();
+	glEnd();*/
 }
 
 void Fondo::PintarLvl2()
 {
+	plataformas.Dibuja();
 	quesos.Dibuja();
 	bombas.Dibuja();
 	vidas.Dibuja();
@@ -235,8 +254,8 @@ void Fondo::PintarLvl2()
 	glDisable(GL_LIGHTING);
 	glBegin(GL_POLYGON);
 	glColor3f(1, 1, 1);
-	glTexCoord2d(0, 0); glVertex3f(-80, 85, -10);
-	glTexCoord2d(1, 0); glVertex3f(800, 85, -10);
+	glTexCoord2d(0, 0); glVertex3f(-80, 87, -10);
+	glTexCoord2d(1, 0); glVertex3f(800, 87, -10);
 	glTexCoord2d(1, 1); glVertex3f(800, -10, -10);
 	glTexCoord2d(0, 1); glVertex3f(-80, -10, -10);
 	glEnd();
@@ -276,7 +295,7 @@ void Fondo::PintarLvl2()
 	glEnd();
 	// AQUI SE PINTA EL TECHO
 
-	glBegin(GL_POLYGON);
+	/*glBegin(GL_POLYGON);
 	glColor3ub(244, 244, 244);
 	glVertex3f(-80, 80.1, 0.0);
 	glColor3ub(244, 244, 244);
@@ -318,10 +337,11 @@ void Fondo::PintarLvl2()
 	glVertex3f(2560, -10, 1);
 	glColor3ub(201, 60, 32);
 	glVertex3f(-80, -10, 1);
-	glEnd();
+	glEnd();*/
 }
 void Fondo::PintarLvl3()
 {
+	plataformas.Dibuja();
 	quesos.Dibuja();
 	bombas.Dibuja();
 	vidas.Dibuja();
@@ -331,8 +351,8 @@ void Fondo::PintarLvl3()
 	glDisable(GL_LIGHTING);
 	glBegin(GL_POLYGON);
 	glColor3f(1, 1, 1);
-	glTexCoord2d(0, 0); glVertex3f(-80, 85, -10);
-	glTexCoord2d(1, 0); glVertex3f(800, 85, -10);
+	glTexCoord2d(0, 0); glVertex3f(-80, 87, -10);
+	glTexCoord2d(1, 0); glVertex3f(800, 87, -10);
 	glTexCoord2d(1, 1); glVertex3f(800, -10, -10);
 	glTexCoord2d(0, 1); glVertex3f(-80, -10, -10);
 	glEnd();
@@ -372,7 +392,7 @@ void Fondo::PintarLvl3()
 	glEnd();
 	// AQUI SE PINTA EL TECHO
 
-	glBegin(GL_POLYGON);
+	/*glBegin(GL_POLYGON);
 	glColor3ub(244, 244, 244);
 	glVertex3f(-80, 80.1, 0.0);
 	glColor3ub(244, 244, 244);
@@ -414,22 +434,23 @@ void Fondo::PintarLvl3()
 	glVertex3f(2560, -10, 1);
 	glColor3ub(201, 60, 32);
 	glVertex3f(-80, -10, 1);
-	glEnd();
+	glEnd();*/
 }
 void Fondo::PintarLvl4()
 {
+	plataformas.Dibuja();
 	quesos.Dibuja();
 	bombas.Dibuja();
 	vidas.Dibuja();
 	//AQUI SE PINTA EL FONDO
 	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/FondoDormitorio.png").id);
+	glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/FondoFinal.png").id);
 	glDisable(GL_LIGHTING);
 	glBegin(GL_POLYGON);
 	glColor3f(1, 1, 1);
-	glTexCoord2d(0, 0); glVertex3f(-80, 85, -10);
-	glTexCoord2d(1, 0); glVertex3f(800, 85, -10);
-	glTexCoord2d(1, 1); glVertex3f(800, -10, -10);
+	glTexCoord2d(0, 0); glVertex3f(-80, 87, -10);
+	glTexCoord2d(1, 0); glVertex3f(214, 87, -10);
+	glTexCoord2d(1, 1); glVertex3f(214, -10, -10);
 	glTexCoord2d(0, 1); glVertex3f(-80, -10, -10);
 	glEnd();
 	glEnable(GL_LIGHTING);
@@ -458,17 +479,17 @@ void Fondo::PintarLvl4()
 	//AQUI SE PINTA LA PARED FINAL
 	glBegin(GL_POLYGON);
 	glColor3ub(20, 32, 64);
-	glVertex3f(800, -10, -10);
+	glVertex3f(214, -10, -10);
 	glColor3ub(20, 32, 64);
-	glVertex3f(800, 90, -10);
+	glVertex3f(214, 90, -10);
 	glColor3ub(20, 32, 64);
-	glVertex3f(880, 90, -10);
+	glVertex3f(294, 90, -10);
 	glColor3ub(20, 32, 64);
-	glVertex3f(880, -10, -10);
+	glVertex3f(294, -10, -10);
 	glEnd();
 	// AQUI SE PINTA EL TECHO
 
-	glBegin(GL_POLYGON);
+	/*glBegin(GL_POLYGON);
 	glColor3ub(244, 244, 244);
 	glVertex3f(-80, 80.1, 0.0);
 	glColor3ub(244, 244, 244);
@@ -510,7 +531,7 @@ void Fondo::PintarLvl4()
 	glVertex3f(2560, -10, 1);
 	glColor3ub(201, 60, 32);
 	glVertex3f(-80, -10, 1);
-	glEnd();
+	glEnd();*/
 }
 void Fondo::Mueve(float _t)
 {

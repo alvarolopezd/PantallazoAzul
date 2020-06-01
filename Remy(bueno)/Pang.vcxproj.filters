@@ -45,9 +45,6 @@
     <ClCompile Include="src\Gatitos.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
-    <ClCompile Include="src\Remy_And_The_Lose_Cheese.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
     <ClCompile Include="src\ListaPlataformas.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
@@ -73,6 +70,9 @@
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
     <ClCompile Include="src\Coordinador.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Remy_And_The_Lost_Cheese.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
   </ItemGroup>

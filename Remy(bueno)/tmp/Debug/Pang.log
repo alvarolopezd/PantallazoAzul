@@ -1,4 +1,26 @@
-﻿  Mundo.cpp
-  Remy_And_The_Lose_Cheese.cpp
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(459,5): warning MSB8028: The intermediate directory (tmp\Debug\) contains files shared from another project (Pang.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Coordinador.cpp
+  Disparo.cpp
+  Enemigo.cpp
+  Fondo.cpp
+  Gatitos.cpp
+  Interaccion.cpp
+  ListaBombas.cpp
+  ListaEspadas.cpp
+  ListaGatitos.cpp
+  ListaPlataformas.cpp
+  ListaQuesos.cpp
+  ListaVidas.cpp
+  Mundo.cpp
+  Remy_And_The_Lost_Cheese.cpp
+  Plataforma.cpp
+  Queso.cpp
+C:\Users\peina\Desktop\UNI\ASIGNATURAS 3º\2o SEMESTRE\INFORMÁTICA INDUSTRIAL Y COMUNICACIONES\GIT\PantallazoAzul\Remy(bueno)\src\Queso.cpp(4,41): warning C4129: 'I': secuencia de escape de carácter no reconocida
+  Remy.cpp
+C:\Users\peina\Desktop\UNI\ASIGNATURAS 3º\2o SEMESTRE\INFORMÁTICA INDUSTRIAL Y COMUNICACIONES\GIT\PantallazoAzul\Remy(bueno)\src\Remy.cpp(18,25): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\peina\Desktop\UNI\ASIGNATURAS 3º\2o SEMESTRE\INFORMÁTICA INDUSTRIAL Y COMUNICACIONES\GIT\PantallazoAzul\Remy(bueno)\src\Remy.cpp(21,24): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+  Trampa.cpp
+  Vector2D.cpp
+  Vida.cpp
   Generando código...
-  Pang.vcxproj -> C:\Users\peina\Desktop\UNI\ASIGNATURAS 3º\2o SEMESTRE\INFORMÁTICA INDUSTRIAL Y COMUNICACIONES\GIT\PantallazoAzul - copia\Remy(bueno)\bin\Pang.exe
+  Pang.vcxproj -> C:\Users\peina\Desktop\UNI\ASIGNATURAS 3º\2o SEMESTRE\INFORMÁTICA INDUSTRIAL Y COMUNICACIONES\GIT\PantallazoAzul\Remy(bueno)\bin\Remy And The Lost Cheese.exe
