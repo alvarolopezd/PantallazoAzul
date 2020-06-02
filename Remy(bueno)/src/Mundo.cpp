@@ -106,6 +106,7 @@ void Mundo::Dibuja()
 	}
 	if (nivel == 4)
 	{
+		skinner.Pintar();
 		escenario.PintarLvl4();
 	}
 }
@@ -117,15 +118,11 @@ void Mundo::Mueve()
 	//disparos.Rebote(gatitos);
 	disparos.Rebote(escenario.plataformas);
 
-	
-	
 	gatitos.Mueve(0.025f);
-	
 	
 	gatitos.Rebote(remy);
 
-	
-
+	skinner.Mover(0.025f);
 
 	//gatitos.Rebote(disparos);
 
@@ -133,6 +130,8 @@ void Mundo::Mueve()
 	Interaccion::rebote(remy, nivel);
 
 	Interaccion::rebote(remy, escenario);
+
+	Interaccion::rebote(skinner, escenario);
 
 	for (int i = 0; i < gatitos.GetNumero(); i++)
 	{

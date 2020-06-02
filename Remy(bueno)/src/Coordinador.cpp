@@ -1,8 +1,10 @@
+#include <iostream>
+using namespace std;
 #include "Coordinador.h"
 
 Coordinador::Coordinador()
 {
-	estado = INICIO;
+	estado = HISTORIA;
 	ETSIDI::playMusica("sonidos/avengerscorto.mp3");
 }
 Coordinador::~Coordinador()
@@ -17,7 +19,23 @@ void Coordinador::Inicializa()
 
 void Coordinador::Dibuja()
 {
-	if (estado == INICIO)
+	if (estado == HISTORIA)
+	{
+		//SPRITE INTRO
+		glEnable(GL_TEXTURE_2D);
+		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/Historia.png").id);
+		glDisable(GL_LIGHTING);
+		glBegin(GL_POLYGON);
+		glColor3f(1, 1, 1);
+		glTexCoord2d(0, 0); glVertex3f(-8, 5, -20);
+		glTexCoord2d(1, 0); glVertex3f(8, 5, -20);
+		glTexCoord2d(1, 1); glVertex3f(8, -5, -20);
+		glTexCoord2d(0, 1); glVertex3f(-8, -5, -20);
+		glEnd();
+		glEnable(GL_LIGHTING);
+		glDisable(GL_TEXTURE_2D);
+	}
+	else if (estado == INICIO)
 	{
 		//SPRITE INTRO
 		glEnable(GL_TEXTURE_2D);
@@ -105,8 +123,18 @@ void Coordinador::Dibuja()
 }
 void Coordinador::Tecla(unsigned char key)
 {
+	if (estado == HISTORIA)
+	{
+		if (key == ' ')
+		{
+			estado = INICIO;
+		}
+		if (key == 's' || key == 'S')
+			exit(0);
+	}
 	if (estado == INICIO)
 	{
+		key = 'L';			//LIMPIA EL BUFFER DE TECLADO
 		if (key == ' ')
 		{
 			mundo.Inicializa();

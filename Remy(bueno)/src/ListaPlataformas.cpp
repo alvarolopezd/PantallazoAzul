@@ -57,6 +57,14 @@ void ListaPlataformas::Rebote(Remy& r)
 	}
 }
 
+void ListaPlataformas::Rebote(Enemigo& g)
+{
+	for (int i = 0; i < numero; i++)
+	{
+		Interaccion::rebote(g, *(lista[i]));
+	}
+}
+
 void ListaPlataformas::destruirContenido()
 {
 	for (int i = 0; i < numero; i++)

@@ -1,6 +1,7 @@
 #pragma once
-#define MAX_PLATAFORMAS 100
+#define MAX_PLATAFORMAS 50
 #include "Remy.h"
+#include "Enemigo.h"
 #include "Plataforma.h"
 
 
@@ -26,6 +27,7 @@ public:
 
 	//REBOTE
 	void Rebote(Remy& remy);
+	void Rebote(Enemigo& r);
 
 	//DESTRUCTOR
 	void destruirContenido();

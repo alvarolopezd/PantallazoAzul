@@ -1,4 +1,3 @@
-
 #include "Interaccion.h"
 
 #include <math.h>
@@ -137,10 +136,6 @@ bool Interaccion::rebote(Remy& r, Gatitos& g)
 			r.SetAceleracion(0, -100);
 			return false;
 		}
-	 
-
-	
-
 }
 
 bool Interaccion::rebote(Disparo& d, Gatitos& g)
@@ -176,4 +171,22 @@ bool Interaccion::rebote(Remy& r, Trampa& t)
 	}
 	else
 		return false;
+}
+
+bool Interaccion::rebote(Enemigo& g, Plataforma& p) {
+
+	if ((g.GetYPosicion() < p.GetYCoordenada() + 1) && (g.GetYPosicion() > p.GetYCoordenada() - 1) && (g.GetXPosicion() > p.GetXCoordenada()) && (g.GetXPosicion() < p.GetXCoordenada() + p.GetLargo()))
+	{
+		if (g.GetYVelocidad() < -75 && g.GetYVelocidad() >= -110)
+			g.SetVida(g.GetVida() - 1);
+		if (g.GetYVelocidad() < -110)
+			g.SetVida(g.GetVida() - 2);
+		g.SetPosicion(g.GetXPosicion(), p.GetYCoordenada() + 1);
+		g.SetVelocidad(g.GetXVelocidad(), 0);
+	}
+}
+
+void Interaccion::rebote(Enemigo& g, Fondo& e)
+{
+	e.plataformas.Rebote(g);
 }

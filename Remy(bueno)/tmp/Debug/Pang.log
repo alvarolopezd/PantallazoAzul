@@ -1,3 +1,20 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(467,5): warning MSB8028: El directorio intermedio (tmp\Debug\) contiene archivos compartidos de otro proyecto (Pang.vcxproj). Esto puede dar lugar a un comportamiento incorrecto de limpieza y recompilación.
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(459,5): warning MSB8028: The intermediate directory (tmp\Debug\) contains files shared from another project (Pang.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Skinner.cpp
+C:\Users\peina\Desktop\UNI\ASIGNATURAS 3º\2o SEMESTRE\INFORMÁTICA INDUSTRIAL Y COMUNICACIONES\GIT\PantallazoAzul\Remy(bueno)\Skinner.cpp(14,25): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\peina\Desktop\UNI\ASIGNATURAS 3º\2o SEMESTRE\INFORMÁTICA INDUSTRIAL Y COMUNICACIONES\GIT\PantallazoAzul\Remy(bueno)\Skinner.cpp(17,24): warning C4305: 'argumento': truncamiento de 'double' a 'float'
   Coordinador.cpp
-  Pang.vcxproj -> C:\Users\Luis Quintana\Desktop\Universidad\2019-2020\SEMESTRE_2\TRABAJO_INFORMATICA\PantallazoAzul\Remy(bueno)\bin\Remy And The Lost Cheese.exe
+  Enemigo.cpp
+  Interaccion.cpp
+C:\Users\peina\Desktop\UNI\ASIGNATURAS 3º\2o SEMESTRE\INFORMÁTICA INDUSTRIAL Y COMUNICACIONES\GIT\PantallazoAzul\Remy(bueno)\src\Interaccion.cpp(180,53): error C2556: 'void Interaccion::rebote(Enemigo &,Plataforma &)': la función sobrecargada solo se diferencia de 'bool Interaccion::rebote(Enemigo &,Plataforma &)' por el tipo de valor devuelto
+C:\Users\peina\Desktop\UNI\ASIGNATURAS 3º\2o SEMESTRE\INFORMÁTICA INDUSTRIAL Y COMUNICACIONES\GIT\PantallazoAzul\Remy(bueno)\src\Interaccion.h(24): message : vea la declaración de 'Interaccion::rebote'
+C:\Users\peina\Desktop\UNI\ASIGNATURAS 3º\2o SEMESTRE\INFORMÁTICA INDUSTRIAL Y COMUNICACIONES\GIT\PantallazoAzul\Remy(bueno)\src\Interaccion.cpp(180,19): error C2371: 'Interaccion::rebote': nueva definición; tipos básicos distintos
+C:\Users\peina\Desktop\UNI\ASIGNATURAS 3º\2o SEMESTRE\INFORMÁTICA INDUSTRIAL Y COMUNICACIONES\GIT\PantallazoAzul\Remy(bueno)\src\Interaccion.h(24): message : vea la declaración de 'Interaccion::rebote'
+  ListaBombas.cpp
+  ListaEspadas.cpp
+  ListaGatitos.cpp
+  ListaPlataformas.cpp
+  ListaQuesos.cpp
+  ListaVidas.cpp
+  Mundo.cpp
+  Remy_And_The_Lost_Cheese.cpp
+  Generando código...

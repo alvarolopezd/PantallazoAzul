@@ -1,16 +1,28 @@
 #pragma once
+#include "ETSIDI.h"
 #include "Enemigo.h"
-// INCLUIR ESFERA.H, CILINDRO.H...
 
-class Skinner : public Enemigo
+using ETSIDI::SpriteSequence;
+
+class Skinner : public Enemigo 
 {
 private:
 
+	SpriteSequence Ataque;
+	SpriteSequence Quieto;
+	SpriteSequence Salto;
+	SpriteSequence Muerto;
+
+	int vida;
+	int atacar;
 	// OBJETOS PARA PINTAR
 
 public:
-	void Mover();
+	Skinner();
+
+	void SetAtaque(int estado);
+
+	void Mover(float t);
 	void Atacar();
 	void Pintar();
-
 };

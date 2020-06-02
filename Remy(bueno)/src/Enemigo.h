@@ -4,7 +4,7 @@
 
 class Enemigo
 {
-private:
+protected:
 	Vector2D posicion;
 	Vector2D velocidad;
 	Vector2D aceleracion;
@@ -23,6 +23,8 @@ public:
 	float GetXAceleracion();
 	float GetYAceleracion();
 	int GetVida();
+
+	friend class Interaccion;
 };
 
 

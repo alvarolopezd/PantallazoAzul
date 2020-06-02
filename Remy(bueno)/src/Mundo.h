@@ -1,11 +1,11 @@
 #include "ListaGatitos.h"
 #include "Disparo.h"
 #include "Remy.h"
+#include "Skinner.h"
 #include "Fondo.h"
 #include "Interaccion.h"
 #include "ListaPlataformas.h"
 #include "ListaEspadas.h"
-
 
 class Mundo
 {
@@ -24,6 +24,7 @@ public:
 
 	ListaGatitos gatitos;
 	Remy remy;
+	Skinner skinner;
 	ListaEspadas disparos;
 	Fondo escenario;
 	float x_ojo;
