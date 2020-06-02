@@ -2,7 +2,7 @@
 
 #include "Vida.h"
 #include "Remy.h"
-#define NUM_MAX_VIDAS 4
+#define NUM_MAX_VIDAS 20
 
 class ListaVidas
 {

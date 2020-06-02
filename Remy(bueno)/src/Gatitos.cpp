@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Gatitos::Gatitos(float _x,float _y) :Camina("Imagenes/GatoAndaBueno.png",8,1,50),Ataque("Imagenes/Gato_Ataque.png",4,1,100),Quieto("Imagenes/Gatitos_Quieto.png",2,1,500)
+Gatitos::Gatitos(float _x,float _y) :Camina("Imagenes/GatoAndaBueno.png",8,1,50),Ataque("Imagenes/Gato_Ataque.png",4,1,50),Quieto("Imagenes/Gatitos_Quieto.png",2,1,500)
 {
 	SetPosicion(_x, _y);
 	SetVelocidad(10, 0);
@@ -122,6 +122,7 @@ void Gatitos::Pintar() {
 		if (Quieto.getState() == 1)
 		{
 			Quieto.setState(0,false);
+
 		}
 	}
 
@@ -133,11 +134,13 @@ void Gatitos::Pintar() {
 	if (atacar == 1)
 	{
 		
+		
 		Ataque.draw();
 		if (Ataque.getState() > 3)
 		{
-			Ataque.setState(0);
+			Ataque.setState(0, false);
 			atacar = 0;
+			
 		}
 	}
 	
@@ -150,10 +153,12 @@ void Gatitos::Pintar() {
 
 void Gatitos::Mover(float t)
 {
-	if (atacar == 0)
-	{
+	
 		posicion = posicion + velocidad * t + aceleracion * (0.5f * t * t);
 		velocidad = velocidad + aceleracion * t;
+
+	if (atacar == 0)
+	{
 		Camina.loop();
 		Quieto.loop();
 		
@@ -171,6 +176,7 @@ void Gatitos::Mover(float t)
 		}
 	}
 	cout << atacar << endl;
-	Ataque.loop();
+	if(atacar==1)
+		Ataque.loop();
 }
 

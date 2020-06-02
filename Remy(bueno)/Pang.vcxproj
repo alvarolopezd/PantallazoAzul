@@ -14,6 +14,7 @@
     <ProjectGuid>{A1A2E73C-0D77-49EA-91DD-052F22CA7DC0}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Pang</RootNamespace>
+    <ProjectName>Remy And The Lost Cheese</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -101,7 +102,7 @@
     <ClCompile Include="src\ListaQuesos.cpp" />
     <ClCompile Include="src\ListaVidas.cpp" />
     <ClCompile Include="src\Mundo.cpp" />
-    <ClCompile Include="src\Remy_And_The_Lose_Cheese.cpp" />
+    <ClCompile Include="src\Remy_And_The_Lost_Cheese.cpp" />
     <ClCompile Include="src\Plataforma.cpp" />
     <ClCompile Include="src\Queso.cpp" />
     <ClCompile Include="src\Remy.cpp" />

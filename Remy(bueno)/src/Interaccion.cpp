@@ -15,7 +15,7 @@ void Interaccion::rebote(Gatitos& g) {
 
 }
 
-void Interaccion::rebote(Remy& g) {
+void Interaccion::rebote(Remy& g, int& n) {
 
 	if (g.GetYPosicion() < 0)						//COLISION CON EL SUELO
 	{
@@ -28,9 +28,9 @@ void Interaccion::rebote(Remy& g) {
 		g.SetVelocidad(g.GetXVelocidad(), 0);
 		
 	}
-	else if (g.GetYPosicion() > 68)					//COLISION CON EL TECHO
+	else if (g.GetYPosicion() > 70)					//COLISION CON EL TECHO
 	{
-		g.SetPosicion(g.GetXPosicion(), 68);
+		g.SetPosicion(g.GetXPosicion(), 70);
 		g.SetVelocidad(g.GetXVelocidad(), -0.01);
 	}
 	if (g.GetXPosicion() < -75)						//COLISION CON LA PARED INICIAL
@@ -38,7 +38,12 @@ void Interaccion::rebote(Remy& g) {
 		g.SetPosicion(-75, g.GetYPosicion());
 		g.SetVelocidad(0.0, g.GetYVelocidad());
 	}
-	if (g.GetXPosicion() > 796.75)						//COLISION CON LA PARED FINAL
+	if (n == 4 && g.GetXPosicion() > 210)			//COLISION CON LA PARED FINAL DEL NIVEL FINAL
+	{
+		g.SetPosicion(210, g.GetYPosicion());
+		g.SetVelocidad(0.0, g.GetYVelocidad());
+	}
+	if (n != 4 && g.GetXPosicion() > 796.75)		//COLISION CON LA PARED FINAL
 	{
 		g.SetPosicion(796.75, g.GetYPosicion());
 		g.SetVelocidad(0.0, g.GetYVelocidad());
@@ -47,19 +52,16 @@ void Interaccion::rebote(Remy& g) {
 }
 
 void Interaccion::rebote(Remy& g, Fondo& f) {
-
 	//Interaccion::rebote(g, f.Suelo);
 	f.plataformas.Rebote(g);
 	f.quesos.Rebote(g);
 	f.bombas.Rebote(g);
 	f.vidas.Rebote(g);
-	
-
 }
 
 void Interaccion::rebote(Remy& g, Plataforma& p) {
 
-	if ((g.GetYPosicion() < p.GetYCoordenada() + 1 ) && (g.GetYPosicion() > p.GetYCoordenada() -1) && ( g.GetXPosicion() > p.GetXCoordenada() ) && ( g.GetXPosicion() < p.GetXCoordenada() + p.GetLargo()))
+	if ((g.GetYPosicion() < p.GetYCoordenada() + 1) && (g.GetYPosicion() > p.GetYCoordenada() - 1) && (g.GetXPosicion() > p.GetXCoordenada()) && (g.GetXPosicion() < p.GetXCoordenada() + p.GetLargo()))
 	{
 		if (g.GetYVelocidad() < -75 && g.GetYVelocidad() >= -110)
 			g.SetVida(g.GetVida() - 1);
@@ -67,7 +69,6 @@ void Interaccion::rebote(Remy& g, Plataforma& p) {
 			g.SetVida(g.GetVida() - 2);
 		g.SetPosicion(g.GetXPosicion(), p.GetYCoordenada() + 1);
 		g.SetVelocidad(g.GetXVelocidad(), 0);
-		
 	}
 	else
 	{
@@ -78,7 +79,6 @@ void Interaccion::rebote(Remy& g, Plataforma& p) {
 	{
 		g.SetPosicion(g.GetXPosicion(), p.GetYCoordenada()  -1-g.GetAltura()+3);
 		g.SetVelocidad(g.GetXVelocidad(), -0.1);
-
 	}
 
 	if (g.GetXPosicion() + 3.5 > p.GetXCoordenada() && g.GetXPosicion() - 3.5 < p.GetXCoordenada() + p.GetLargo())
@@ -105,7 +105,7 @@ void Interaccion::rebote(Remy& g, Plataforma& p) {
 
 bool Interaccion::rebote(Remy& g, Queso& q)
 {
-	if (abs(g.GetXPosicion() - q.GetX()) < 5.5 && abs(g.GetYPosicion()-q.GetY())<5)
+	if (abs(g.GetXPosicion() - q.GetX()) < 5.5 && (g.GetYPosicion()-q.GetY())>-10 && (g.GetYPosicion() - q.GetY()) < 13)
 	{
 		return true;
 	}
@@ -122,13 +122,13 @@ bool Interaccion::rebote(Remy& r, Gatitos& g)
 
 		if (((r.GetXPosicion() - g.GetXPosicion()) > -7) && (r.GetXPosicion() < g.GetXPosicion()) && (r.GetYPosicion() - g.GetYPosicion()) < 9)
 		{
-			r.SetPosicion(g.GetXPosicion() - 8, r.GetYPosicion() + 2.5);
+			r.SetPosicion(g.GetXPosicion() - 15, r.GetYPosicion() + 5);
 			r.SetVelocidad(0, 0);
 			return true;
 		}
 		else if (((r.GetXPosicion() - g.GetXPosicion()) < 7.7) && (r.GetXPosicion() > g.GetXPosicion()) && (r.GetYPosicion() - g.GetYPosicion()) < 9)
 		{
-			r.SetPosicion(g.GetXPosicion() + 18, r.GetYPosicion() + 2.5);
+			r.SetPosicion(g.GetXPosicion() + 19.7, r.GetYPosicion() + 5);
 			r.SetVelocidad(0, 0);
 			return true;
 		}
@@ -162,7 +162,6 @@ bool Interaccion::rebote(Disparo& d, Plataforma& p)
 	else if ((d.GetPosicion().GetY() < p.GetYCoordenada() + 1) && (d.GetPosicion().GetY() > p.GetYCoordenada() - 1) && (d.GetPosicion().GetX() > p.GetXCoordenada()) && (d.GetPosicion().GetX() < p.GetXCoordenada() + p.GetLargo()))
 	{
 		return true;
-
 	}
 	else
 		return false;

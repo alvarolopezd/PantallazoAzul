@@ -109,7 +109,6 @@ void Coordinador::Tecla(unsigned char key)
 	{
 		if (key == ' ')
 		{
-			//ETSIDI::stopMusica();
 			mundo.Inicializa();
 			estado = DIFICULTAD;
 		}
@@ -136,6 +135,11 @@ void Coordinador::Tecla(unsigned char key)
 		if (key == '4')
 		{
 			mundo.SetVidas(4);
+			estado = JUEGO;
+		}
+		if (key == 'H')
+		{
+			mundo.SetVidas(15);
 			estado = JUEGO;
 		}
 	}
@@ -180,18 +184,22 @@ void Coordinador::Mueve()
 	if (estado == JUEGO)
 	{
 		mundo.Mueve();
-		if (mundo.remy.GetXPosicion() >= 787 && mundo.remy.GetXPosicion() <= 790 && mundo.remy.GetYPosicion() == 0 && mundo.remy.GetQuesos() >= 5)
+
+		if ((mundo.remy.GetXPosicion() >= 787 && mundo.remy.GetXPosicion() <= 790 && mundo.remy.GetYPosicion() == 0 && mundo.remy.GetQuesos() >= 5) || (mundo.nivel == 4 && mundo.remy.GetXPosicion() >= 199 && mundo.remy.GetXPosicion() <= 202 && mundo.remy.GetYPosicion() == 0 && mundo.remy.GetQuesos() >= 5))
 		{
 			if (!mundo.CargarNivel())
 			{
 				estado = EXITO;
 			}
+			else
+				estado = JUEGO;
 		}
 		if (mundo.GetVida() <= 0)
 		{
-			ETSIDI::stopMusica();
-			ETSIDI::play("sonidos/gameover.mp3");
+			//ETSIDI::stopMusica();
+			
 			estado = GAMEOVER;
+			ETSIDI::play("sonidos/gameover.mp3");
 		}
 	}
 }

@@ -45,6 +45,7 @@ void ListaBombas::Rebote(Remy& r)
 	{
 		if (Interaccion::rebote(r, *(lista[i])))
 		{
+			ETSIDI::playMusica("sonidos/bomba.mp3");
 			Eliminar(i);
 			r.SetVida(r.GetVida()-3);
 		}

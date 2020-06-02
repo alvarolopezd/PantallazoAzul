@@ -32,19 +32,7 @@ float Queso::GetY() {
 }
 
 void Queso::Dibuja() {
-
-
-	glTranslatef(posicion.GetX(), posicion.GetY(), 0.5);
+	glTranslatef(posicion.GetX(), posicion.GetY(), 0.4);
 	Quesito.draw();
-	glTranslatef(-posicion.GetX(), -posicion.GetY(), -0.5);
-	/*
-	glDisable(GL_LIGHTING);
-	glTranslatef(cuerpo.GetX(),cuerpo.GetY(),0);
-	glRotatef(30, 0, 0, 1);
-	glColor3ub(cuerpo.GetRojo(), cuerpo.GetVerde(), cuerpo.GetAzul());
-	glutSolidCone(cuerpo.GetBase(), cuerpo.GetHeight(), cuerpo.GetSlices(), cuerpo.GetStacks()); // QUE ME DUVUELVE TOODS LOS PARAMETROS DEL CONO
-	glRotatef(-30, 0, 0, 1);
-	glTranslatef(-cuerpo.GetX(),-cuerpo.GetY(),0);
-	*/
-
+	glTranslatef(-posicion.GetX(), -posicion.GetY(), -0.4);
 }
