@@ -20,4 +20,6 @@ protected:
 
 	enum Estado{INICIO, JUEGO, GAMEOVER, EXITO, PAUSA, DIFICULTAD, HISTORIA};
 	Estado estado;
+
+	int historia;
 };

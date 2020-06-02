@@ -4,7 +4,6 @@
 #include <conio.h>
 #include <string.h>
 
-
 void Mundo::RotarOjo()
 {
 	float dist=sqrtf(x_ojo*x_ojo+z_ojo*z_ojo);
@@ -32,6 +31,8 @@ bool Mundo::CargarNivel()
 
 	if (nivel == 1)
 	{
+		checkpoint = 0;
+
 		Gatitos* auxg = new Gatitos(140, 0);
 		gatitos.agregar(auxg);
 		auxg = new Gatitos(300, 0);
@@ -50,6 +51,8 @@ bool Mundo::CargarNivel()
 	}
 	else if (nivel == 2)
 	{
+		checkpoint = 1;
+
 		Gatitos* auxg = new Gatitos(70, 0);
 		gatitos.agregar(auxg);
 		auxg = new Gatitos(320, 0);
@@ -68,6 +71,11 @@ bool Mundo::CargarNivel()
 	}
 	else if (nivel == 3)
 	{
+		checkpoint = 2;
+
+		Gatitos* auxg = new Gatitos(70, 0);
+		gatitos.agregar(auxg);
+
 		escenario.SetLvl3();
 		ETSIDI::stopMusica();
 		ETSIDI::playMusica("sonidos/LVL3 Sea of Thieves OST (The Voyage of the Secret Shrine).mp3", TRUE);
@@ -75,6 +83,11 @@ bool Mundo::CargarNivel()
 	}
 	else if (nivel == 4)
 	{
+		checkpoint = 3;
+
+		Gatitos* auxg = new Gatitos(70, 0);
+		gatitos.agregar(auxg);
+
 		escenario.SetLvl4();
 		ETSIDI::stopMusica();
 		ETSIDI::playMusica("sonidos/LVL4 Sea of Thieves OST (The Voyage of the Secret Shrine).mp3", TRUE);
@@ -164,16 +177,16 @@ void Mundo::Inicializa()
 
 	remy.SetVida(vidas);
 
-
-	remy.SetPosicion(-65, 20);
-
 	remy.SetPosicion(-65, 0);
 
 	remy.SetVelocidad(0, 0);
 
-	nivel = 0;
-	CargarNivel();
+	if (checkpoint == -1)
+		nivel = 0;
+	else
+		nivel = checkpoint - 1;
 
+	CargarNivel();
 }
 
 int Mundo::GetVida()

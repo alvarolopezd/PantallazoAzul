@@ -116,7 +116,7 @@ void Interaccion::rebote(Remy& g, Plataforma& p) {
 
 bool Interaccion::rebote(Remy& g, Queso& q)
 {
-	if (abs(g.GetXPosicion() - q.GetX()) < 5.5 && (g.GetYPosicion()-q.GetY())>-10 && (g.GetYPosicion() - q.GetY()) < 13)
+	if (abs(g.GetXPosicion() - q.GetX()) < 5.5 && (g.GetYPosicion() - q.GetY()) > -11 && (g.GetYPosicion() - q.GetY()) < 5)
 	{
 		return true;
 	}

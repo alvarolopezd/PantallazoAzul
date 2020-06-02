@@ -30,6 +30,7 @@ public:
 	float x_ojo;
 	float y_ojo;
 	float z_ojo;
-	int nivel;
+	int nivel = 0;
+	int checkpoint = -1;
 	int vidas;
 };
