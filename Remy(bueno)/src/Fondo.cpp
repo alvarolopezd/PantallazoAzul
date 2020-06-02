@@ -168,12 +168,82 @@ void Fondo::SetLvl2()
 }
 void Fondo::SetLvl3()
 {
-	Plataforma* aux = new Plataforma(130, 20);
+	Plataforma* aux = new Plataforma(40, 20);
+	plataformas.agregar(aux);
+	aux = new Plataforma(40, 60);
+	plataformas.agregar(aux);
+	aux = new Plataforma(80, 40);
+	plataformas.agregar(aux);
+	aux = new Plataforma(120, 20);
+	plataformas.agregar(aux);
+	aux = new Plataforma(180, 20);
+	plataformas.agregar(aux);
+	aux = new Plataforma(170, 60);
+	plataformas.agregar(aux);
+	aux = new Plataforma(190, 40);
+	plataformas.agregar(aux);
+	aux = new Plataforma(240, 20);
+	plataformas.agregar(aux);
+	aux = new Plataforma(220, 60);
+	plataformas.agregar(aux);
+	aux = new Plataforma(260, 40);
+	plataformas.agregar(aux);
+	aux = new Plataforma(300, 20,40);
+	plataformas.agregar(aux);
+	aux = new Plataforma(360, 40);
+	plataformas.agregar(aux);
+	aux = new Plataforma(390, 40);
+	plataformas.agregar(aux);
+	aux = new Plataforma(390, 20);
+	plataformas.agregar(aux);
+	aux = new Plataforma(390, 60);
+	plataformas.agregar(aux);
+	aux = new Plataforma(260, 40);
 	plataformas.agregar(aux);
 
-	Queso* auxq = new Queso(140, 0);
+	Trampa* auxt = new Trampa(70, 31);
+	bombas.agregar(auxt);
+	auxt = new Trampa(70, 51);
+	bombas.agregar(auxt);
+	auxt = new Trampa(160, 0);
+	bombas.agregar(auxt);
+	auxt = new Trampa(170, 21);
+	bombas.agregar(auxt);
+	auxt = new Trampa(180, 0);
+	bombas.agregar(auxt);
+	auxt = new Trampa(180, 51);
+	bombas.agregar(auxt);
+	auxt = new Trampa(200, 61);
+	bombas.agregar(auxt);
+	auxt = new Trampa(220, 41);
+	bombas.agregar(auxt);
+	
+	auxt = new Trampa(280, 51);
+	bombas.agregar(auxt);
+	auxt = new Trampa(280, 0);
+	bombas.agregar(auxt);
+	auxt = new Trampa(290, 11);
+	bombas.agregar(auxt);
+	auxt = new Trampa(300, 11);
+	bombas.agregar(auxt);
+	auxt = new Trampa(300, 0);
+	bombas.agregar(auxt);
+	auxt = new Trampa(320, 0);
+	bombas.agregar(auxt);
+	auxt = new Trampa(350, 31);
+	bombas.agregar(auxt);
+	auxt = new Trampa(390, 41);
+	bombas.agregar(auxt);
+	auxt = new Trampa(385, 38);
+	bombas.agregar(auxt);
+	
+
+
+
+
+	Queso* auxq = new Queso(50, 61);
 	quesos.agregar(auxq);
-	auxq = new Queso(340, 0);
+	auxq = new Queso(180, 61);
 	quesos.agregar(auxq);
 	auxq = new Queso(460, 0);
 	quesos.agregar(auxq);
@@ -434,4 +504,5 @@ void Fondo::PintarLvl4()
 void Fondo::Mueve(float _t)
 {
 	vidas.Mueve(_t);
+	bombas.Mueve();
 }

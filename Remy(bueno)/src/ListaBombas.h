@@ -34,4 +34,7 @@ public:
 	//OPERATOR
 	Trampa* operator [](int i);
 
+	//MUEVE
+	void Mueve();
+
 };

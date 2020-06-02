@@ -43,11 +43,23 @@ void ListaBombas::Rebote(Remy& r)
 	
 	for (int i = 0; i < numero; i++)
 	{
-		if (Interaccion::rebote(r, *(lista[i])))
+		if(Interaccion::rebote(r, *(lista[i])))
 		{
+			/*
+			lista[i]->SetExplosion(1);
+			ETSIDI::playMusica("sonidos/bomba.mp3");
+		    
+			if (!lista[i]->GetExplosion())
+			{
+				
+				r.SetVida(r.GetVida() - 3);
+			}
+			*/
+
 			ETSIDI::playMusica("sonidos/bomba.mp3");
 			Eliminar(i);
-			r.SetVida(r.GetVida()-3);
+			
+			
 		}
 	}
 
@@ -94,4 +106,13 @@ Trampa* ListaBombas::operator [](int i)
 		i = 0;
 
 	return lista[i];
+}
+
+void ListaBombas::Mueve()
+{
+	for (int i = 0; i < numero; i++)
+	{
+		lista[i]->Mueve();
+	}
+
 }

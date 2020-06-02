@@ -136,7 +136,6 @@ void Mundo::Mueve()
 {
 	escenario.Mueve(0.025f);
 	disparos.Mueve(0.025f);
-	//disparos.Rebote(gatitos);
 	disparos.Rebote(escenario.plataformas);
 
 	gatitos.Mueve(0.025f);

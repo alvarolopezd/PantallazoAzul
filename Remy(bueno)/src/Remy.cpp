@@ -123,7 +123,6 @@ void Remy::Pintar()
 		Camina.flip(false, false);
 		Salto.flip(false, false);
 		Camina.flip(false, false);
-
 	}
 	else if (velocidad.GetX() < -0.01 && vida > 0)
 	{
