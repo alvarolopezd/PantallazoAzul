@@ -50,7 +50,15 @@ bool Mundo::CargarNivel()
 	}
 	else if (nivel == 2)
 	{
-		Gatitos* auxg = new Gatitos(140, 0);
+		Gatitos* auxg = new Gatitos(70, 0);
+		gatitos.agregar(auxg);
+		auxg = new Gatitos(320, 0);
+		gatitos.agregar(auxg);
+		auxg = new Gatitos(235, 0);
+		gatitos.agregar(auxg);
+		auxg = new Gatitos(420, 0);
+		gatitos.agregar(auxg);
+		auxg = new Gatitos(550, 0);
 		gatitos.agregar(auxg);
 
 		escenario.SetLvl2();
@@ -106,7 +114,7 @@ void Mundo::Dibuja()
 	}
 	if (nivel == 4)
 	{
-		skinner.Pintar();
+		//skinner.Pintar();
 		escenario.PintarLvl4();
 	}
 }
@@ -122,7 +130,7 @@ void Mundo::Mueve()
 	
 	gatitos.Rebote(remy);
 
-	skinner.Mover(0.025f);
+	//skinner.Mover(0.025f);
 
 	//gatitos.Rebote(disparos);
 
@@ -131,7 +139,7 @@ void Mundo::Mueve()
 
 	Interaccion::rebote(remy, escenario);
 
-	Interaccion::rebote(skinner, escenario);
+	//Interaccion::rebote(skinner, escenario);
 
 	for (int i = 0; i < gatitos.GetNumero(); i++)
 	{

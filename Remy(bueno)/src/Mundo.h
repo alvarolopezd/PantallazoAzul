@@ -24,7 +24,7 @@ public:
 
 	ListaGatitos gatitos;
 	Remy remy;
-	Skinner skinner;
+	//Skinner skinner;
 	ListaEspadas disparos;
 	Fondo escenario;
 	float x_ojo;

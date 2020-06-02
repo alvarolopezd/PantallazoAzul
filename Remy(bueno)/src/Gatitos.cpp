@@ -175,7 +175,7 @@ void Gatitos::Mover(float t)
 			posicion.SetCoordenadas(patrulla.GetX() - limites, posicion.GetY());
 		}
 	}
-	cout << atacar << endl;
+	//cout << atacar << endl;
 	if(atacar==1)
 		Ataque.loop();
 }
