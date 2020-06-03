@@ -43,23 +43,32 @@ void ListaBombas::Rebote(Remy& r)
 	
 	for (int i = 0; i < numero; i++)
 	{
-		if (Interaccion::rebote(r, *(lista[i])))
+		if (Interaccion::rebote(r, *(lista[i])) )
 		{
-			/*
-			lista[i]->SetExplosion(1);
-			ETSIDI::playMusica("sonidos/bomba.mp3");
-		    
-			if (!lista[i]->GetExplosion())
+			if (lista[i]->GetExplosion() == 0)
 			{
-				
-				r.SetVida(r.GetVida() - 3);
+				lista[i]->SetExplosion(1);
+				ETSIDI::playMusica("sonidos/bomba.mp3");
 			}
-			*/
+				
+		}
+
+		if (lista[i]->GetExplosion() == 2)
+		{
 			Eliminar(i);
-			ETSIDI::play("sonidos/bomba.mp3");
+			r.SetVida(r.GetVida() - 3);
 		}
 	}
-
+	/*
+	for (int j = 0; j < numero; j++)
+	{
+		if (lista[j]->GetExplosion() == 2)
+		{
+			Eliminar(j);
+			r.SetVida(r.GetVida() - 3);
+		}
+	}
+	*/
 }
 
 void ListaBombas::destruirContenido()

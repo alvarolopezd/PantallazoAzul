@@ -1,15 +1,15 @@
 #include "Trampa.h"
 #include "glut.h"
 
-Trampa::Trampa(float _x,float _y):sprite("Imagenes/bomba.png",1,1,50),Boom("Imagenes/bomba_explosion.png",13,1,50)
+Trampa::Trampa(float _x,float _y):sprite("Imagenes/bomba.png",1,1,50),Boom("Imagenes/bomba_explosion.png",13,1,90)
 {
 	posicion.SetCoordenadas(_x, _y);
 
 	sprite.setSize(5, 5);
 	sprite.setCenter(2.5, 0);
 
-	Boom.setSize(5, 5);
-	Boom.setCenter(2.5, 0);
+	Boom.setSize(8, 8);
+	Boom.setCenter(4, 0);
 
 
 }
@@ -32,16 +32,24 @@ void Trampa::Dibuja()
 	if(explosion==0)
 	{
 		sprite.draw();
+		Boom.setState(0,false);
 	}
 	else if(explosion==1)
 	{
+		
 		Boom.draw();
-		if (Boom.getState() > 11)
+		if (Boom.getState() >= 12)
 		{
-			Boom.setState(0);
-			explosion = 0;
+			
+			explosion = 2;
+			
 		}
 	}
+	else
+	{
+
+	}
+	
 	
 	glTranslatef(-posicion.GetX(), -posicion.GetY(), 0);
 }

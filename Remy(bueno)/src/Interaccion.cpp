@@ -133,13 +133,13 @@ bool Interaccion::rebote(Remy& r, Gatitos& g)
 		Vector2D res = r.GetPosicion() - g.GetPosicion();
 		float modulo = res.Modulo();
 
-		if (((r.GetXPosicion() - g.GetXPosicion()) > -7) && (r.GetXPosicion() < g.GetXPosicion()) && (r.GetYPosicion() - g.GetYPosicion()) < 9)
+		if (((r.GetXPosicion() - g.GetXPosicion()) > -6) && (r.GetXPosicion() < g.GetXPosicion()) && (r.GetYPosicion() - g.GetYPosicion()) < 9)
 		{
 			r.SetPosicion(g.GetXPosicion() - 15, r.GetYPosicion() + 5);
 			r.SetVelocidad(0, 0);
 			return true;
 		}
-		else if (((r.GetXPosicion() - g.GetXPosicion()) < 7.7) && (r.GetXPosicion() > g.GetXPosicion()) && (r.GetYPosicion() - g.GetYPosicion()) < 9)
+		else if (((r.GetXPosicion() - g.GetXPosicion()) < 6.7) && (r.GetXPosicion() > g.GetXPosicion()) && (r.GetYPosicion() - g.GetYPosicion()) < 9)
 		{
 			r.SetPosicion(g.GetXPosicion() + 19.7, r.GetYPosicion() + 5);
 			r.SetVelocidad(0, 0);
@@ -154,7 +154,7 @@ bool Interaccion::rebote(Remy& r, Gatitos& g)
 
 bool Interaccion::rebote(Disparo& d, Gatitos& g)
 {
-	if (abs(d.GetPosicion().GetX() - g.GetPosicion().GetX()) < 5 && ((d.GetPosicion().GetY() - g.GetPosicion().GetY()) < 10))
+	if (abs(d.GetPosicion().GetX() - g.GetPosicion().GetX()) < 2,5 && ((d.GetPosicion().GetY() - g.GetPosicion().GetY()) < 10))
 	{
 		return true;
 	}
@@ -179,7 +179,7 @@ bool Interaccion::rebote(Disparo& d, Plataforma& p)
 
 bool Interaccion::rebote(Remy& r, Trampa& t)
 {
-	if (abs(r.GetXPosicion() - t.GetX()) < 4 && abs(r.GetYPosicion() - t.GetY()) < 2.5)
+	if (abs(r.GetXPosicion() - t.GetX()) < 4 && ((r.GetYPosicion() - t.GetY()) > -11 && abs(r.GetYPosicion() - t.GetY()) < 5))
 	{
 		return true;
 	}

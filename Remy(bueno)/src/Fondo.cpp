@@ -201,6 +201,19 @@ void Fondo::SetLvl3()
 	aux = new Plataforma(260, 40);
 	plataformas.agregar(aux);
 
+	aux = new Plataforma(530, 20);
+	plataformas.agregar(aux);
+	aux = new Plataforma(590, 20);
+	plataformas.agregar(aux);
+	aux = new Plataforma(620, 20);
+	plataformas.agregar(aux);
+	
+	aux = new Plataforma(720, 20);
+	plataformas.agregar(aux);
+	aux = new Plataforma(760, 20);
+	plataformas.agregar(aux);
+
+
 	Trampa* auxt = new Trampa(70, 31);
 	bombas.agregar(auxt);
 	auxt = new Trampa(70, 51);
@@ -237,6 +250,38 @@ void Fondo::SetLvl3()
 	auxt = new Trampa(385, 38);
 	bombas.agregar(auxt);
 	
+	auxt = new Trampa(430, 0);
+	bombas.agregar(auxt);
+	auxt = new Trampa(440,11);
+	bombas.agregar(auxt);
+	auxt = new Trampa(450, 0);
+	bombas.agregar(auxt);
+	auxt = new Trampa(470, 21);
+	bombas.agregar(auxt);
+	auxt = new Trampa(480, 21);
+	bombas.agregar(auxt);
+	auxt = new Trampa(490, 0);
+	bombas.agregar(auxt);
+	auxt = new Trampa(500, 11);
+	bombas.agregar(auxt);
+	auxt = new Trampa(510, 0);
+	bombas.agregar(auxt);
+	auxt = new Trampa(590, 11);
+	bombas.agregar(auxt);
+	auxt = new Trampa(590, 0);
+	bombas.agregar(auxt);
+	auxt = new Trampa(610, 40);
+	bombas.agregar(auxt);
+	auxt = new Trampa(640, 11);
+	bombas.agregar(auxt);
+	auxt = new Trampa(640, 0);
+	bombas.agregar(auxt);
+	auxt = new Trampa(680, 31);
+	bombas.agregar(auxt);
+	auxt = new Trampa(750, 31);
+	bombas.agregar(auxt);
+	auxt = new Trampa(750, 51);
+	bombas.agregar(auxt);
 
 
 
@@ -247,9 +292,9 @@ void Fondo::SetLvl3()
 	quesos.agregar(auxq);
 	auxq = new Queso(460, 0);
 	quesos.agregar(auxq);
-	auxq = new Queso(560, 0);
+	auxq = new Queso(610, 0);
 	quesos.agregar(auxq);
-	auxq = new Queso(740, 0);
+	auxq = new Queso(750, 41);
 	quesos.agregar(auxq);
 
 	for (int i = 1; i <= 4; i++)

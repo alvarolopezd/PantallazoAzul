@@ -56,31 +56,37 @@ void ListaGatitos::Rebote(Remy& r)
 
 	for (int i = 0; i < numero; i++)
 	{
-		if (abs(r.GetXPosicion() - lista[i]->GetXPosicion()) < 9.7 && (r.GetYPosicion() < 15) && r.GetXPosicion() < lista[i]->GetXPosicion())
+		if (abs(r.GetXPosicion() - lista[i]->GetXPosicion()) < 6.5 && (r.GetYPosicion() < 15) && r.GetXPosicion() < lista[i]->GetXPosicion())
 		{
 			lista[i]->SetAtaque(1);
 			lista[i]->Ataque.flip(true, false);
-			lista[i]->SetVelocidad((lista[i]->GetXVelocidad())-0.1,0);
+			lista[i]->SetVelocidad(-0.4,0);
 
 		}
-		else if (abs(r.GetXPosicion() - lista[i]->GetXPosicion()) < 10 && r.GetYPosicion() < 15 && r.GetXPosicion() > lista[i]->GetXPosicion())
+		else if (abs(r.GetXPosicion() - lista[i]->GetXPosicion()) < 7 && r.GetYPosicion() < 15 && r.GetXPosicion() > lista[i]->GetXPosicion())
 		{
 			lista[i]->SetAtaque(1);
 			lista[i]->Ataque.flip(false, false);
-			lista[i]->SetVelocidad((lista[i]->GetXVelocidad()) + 0.1, 0);
+			lista[i]->SetVelocidad( 0.4, 0);
 
 		}
-		else
-			lista[i]->SetAtaque(0);
+		else		
+		{
+			if (abs(r.GetXPosicion() - lista[i]->GetXPosicion())<20 && r.GetXPosicion() < lista[i]->GetXPosicion())
+				lista[i]->SetVelocidad(-10, 0);
+			else if (abs(r.GetXPosicion() - lista[i]->GetXPosicion()) < 20 && r.GetXPosicion() > lista[i]->GetXPosicion())
+				lista[i]->SetVelocidad(10, 0);
+
+		}
 
 		if (Interaccion::rebote(r, *(lista[i])))
 		{
 			//tiempo_pasado = (double(clock() / CLOCKS_PER_SEC));
 			r.SetVida(r.GetVida() - 1);
-			if(r.GetXPosicion()<lista[i]->GetXPosicion())
-				lista[i]->SetVelocidad((lista[i]->GetXVelocidad()) + 0.1, 0);
-			else if (r.GetXPosicion() > lista[i]->GetXPosicion())
-				lista[i]->SetVelocidad((lista[i]->GetXVelocidad()) - 0.1, 0);
+			if (abs(r.GetXPosicion() - lista[i]->GetXPosicion()) < 20 && r.GetXPosicion() < lista[i]->GetXPosicion())
+				lista[i]->SetVelocidad(-10, 0);
+			else if (abs(r.GetXPosicion() - lista[i]->GetXPosicion()) < 20 && r.GetXPosicion() > lista[i]->GetXPosicion())
+				lista[i]->SetVelocidad(10, 0);
 	
 		}
 
