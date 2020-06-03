@@ -3,39 +3,46 @@
 Skinner::Skinner(): Ataque("Imagenes/Skinner_Ataque.png", 12, 1, 75), Quieto("Imagenes/Skinner_Quieto.png", 6, 2, 125), Salto("Imagenes/Skinner_Salto.png", 1, 1, 50), Muerto("Imagenes/Skinner_Muerto.png", 14, 1, 50)
 {
 	vida = 25;
-	SetPosicion(0, 0);
+	atacar = 0;
+	//SetPosicion(10, 21);
 	SetVelocidad(0, 0);
 	SetAceleracion(0, -100);
 
-	Muerto.setCenter(5, 0);
-	Muerto.setSize(10, 7);
+	Muerto.setCenter(9, 0);
+	Muerto.setSize(18, 24);
+	Muerto.setState(0);
 
-	Ataque.setCenter(5, 1);
-	Ataque.setSize(18, 20);
+	Ataque.setCenter(12, 1);
+	Ataque.setSize(24, 24);
 
-	Quieto.setCenter(5, 1.9);
+	Quieto.setCenter(9, 1.9);
 	Quieto.setSize(18, 24);
 
-	Salto.setCenter(5, 1.9);
-	Salto.setSize(10, 20);
+	Salto.setCenter(12, 1.9);
+	Salto.setSize(24, 24);
 }
+
+
 
 void Skinner::Mover(float t)
 {
+	
 	posicion = posicion + velocidad * t + aceleracion * (0.5f * t * t);
 	velocidad = velocidad + aceleracion * t;
+
 	Ataque.loop();
 	Salto.loop();
 	Muerto.loop();
 	Quieto.loop();
 	//cout << posicion.x << "\n";
-	//cout << quesos << "\n";
+	cout << vida<< "\n";
+
+	
 }
 void Skinner::Pintar()
 {
 	glPushMatrix();
 	glTranslatef(posicion.GetX(), posicion.GetY(), 0.55f);
-	glColor3f(1.0f, 1.0f, 1.0f);
 
 	if (velocidad.GetX() > 0.01 && vida > 0)
 	{
@@ -48,22 +55,28 @@ void Skinner::Pintar()
 		Salto.flip(true, false);
 	}
 
-	if (velocidad.GetX() < 0.01 && velocidad.GetX() > -0.01 && velocidad.GetY() == 0 && vida > 0)
+	if (velocidad.GetX() < 0.01 && velocidad.GetX() > -0.01 && velocidad.GetY() == 0 && vida > 0 && atacar==0)
 	{
 		Quieto.draw();
+		Ataque.setState(0, false);
 	}
 	if (velocidad.GetY() != 0 && vida > 0)
 	{
 		Salto.draw();
 	}
-	if (vida <= 0)
+	if (vida == 0 && Muerto.getState()==0)
 	{
+		
 		Muerto.draw();
+		if (Muerto.getState() >= 13)
+			vida = -1;
+		
+		
 	}
-	if (atacar == 1)
+	if (atacar == 1 && vida>0)
 	{
 		Ataque.draw();
-		if (Ataque.getState() > 11)
+		if (Ataque.getState() >= 11)
 		{
 			Ataque.setState(0, false);
 			atacar = 0;

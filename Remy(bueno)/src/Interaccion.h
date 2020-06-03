@@ -21,6 +21,8 @@ public:
 	static bool rebote(Disparo& d, Gatitos& g);
 	static bool rebote(Disparo& d, Plataforma& p);
 	static bool rebote(Remy& r, Trampa& t);
-	static void rebote(Enemigo& e, Plataforma& p);
+	static bool rebote(Enemigo& e, Plataforma& p);
 	static void rebote(Enemigo& g, Fondo& e);
+	static bool rebote(Disparo& d, Enemigo& g);
+	static bool rebote(Remy& r, Enemigo& g);
 };

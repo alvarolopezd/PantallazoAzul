@@ -61,7 +61,10 @@ void ListaPlataformas::Rebote(Enemigo& g)
 {
 	for (int i = 0; i < numero; i++)
 	{
-		Interaccion::rebote(g, *(lista[i]));
+		if (Interaccion::rebote(g, *(lista[i])))
+		{
+			
+		}
 	}
 }
 

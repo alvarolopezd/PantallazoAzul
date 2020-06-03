@@ -187,18 +187,54 @@ bool Interaccion::rebote(Remy& r, Trampa& t)
 		return false;
 }
 
-void Interaccion::rebote(Enemigo& g, Plataforma& p) {
+bool Interaccion::rebote(Enemigo& g, Plataforma& p) {
 
 	if ((g.GetYPosicion() < p.GetYCoordenada() + 1) && (g.GetYPosicion() > p.GetYCoordenada() - 1) && (g.GetXPosicion() > p.GetXCoordenada()) && (g.GetXPosicion() < p.GetXCoordenada() + p.GetLargo()))
 	{
 		
 			
 		g.SetPosicion(g.GetXPosicion(), p.GetYCoordenada() + 1);
-		g.SetVelocidad(g.GetXVelocidad(), 0);
+		g.SetVelocidad(0, 0);
+		return true;
 	}
+	return false;
+}
+
+bool Interaccion::rebote(Disparo& d, Enemigo& g)
+{
+	if (abs(d.GetPosicion().GetX() - g.GetXPosicion()) < 9 && ((d.GetPosicion().GetY() - g.GetYPosicion()) < 18))
+	{
+		return true;
+	}
+	else
+		return false;
 }
 
 void Interaccion::rebote(Enemigo& g, Fondo& e)
 {
 	e.plataformas.Rebote(g);
+	
+}
+
+bool Interaccion::rebote(Remy& r, Enemigo& g)
+{
+
+
+	if (((r.GetXPosicion() - g.GetXPosicion()) > -6) && (r.GetXPosicion() < g.GetXPosicion()) && abs(r.GetYPosicion() - g.GetYPosicion()) < 9)
+	{
+		r.SetPosicion(g.GetXPosicion() - 15, r.GetYPosicion() + 5);
+		r.SetVelocidad(0, 0);
+		return true;
+	}
+	else if (((r.GetXPosicion() - g.GetXPosicion()) < 6.7) && (r.GetXPosicion() > g.GetXPosicion()) && abs(r.GetYPosicion() - g.GetYPosicion()) < 9)
+	{
+		r.SetPosicion(g.GetXPosicion() + 19.7, r.GetYPosicion() + 5);
+		r.SetVelocidad(0, 0);
+		return true;
+	}
+	else
+	{
+		r.SetAceleracion(0, -100);
+		return false;
+	}
 }

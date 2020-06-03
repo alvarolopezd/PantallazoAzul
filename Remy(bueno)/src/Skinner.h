@@ -1,6 +1,9 @@
 #pragma once
+#include <iostream>
 #include "ETSIDI.h"
 #include "Enemigo.h"
+
+using namespace std;
 
 using ETSIDI::SpriteSequence;
 
@@ -11,9 +14,9 @@ private:
 	SpriteSequence Ataque;
 	SpriteSequence Quieto;
 	SpriteSequence Salto;
-	SpriteSequence Muerto;
+	
 
-	int vida;
+	
 	int atacar;
 	// OBJETOS PARA PINTAR
 
@@ -25,4 +28,5 @@ public:
 	void Mover(float t);
 	void Atacar();
 	void Pintar();
+	SpriteSequence Muerto;
 };
