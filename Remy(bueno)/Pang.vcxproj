@@ -89,7 +89,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Skinner.cpp" />
     <ClCompile Include="src\Coordinador.cpp" />
     <ClCompile Include="src\Disparo.cpp" />
     <ClCompile Include="src\Enemigo.cpp" />
@@ -107,6 +106,7 @@
     <ClCompile Include="src\Plataforma.cpp" />
     <ClCompile Include="src\Queso.cpp" />
     <ClCompile Include="src\Remy.cpp" />
+    <ClCompile Include="src\Skinner.cpp" />
     <ClCompile Include="src\Trampa.cpp" />
     <ClCompile Include="src\Vector2D.cpp" />
     <ClCompile Include="src\Vida.cpp" />

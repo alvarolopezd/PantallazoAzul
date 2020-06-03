@@ -45,7 +45,7 @@ void ListaQuesos::Rebote(Remy& r)
 		if (Interaccion::rebote(r, *(lista[i])))
 		{
 			Eliminar(i);
-			r.SetQuesos((r.GetQuesos())+1);
+			r.SetQuesos((r.GetQuesos()) + 1);
 			ETSIDI::play("sonidos/comequeso.mp3");
 		}
 	}

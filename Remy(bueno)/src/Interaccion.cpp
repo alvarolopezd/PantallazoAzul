@@ -11,7 +11,6 @@ void Interaccion::rebote(Gatitos& g) {
 		g.SetPosicion(g.GetXPosicion(), 0);
 		g.SetVelocidad(g.GetXVelocidad(), 0);
 	}
-
 }
 
 void Interaccion::rebote(Remy& g, int& n) {
@@ -20,18 +19,16 @@ void Interaccion::rebote(Remy& g, int& n) {
 	{
 		if (g.GetYVelocidad() < -75 && g.GetYVelocidad() >= -110)
 		{
-			ETSIDI::playMusica("sonidos/caida.mp3");
 			g.SetVida(g.GetVida() - 1);
+			ETSIDI::play("sonidos/caida.mp3");
 		}
 		if (g.GetYVelocidad() < -110)
 		{
-			ETSIDI::playMusica("sonidos/caida.mp3");
 			g.SetVida(g.GetVida() - 2);
+			ETSIDI::play("sonidos/caida.mp3");
 		}
-
 		g.SetPosicion(g.GetXPosicion(), 0);
 		g.SetVelocidad(g.GetXVelocidad(), 0);
-		
 	}
 	else if (g.GetYPosicion() > 70)					//COLISION CON EL TECHO
 	{
@@ -70,13 +67,13 @@ void Interaccion::rebote(Remy& g, Plataforma& p) {
 	{
 		if (g.GetYVelocidad() < -75 && g.GetYVelocidad() >= -110)
 		{
-			ETSIDI::playMusica("sonidos/caida.mp3");
 			g.SetVida(g.GetVida() - 1);
+			ETSIDI::play("sonidos/caida.mp3");
 		}
 		if (g.GetYVelocidad() < -110)
 		{
-			ETSIDI::playMusica("sonidos/caida.mp3");
 			g.SetVida(g.GetVida() - 2);
+			ETSIDI::play("sonidos/caida.mp3");
 		}
 		g.SetPosicion(g.GetXPosicion(), p.GetYCoordenada() + 1);
 		g.SetVelocidad(g.GetXVelocidad(), 0);
@@ -86,9 +83,14 @@ void Interaccion::rebote(Remy& g, Plataforma& p) {
 
 	}
 
-	if ((g.GetYPosicion()+g.GetAltura()-3 > p.GetYCoordenada() - 1) && (g.GetYPosicion()+g.GetAltura()-3 < p.GetYCoordenada() + 1) && (g.GetXPosicion() > p.GetXCoordenada()-2) && (g.GetXPosicion() < p.GetXCoordenada() + p.GetLargo()+2))
+	if (g.GetYVelocidad() <0.1 && (g.GetYPosicion() + g.GetAltura() - 3 > p.GetYCoordenada() - 1) && (g.GetYPosicion() + g.GetAltura() - 3 < p.GetYCoordenada() + 1) && (g.GetXPosicion() > p.GetXCoordenada() - 2) && (g.GetXPosicion() < p.GetXCoordenada() + p.GetLargo() + 2))
 	{
-		g.SetPosicion(g.GetXPosicion(), p.GetYCoordenada()  -1-g.GetAltura()+3);
+		g.SetPosicion(g.GetXPosicion(), p.GetYCoordenada() - 1 - g.GetAltura() + 3);
+		g.SetVelocidad(g.GetXVelocidad(), g.GetXVelocidad());
+	}
+	else if ((g.GetYPosicion()+g.GetAltura()-3 > p.GetYCoordenada() - 1) && (g.GetYPosicion()+g.GetAltura()-3 < p.GetYCoordenada() + 1) && (g.GetXPosicion() > p.GetXCoordenada()-2) && (g.GetXPosicion() < p.GetXCoordenada() + p.GetLargo()+2))
+	{
+		g.SetPosicion(g.GetXPosicion(), p.GetYCoordenada() - 1 - g.GetAltura() + 3);
 		g.SetVelocidad(g.GetXVelocidad(), -0.1);
 	}
 

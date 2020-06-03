@@ -6,7 +6,7 @@ Coordinador::Coordinador()
 {
 	estado = HISTORIA;
 	historia = 1;
-	ETSIDI::playMusica("sonidos/HISTORIA Sea of Thieves OST (The Voyage of the Secret Shrine).mp3");
+	ETSIDI::playMusica("sonidos/HISTORIA Sea of Thieves OST (The Voyage of the Secret Shrine).mp3", TRUE);
 }
 Coordinador::~Coordinador()
 {

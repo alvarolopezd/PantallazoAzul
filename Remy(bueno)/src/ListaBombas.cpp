@@ -43,7 +43,7 @@ void ListaBombas::Rebote(Remy& r)
 	
 	for (int i = 0; i < numero; i++)
 	{
-		if(Interaccion::rebote(r, *(lista[i])))
+		if (Interaccion::rebote(r, *(lista[i])))
 		{
 			/*
 			lista[i]->SetExplosion(1);
@@ -55,11 +55,8 @@ void ListaBombas::Rebote(Remy& r)
 				r.SetVida(r.GetVida() - 3);
 			}
 			*/
-
-			ETSIDI::playMusica("sonidos/bomba.mp3");
 			Eliminar(i);
-			
-			
+			ETSIDI::play("sonidos/bomba.mp3");
 		}
 	}
 
