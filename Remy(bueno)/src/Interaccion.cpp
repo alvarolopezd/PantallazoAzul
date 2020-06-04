@@ -1,7 +1,5 @@
 #include "Interaccion.h"
-
 #include <math.h>
-
 
 
 void Interaccion::rebote(Gatitos& g) {
@@ -54,7 +52,6 @@ void Interaccion::rebote(Remy& g, int& n) {
 }
 
 void Interaccion::rebote(Remy& g, Fondo& f) {
-	//Interaccion::rebote(g, f.Suelo);
 	f.plataformas.Rebote(g);
 	f.quesos.Rebote(g);
 	f.bombas.Rebote(g);
@@ -128,28 +125,23 @@ bool Interaccion::rebote(Remy& g, Queso& q)
 
 bool Interaccion::rebote(Remy& r, Gatitos& g)
 {
-		
-
-		Vector2D res = r.GetPosicion() - g.GetPosicion();
-		float modulo = res.Modulo();
-
-		if (((r.GetXPosicion() - g.GetXPosicion()) > -6) && (r.GetXPosicion() < g.GetXPosicion()) && (r.GetYPosicion() - g.GetYPosicion()) < 9)
-		{
-			r.SetPosicion(g.GetXPosicion() - 15, r.GetYPosicion() + 5);
-			r.SetVelocidad(0, 0);
-			return true;
-		}
-		else if (((r.GetXPosicion() - g.GetXPosicion()) < 6.7) && (r.GetXPosicion() > g.GetXPosicion()) && (r.GetYPosicion() - g.GetYPosicion()) < 9)
-		{
-			r.SetPosicion(g.GetXPosicion() + 19.7, r.GetYPosicion() + 5);
-			r.SetVelocidad(0, 0);
-			return true;
-		}
-		else
-		{
-			r.SetAceleracion(0, -100);
-			return false;
-		}
+	if (((r.GetXPosicion() - g.GetXPosicion()) > -6) && (r.GetXPosicion() < g.GetXPosicion()) && (r.GetYPosicion() - g.GetYPosicion()) < 9)
+	{
+		r.SetPosicion(g.GetXPosicion() - 15, r.GetYPosicion() + 5);
+		r.SetVelocidad(0, 0);
+		return true;
+	}
+	else if (((r.GetXPosicion() - g.GetXPosicion()) < 6.7) && (r.GetXPosicion() > g.GetXPosicion()) && (r.GetYPosicion() - g.GetYPosicion()) < 9)
+	{
+		r.SetPosicion(g.GetXPosicion() + 19.7, r.GetYPosicion() + 5);
+		r.SetVelocidad(0, 0);
+		return true;
+	}
+	else
+	{
+		r.SetAceleracion(0, -100);
+		return false;
+	}
 }
 
 bool Interaccion::rebote(Disparo& d, Gatitos& g)

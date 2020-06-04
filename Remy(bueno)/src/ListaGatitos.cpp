@@ -1,11 +1,9 @@
-#include <iostream>
 #include "ListaGatitos.h"
 
 using namespace std;
 
 ListaGatitos::ListaGatitos()
 {
-	//Inicilizar el numero de Plataforma iniciales a 0
 	numero = 0;
 	//Poner a NULL todos lo selementos de la lista 
 	for (int i = 0; i <NUM_MAX_GATOS; i++)
@@ -29,15 +27,12 @@ Gatitos ListaGatitos::GetGatitos(int j)
 	return *lista[j];
 }
 
-
-
 bool ListaGatitos::agregar(Gatitos* q)
 {
-	// Añadir que si la Plataforma ya está creatda haga un return false
 	if (numero < NUM_MAX_GATOS)
 	{
 		lista[numero] = q;
-		numero++; // Aumentar el numero para ir recorriendo la lista e ir agregando Plataforma sobre la lista
+		numero++; 
 		return true;
 	}
 	else
@@ -47,19 +42,15 @@ bool ListaGatitos::agregar(Gatitos* q)
 void ListaGatitos::Dibuja()
 {
 	for (int i = 0; i < numero; i++)
-	{ //lista[i] es una direccion de memoria y para acceder dentro necesito ->
-		lista[i]->Pintar(); // Dibujar una a una las Plataforma para llamar al metood Dibuja dentro de Plataforma
+	{ 
+		lista[i]->Pintar();
 	}
 }
 
 void ListaGatitos::Rebote(Remy& r)
 {
-	
-
 	for (int i = 0; i < numero; i++)
 	{
-		
-		
 		if (abs(r.GetXPosicion() - lista[i]->GetXPosicion()) < 6.5 && r.GetXPosicion() <lista[i]->GetXPosicion() && r.GetYPosicion() < 15)
 		{
 			
@@ -85,55 +76,18 @@ void ListaGatitos::Rebote(Remy& r)
 		{
 			lista[i]->SetVelocidad(0, 0);
 		}
-		
-		
 
 		if (Interaccion::rebote(r, *(lista[i])))
 		{
-			//tiempo_pasado = (double(clock() / CLOCKS_PER_SEC));
 			ETSIDI::play("sonidos/Aranazo.mp3");
 			r.SetVida(r.GetVida() - 1);
 			if (abs(r.GetXPosicion() - lista[i]->GetXPosicion()) < 20 && r.GetXPosicion() < lista[i]->GetXPosicion())
 				lista[i]->SetVelocidad(-10, 0);
 			else if (abs(r.GetXPosicion() - lista[i]->GetXPosicion()) < 20 && r.GetXPosicion() > lista[i]->GetXPosicion())
 				lista[i]->SetVelocidad(10, 0);
-	
 		}
-
-		//ATAQUE GATO HACIA LA IZQUIERDA
-		
-
-		//ATAQUE GATO HACIA LA DERECHA
-		/*
-		if (abs(r.GetXPosicion() - lista[i]->GetXPosicion()) < 10 && r.GetYPosicion() < 15 && r.GetXPosicion() > lista[i]->GetXPosicion())
-		{
-			lista[i]->SetAtaque(1);
-			lista[i]->Ataque.flip(false, false);
-		}
-		else
-			lista[i]->SetAtaque(0);
-			*/
-			
-
-		//lista[i]->SetAtaque(0);
-	
 	}
 }
-
-/*void ListaGatitos::Rebote(ListaEspadas& r)
-{
-
-	for (int i = 0; i < numero; i++)
-	{
-		for (int j = 0; j < r.GetNumero(); j++)
-		{
-			if (Interaccion::rebote(r.GetDisparo(j), *(lista[i])))
-			{
-				Eliminar(lista[i]);
-			}
-		}
-	}
-}*/
 
 void ListaGatitos::Rebote()
 {

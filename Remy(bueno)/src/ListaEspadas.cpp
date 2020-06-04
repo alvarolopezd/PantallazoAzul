@@ -29,11 +29,11 @@ Disparo ListaEspadas::GetDisparo(int j)
 
 bool ListaEspadas::agregar(Disparo* q)
 {
-	// Añadir que si la Plataforma ya está creatda haga un return false
+
 	if (numero < 1)
 	{
 		lista[numero] = q;
-		numero++; // Aumentar el numero para ir recorriendo la lista e ir agregando Plataforma sobre la lista
+		numero++; 
 		return true;
 	}
 	else
@@ -43,26 +43,11 @@ bool ListaEspadas::agregar(Disparo* q)
 void ListaEspadas::Dibuja()
 {
 	for (int i = 0; i < numero; i++)
-	{ //lista[i] es una direccion de memoria y para acceder dentro necesito ->
-		lista[i]->Dibuja(); // Dibujar una a una las Plataforma para llamar al metood Dibuja dentro de Plataforma
+	{ 
+		lista[i]->Dibuja(); 
 	}
 }
-/*
-void ListaEspadas::Rebote(ListaGatitos& r)
-{
 
-	for (int i = 0; i < numero; i++)
-	{
-		for (int j = 0; j < r.GetNumero(); j++)
-		{
-			if (Interaccion::rebote(*lista[i], r.GetGatitos(j)))
-			{
-				Eliminar(i);
-			}
-		}
-	}
-}
-*/
 void ListaEspadas::Rebote(ListaPlataformas &f)
 {
 
@@ -73,9 +58,7 @@ void ListaEspadas::Rebote(ListaPlataformas &f)
 			if (Interaccion::rebote(*lista[i], f.GetPlataforma(j)))
 			{
 				Eliminar(i);
-			}
-			
-				
+			}	
 		}
 	}
 }
@@ -119,7 +102,6 @@ void ListaEspadas::Mueve(float t)
 	{
 		lista[i]->Mueve(t);
 	}
-
 }
 
 Disparo* ListaEspadas::operator [](int i)

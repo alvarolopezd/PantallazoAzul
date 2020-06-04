@@ -71,7 +71,6 @@ void Skinner::Pintar()
 		if (Ataque.getState() >= 11)
 		{
 			Ataque.setState(0, false);
-			
 			atacar = 0;
 		}
 	}

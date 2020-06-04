@@ -1,8 +1,6 @@
-#include <iostream>
 #include "Gatitos.h"
 #include "glut.h"
 
-using namespace std;
 
 Gatitos::Gatitos(float _x,float _y) :Camina("Imagenes/GatoAndaBueno.png",8,1,50),Ataque("Imagenes/Gato_Ataque.png",4,1,70),Quieto("Imagenes/Gatitos_Quieto.png",2,1,200)
 {
@@ -48,11 +46,6 @@ void Gatitos::SetAceleracion(float _XAceleracion, float _YAceleracion)
 	aceleracion.SetCoordenadas(_XAceleracion, _YAceleracion);
 }
 
-void Gatitos::SetVida(int _vida)
-{
-	vida = _vida;
-}
-
 void Gatitos::SetAltura(float _altura) {
 	altura = _altura;
 }
@@ -71,7 +64,6 @@ float Gatitos::GetLimites()
 {
 	return limites;
 }
-
 
 float Gatitos::GetXPosicion()
 {
@@ -109,8 +101,6 @@ void Gatitos::SetAtaque(int estado)
 }
 
 void Gatitos::Pintar() {
-
-
 	glPushMatrix();
 	glTranslatef(posicion.GetX(), posicion.GetY(), 0.5);
 	glColor3f(1.0f, 1.0f, 1.0f);
@@ -148,18 +138,14 @@ void Gatitos::Pintar() {
 		}
 	}
 	
-
 	glTranslatef(-posicion.GetX(), -posicion.GetY(), -0.5);
-
-	glPopMatrix();
-	
+	glPopMatrix();	
 }
 
 void Gatitos::Mover(float t)
 {
-	
-		posicion = posicion + velocidad * t + aceleracion * (0.5f * t * t);
-		velocidad = velocidad + aceleracion * t;
+	posicion = posicion + velocidad * t + aceleracion * (0.5f * t * t);
+	velocidad = velocidad + aceleracion * t;
 
 	if (atacar == 0)
 	{
@@ -179,7 +165,6 @@ void Gatitos::Mover(float t)
 			posicion.SetCoordenadas(patrulla.GetX() - limites+0.1, posicion.GetY());
 		}
 	}
-	//cout << atacar << endl;
 	if(atacar==1)
 		Ataque.loop();
 }

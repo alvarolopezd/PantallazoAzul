@@ -43,7 +43,6 @@ float Plataforma::GetLargo() {
 	return largo;
 }
 
-
 void Plataforma::Pintar() {
 
 	float x, y;

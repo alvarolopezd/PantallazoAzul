@@ -11,8 +11,6 @@ Queso::Queso(float _x,float _y):Quesito("\Imagenes/cheese.png",1,1)
 	SetPosicion(_x, _y);
 }
 
-
-
 void Queso::SetPosicion(float _x, float _y)
 {
 	posicion.SetCoordenadas(_x, _y+1);

@@ -1,9 +1,6 @@
 #pragma once
-#include <iostream>
 #include "ETSIDI.h"
 #include "Enemigo.h"
-
-using namespace std;
 
 using ETSIDI::SpriteSequence;
 
@@ -14,11 +11,7 @@ private:
 	SpriteSequence Ataque;
 	SpriteSequence Quieto;
 	SpriteSequence Salto;
-	
-
-	
 	int atacar;
-	// OBJETOS PARA PINTAR
 
 public:
 	Skinner();

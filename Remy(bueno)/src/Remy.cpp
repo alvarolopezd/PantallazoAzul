@@ -1,6 +1,5 @@
 #include "Remy.h"
-#include <iostream>
-using namespace std;
+
 
 Remy::Remy() :Camina("Imagenes/Remy_Anda.png", 4, 1, 50), Quieto("Imagenes/Remy_Quieto.png", 1, 1, 50), Salto("Imagenes/Remy_Salto.png", 2, 1, 50), Muerto("Imagenes/RemyMuerto.png", 1, 1, 50)
 {
@@ -163,11 +162,5 @@ void Remy::Mover(float t)
 		velocidad = velocidad + aceleracion * t;
 		Camina.loop();
 		Salto.loop();
-		cout << posicion.x << "\n";
-		
 	}
-}
-
-void Remy::Atacar() {
-
 }

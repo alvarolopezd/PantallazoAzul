@@ -204,14 +204,12 @@ void Fondo::SetLvl3()
 	plataformas.agregar(aux);
 	aux = new Plataforma(260, 40);
 	plataformas.agregar(aux);
-
 	aux = new Plataforma(530, 20);
 	plataformas.agregar(aux);
 	aux = new Plataforma(590, 20);
 	plataformas.agregar(aux);
 	aux = new Plataforma(620, 20);
 	plataformas.agregar(aux);
-	
 	aux = new Plataforma(720, 20);
 	plataformas.agregar(aux);
 	aux = new Plataforma(760, 20);
@@ -234,7 +232,6 @@ void Fondo::SetLvl3()
 	bombas.agregar(auxt);
 	auxt = new Trampa(220, 41);
 	bombas.agregar(auxt);
-	
 	auxt = new Trampa(280, 51);
 	bombas.agregar(auxt);
 	auxt = new Trampa(280, 0);
@@ -253,7 +250,6 @@ void Fondo::SetLvl3()
 	bombas.agregar(auxt);
 	auxt = new Trampa(385, 38);
 	bombas.agregar(auxt);
-	
 	auxt = new Trampa(430, 0);
 	bombas.agregar(auxt);
 	auxt = new Trampa(440,11);
@@ -286,9 +282,6 @@ void Fondo::SetLvl3()
 	bombas.agregar(auxt);
 	auxt = new Trampa(750, 56);
 	bombas.agregar(auxt);
-
-
-
 
 	Queso* auxq = new Queso(50, 61);
 	quesos.agregar(auxq);
@@ -330,7 +323,6 @@ void Fondo::SetLvl4()
 	quesos.agregar(auxq);
 	auxq = new Queso(182, 61);
 	quesos.agregar(auxq);
-
 	auxq = new Queso(310, 0);		//Dificil pero innecesario
 	quesos.agregar(auxq);
 
@@ -348,7 +340,6 @@ void Fondo::SetLvl4()
 
 void Fondo::PintarLvl1() {
 	//AQUI SE PINTA LAS PLATAFORMAS
-
 	plataformas.Dibuja();
 	quesos.Dibuja();
 	bombas.Dibuja();

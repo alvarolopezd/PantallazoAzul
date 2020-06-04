@@ -2,7 +2,6 @@
 #include "ETSIDI.h"
 #include "Vector2D.h"
 
-
 using ETSIDI::SpriteSequence;
 
 class Remy
@@ -54,7 +53,6 @@ public:
 	//Metodos GLUT
 	void Pintar();
 	void Mover(float t);
-	void Atacar();
 
 };
 

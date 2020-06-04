@@ -8,24 +8,19 @@ using ETSIDI::SpriteSequence;
 class Gatitos
 {
 private:
-
 	SpriteSequence Camina;
 	SpriteSequence Quieto;
-	
-
 
 	Vector2D posicion;
 	Vector2D velocidad;
 	Vector2D aceleracion;
 
-	int vida;
 	float altura;
 	float limites;
 	Vector2D patrulla;
 	int atacar = 0;
 	
 	friend class Interaccion;
-
 
 public:
 	
@@ -36,10 +31,8 @@ public:
 	void SetPosicion(Vector2D _posicion);
 	void SetVelocidad(float _XVelocidad, float _YVelocidad);
 	void SetAceleracion(float _XAceleracion, float _YAceleracion);
-	void SetVida(int _vida);
 	void SetAltura(float _altura);
 	
-
 	//Metodos GET
 	Vector2D GetPosicion();
 	Vector2D GetPatrulla();

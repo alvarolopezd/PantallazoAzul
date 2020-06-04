@@ -10,7 +10,6 @@ protected:
 	Vector2D aceleracion;
 	int vida;
 
-
 public:
 	void SetPosicion(float _XPosicion, float _YPosicion);
 	void SetVelocidad(float _XVelocidad, float _YVelocidad);

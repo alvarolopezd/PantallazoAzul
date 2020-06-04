@@ -12,7 +12,6 @@ void Mundo::RotarOjo()
 	x_ojo=dist*cos(ang);
 	z_ojo=dist*sin(ang);
 }
-
 bool Mundo::CargarNivel()
 {
 	nivel++;
@@ -116,7 +115,6 @@ bool Mundo::CargarNivel()
 		return false;
 	}
 }
-
 void Mundo::Dibuja()
 {
 	x_ojo = remy.GetXPosicion();
@@ -146,10 +144,7 @@ void Mundo::Dibuja()
 		escenario.PintarLvl4();
 		skinner->Pintar();
 	}
-	cout << skinner->GetXPosicion() << '\n';
-
 }
-
 void Mundo::Mueve()
 {
 	escenario.Mueve(0.025f);
@@ -165,8 +160,6 @@ void Mundo::Mueve()
 	disparos.Rebote(escenario.plataformas);
 	gatitos.Rebote(remy);
 
-
-	
 	Interaccion::rebote(remy, nivel);
 	Interaccion::rebote(remy, escenario);
 	if (nivel == 4)
@@ -182,7 +175,6 @@ void Mundo::Mueve()
 		{
 			if (Interaccion::rebote(*disparos[i], *gatitos[i]))
 			{
-				//Falta poner un sprite de muerte del gato
 				gatitos.Eliminar(i);
 				disparos.Eliminar(disparos[i]);
 			}
@@ -193,7 +185,6 @@ void Mundo::Mueve()
 	{
 		if (Interaccion::rebote(*disparos[j], *skinner))
 		{
-			//Falta poner un sprite de muerte del gato
 			disparos.Eliminar(disparos[j]);
 			skinner->SetVida(skinner->GetVida() - 1);
 		}
@@ -299,7 +290,6 @@ void Mundo::teclaEspecial(unsigned char _key) {
 			remy.SetVelocidad(remy.GetXVelocidad(), 68);
 			ETSIDI::play("sonidos/SaltoRemy.mp3");
 		}
-
 		break;
 	}
 }
@@ -309,11 +299,9 @@ void Mundo::teclaArriba(unsigned char _key)
 	switch (_key)
 	{
 	case GLUT_KEY_LEFT:
-		
 		remy.SetVelocidad(0, remy.GetYVelocidad());
 		break;
 	case GLUT_KEY_RIGHT:
-		
 			remy.SetVelocidad(0, remy.GetYVelocidad());
 		break;
 	}

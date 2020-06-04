@@ -48,7 +48,6 @@ void ListaPlataformas::Dibuja()
 	}
 }
 
-
 void ListaPlataformas::Rebote(Remy& r)
 {
 	for (int i = 0; i < numero; i++)
@@ -61,10 +60,7 @@ void ListaPlataformas::Rebote(Enemigo& g)
 {
 	for (int i = 0; i < numero; i++)
 	{
-		if (Interaccion::rebote(g, *(lista[i])))
-		{
-			
-		}
+		Interaccion::rebote(g, *(lista[i]));
 	}
 }
 

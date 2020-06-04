@@ -9,9 +9,7 @@ class Trampa
 private:
 	SpriteSequence sprite;
 	
-
 	Vector2D posicion;
-	
 	int explosion = 0; //aviso explosion;
 
 public:

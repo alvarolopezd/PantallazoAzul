@@ -283,7 +283,7 @@ void Coordinador::Mueve()
 	{
 		mundo.Mueve();
 
-		if ((mundo.remy.GetXPosicion() >= 787 && mundo.remy.GetXPosicion() <= 790 && mundo.remy.GetYPosicion() == 0 /*&& mundo.remy.GetQuesos() >= 5*/) || (mundo.nivel == 4 && mundo.remy.GetXPosicion() >= 199 && mundo.remy.GetXPosicion() <= 202 && mundo.remy.GetYPosicion() == 0 && mundo.remy.GetQuesos() >= 5))
+		if ((mundo.remy.GetXPosicion() >= 787 && mundo.remy.GetXPosicion() <= 790 && mundo.remy.GetYPosicion() == 0 && mundo.remy.GetQuesos() >= 5) || (mundo.nivel == 4 && mundo.remy.GetXPosicion() >= 199 && mundo.remy.GetXPosicion() <= 202 && mundo.remy.GetYPosicion() == 0 && mundo.remy.GetQuesos() >= 5))
 		{
 			if (!mundo.CargarNivel())
 			{

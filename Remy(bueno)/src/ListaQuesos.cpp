@@ -3,9 +3,8 @@
 
 ListaQuesos::ListaQuesos()
 {
-	//Inicilizar el numero de Plataforma iniciales a 0
 	numero = 0;
-	//Poner a NULL todos lo selementos de la lista 
+ 
 	for (int i = 0; i <= 5; i++)
 	{
 		lista[i] = 0;
@@ -19,11 +18,11 @@ ListaQuesos::~ListaQuesos()
 
 bool ListaQuesos::agregar(Queso* q)
 {
-	// Añadir que si la Plataforma ya está creatda haga un return false
+
 	if (numero < 5)
 	{
 		lista[numero] = q;
-		numero++; // Aumentar el numero para ir recorriendo la lista e ir agregando Plataforma sobre la lista
+		numero++; 
 		return true;
 	}
 	else
@@ -33,8 +32,8 @@ bool ListaQuesos::agregar(Queso* q)
 void ListaQuesos::Dibuja()
 {
 	for (int i = 0; i < numero; i++)
-	{ //lista[i] es una direccion de memoria y para acceder dentro necesito ->
-		lista[i]->Dibuja(); // Dibujar una a una las Plataforma para llamar al metood Dibuja dentro de Plataforma
+	{
+		lista[i]->Dibuja(); 
 	}
 }
 

@@ -21,9 +21,6 @@ public:
 	float GetXCoordenada();
 	float GetYCoordenada();
 	float GetLargo();
-	//unsigned char GetRojo();
-	//unsigned char GetVerde();
-	//unsigned char GetAzul();
 	void Pintar();
 
 

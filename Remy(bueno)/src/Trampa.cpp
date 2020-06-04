@@ -10,8 +10,6 @@ Trampa::Trampa(float _x,float _y):sprite("Imagenes/bomba.png",1,1,50),Boom("Imag
 
 	Boom.setSize(8, 8);
 	Boom.setCenter(4, 0);
-
-
 }
 
 
@@ -25,7 +23,6 @@ int Trampa::GetExplosion()
 	return explosion;
 }
 
-
 void Trampa::Dibuja()
 {
 	glTranslatef(posicion.GetX(),posicion.GetY(), 0);
@@ -36,20 +33,16 @@ void Trampa::Dibuja()
 	}
 	else if(explosion==1)
 	{
-		
 		Boom.draw();
 		if (Boom.getState() >= 12)
 		{
-			
 			explosion = 2;
-			
 		}
 	}
 	else
 	{
 
 	}
-	
 	
 	glTranslatef(-posicion.GetX(), -posicion.GetY(), 0);
 }

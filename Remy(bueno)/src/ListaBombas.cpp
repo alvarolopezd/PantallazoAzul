@@ -49,8 +49,7 @@ void ListaBombas::Rebote(Remy& r)
 			{
 				lista[i]->SetExplosion(1);
 				ETSIDI::play("sonidos/bomba.mp3");
-			}
-				
+			}	
 		}
 
 		if (lista[i]->GetExplosion() == 2)
@@ -59,16 +58,6 @@ void ListaBombas::Rebote(Remy& r)
 			r.SetVida(r.GetVida() - 3);
 		}
 	}
-	/*
-	for (int j = 0; j < numero; j++)
-	{
-		if (lista[j]->GetExplosion() == 2)
-		{
-			Eliminar(j);
-			r.SetVida(r.GetVida() - 3);
-		}
-	}
-	*/
 }
 
 void ListaBombas::destruirContenido()

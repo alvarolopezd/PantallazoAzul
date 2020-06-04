@@ -4,7 +4,6 @@
 
 using ETSIDI::SpriteSequence;
 
-
 class Disparo {
 private:
 	Vector2D posicion;

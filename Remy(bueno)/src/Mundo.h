@@ -32,6 +32,5 @@ public:
 	float z_ojo;
 	int nivel = 0;
 	int checkpoint = -1;
-	//int checkpoint = 4;
 	int vidas;
 };
