@@ -85,19 +85,24 @@ bool Mundo::CargarNivel()
 	{
 		checkpoint = 3;
 
-		skinner->SetPosicion(10, 22);
-
 		Gatitos* auxg = new Gatitos(70, 0);
 		gatitos.agregar(auxg);
+		auxg = new Gatitos(150, 0);
+		gatitos.agregar(auxg);
+
+		//Skinner* skinner = new Skinner();
+		//skinner->SetAceleracion(0, 0);
+		//skinner->SetVelocidad(0, 0);
+		skinner->SetPosicion(10, 22);
+		//skinner->SetAceleracion (0, -100);
 
 		escenario.SetLvl4();
-		ETSIDI::stopMusica();
+
 		ETSIDI::playMusica("sonidos/LVL4 Sea of Thieves OST (The Voyage of the Secret Shrine).mp3", TRUE);
 		return true;
 	}
 	else
 	{
-		ETSIDI::stopMusica();
 		ETSIDI::playMusica("sonidos/EXITO Sea of Thieves OST (The Voyage of the Secret Shrine).mp3");
 		return false;
 	}
@@ -130,9 +135,6 @@ void Mundo::Dibuja()
 	if (nivel == 4)
 	{
 		escenario.PintarLvl4();
-		//skinner.SetPosicion(10, 21);
-		//skinner.SetVelocidad(0, 0);
-		//skinner.SetAceleracion(0, -100);
 		skinner->Pintar();
 	}
 }
@@ -155,8 +157,16 @@ void Mundo::Mueve()
 
 	Interaccion::rebote(remy, escenario);
 
-    skinner->Mover(0.025f);
-	Interaccion::rebote(*skinner, escenario);
+	if (nivel == 4)
+	{
+		skinner->Mover(0.025f);
+	}
+
+	if (nivel == 4)
+	{
+		Interaccion::rebote(*skinner, escenario);
+	}
+
 
 	for (int i = 0; i < gatitos.GetNumero(); i++)
 	{
@@ -184,12 +194,9 @@ void Mundo::Mueve()
 
 	//SALTO SKINNER
 
-	if ((skinner->GetVida() == 20 && skinner->GetYPosicion()<30)|| (skinner->GetVida() == 15 && skinner->GetYPosicion() < 40)|| (skinner->GetVida() == 10 && skinner->GetYPosicion() < 50) || (skinner->GetVida() == 5 && skinner->GetYPosicion() < 60))
+	if ((skinner->GetVida() == 20 && skinner->GetYPosicion() < 30) || (skinner->GetVida() == 15 && skinner->GetYPosicion() < 40) || (skinner->GetVida() == 10 && skinner->GetYPosicion() < 50) || (skinner->GetVida() == 5 && skinner->GetYPosicion() < 60))
 	{
-		//SetPosicion(45, 31);
 		skinner->SetVelocidad(28, 55);
-		
-		//SetAceleracion(-10, GetYAceleracion());
 	}
 	else
 	{
@@ -197,17 +204,13 @@ void Mundo::Mueve()
 	}
 
 	//ATAQUE SKINNER
-	if (skinner->GetVida() > 0)
+	if (skinner->GetVida() > 0 && nivel == 4)
 	{
 		if (Interaccion::rebote(remy, *skinner))
 		{
 			skinner->SetAtaque(1);
 		}
 	}
-	
-	
-
-	
 }
 
 void Mundo::Inicializa()
@@ -221,6 +224,7 @@ void Mundo::Inicializa()
 	remy.SetPosicion(-65, 0);
 
 	remy.SetVelocidad(0, 0);
+
 
 	if (checkpoint == -1)
 		nivel = 0;

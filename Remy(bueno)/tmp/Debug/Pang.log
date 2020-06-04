@@ -1,7 +1,3 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(467,5): warning MSB8028: El directorio intermedio (tmp\Debug\) contiene archivos compartidos de otro proyecto (Pang.vcxproj). Esto puede dar lugar a un comportamiento incorrecto de limpieza y recompilación.
-  Mundo.cpp
-  Skinner.cpp
-C:\Users\Luis Quintana\Desktop\Universidad\2019-2020\SEMESTRE_2\TRABAJO_INFORMATICA\PantallazoAzul\Remy(bueno)\src\Skinner.cpp(18,25): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Luis Quintana\Desktop\Universidad\2019-2020\SEMESTRE_2\TRABAJO_INFORMATICA\PantallazoAzul\Remy(bueno)\src\Skinner.cpp(21,25): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-  Generando código...
-  Pang.vcxproj -> C:\Users\Luis Quintana\Desktop\Universidad\2019-2020\SEMESTRE_2\TRABAJO_INFORMATICA\PantallazoAzul\Remy(bueno)\bin\Remy And The Lost Cheese.exe
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(459,5): warning MSB8028: The intermediate directory (tmp\Debug\) contains files shared from another project (Pang.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Interaccion.cpp
+  Pang.vcxproj -> C:\Users\peina\Desktop\UNI\ASIGNATURAS 3º\2o SEMESTRE\INFORMÁTICA INDUSTRIAL Y COMUNICACIONES\GIT\PantallazoAzul\Remy(bueno)\bin\Remy And The Lost Cheese.exe

@@ -1,10 +1,10 @@
 #include "Skinner.h"
 
-Skinner::Skinner(): Ataque("Imagenes/Skinner_Ataque.png", 12, 1, 75), Quieto("Imagenes/Skinner_Quieto.png", 6, 2, 125), Salto("Imagenes/Skinner_Salto.png", 1, 1, 50), Muerto("Imagenes/Skinner_Muerto.png", 14, 1, 50)
+Skinner::Skinner(): Ataque("Imagenes/Skinner_Ataque.png", 12, 1, 75), Quieto("Imagenes/Skinner_Quieto.png", 6, 2, 125), Salto("Imagenes/Skinner_Salto.png", 1, 1, 50), Muerto("Imagenes/Skinner_Muerto.png", 10, 1, 200)
 {
 	vida = 25;
 	atacar = 0;
-	//SetPosicion(10, 21);
+	SetPosicion(10, 21);
 	SetVelocidad(0, 0);
 	SetAceleracion(0, -100);
 
@@ -12,8 +12,8 @@ Skinner::Skinner(): Ataque("Imagenes/Skinner_Ataque.png", 12, 1, 75), Quieto("Im
 	Muerto.setSize(18, 24);
 	Muerto.setState(0);
 
-	Ataque.setCenter(12, 1);
-	Ataque.setSize(24, 24);
+	Ataque.setCenter(13, 1);
+	Ataque.setSize(26, 24);
 
 	Quieto.setCenter(9, 1.9);
 	Quieto.setSize(18, 24);
@@ -22,11 +22,8 @@ Skinner::Skinner(): Ataque("Imagenes/Skinner_Ataque.png", 12, 1, 75), Quieto("Im
 	Salto.setSize(24, 24);
 }
 
-
-
 void Skinner::Mover(float t)
 {
-	
 	posicion = posicion + velocidad * t + aceleracion * (0.5f * t * t);
 	velocidad = velocidad + aceleracion * t;
 
@@ -34,10 +31,8 @@ void Skinner::Mover(float t)
 	Salto.loop();
 	Muerto.loop();
 	Quieto.loop();
-	//cout << posicion.x << "\n";
-	cout << vida<< "\n";
+	//cout << vida<< "\n";
 
-	
 }
 void Skinner::Pintar()
 {
@@ -66,14 +61,11 @@ void Skinner::Pintar()
 	}
 	if (vida == 0 && Muerto.getState()==0)
 	{
-		
 		Muerto.draw();
-		if (Muerto.getState() >= 13)
+		if (Muerto.getState() >= 9)
 			vida = -1;
-		
-		
 	}
-	if (atacar == 1 && vida>0)
+	if (atacar == 1 && vida > 0)
 	{
 		Ataque.draw();
 		if (Ataque.getState() >= 11)

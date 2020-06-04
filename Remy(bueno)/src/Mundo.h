@@ -25,7 +25,6 @@ public:
 	ListaGatitos gatitos;
 	Skinner* skinner = new Skinner();
 	Remy remy;
-	//Skinner skinner;
 	ListaEspadas disparos;
 	Fondo escenario;
 	float x_ojo;
@@ -33,7 +32,7 @@ public:
 	float z_ojo;
 	int nivel = 0;
 	//int checkpoint = -1;
-	int checkpoint = 3;
+	int checkpoint = 4;
 
 	int vidas;
 };

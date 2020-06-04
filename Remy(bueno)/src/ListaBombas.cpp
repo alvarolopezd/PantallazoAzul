@@ -48,7 +48,7 @@ void ListaBombas::Rebote(Remy& r)
 			if (lista[i]->GetExplosion() == 0)
 			{
 				lista[i]->SetExplosion(1);
-				ETSIDI::playMusica("sonidos/bomba.mp3");
+				ETSIDI::play("sonidos/bomba.mp3");
 			}
 				
 		}

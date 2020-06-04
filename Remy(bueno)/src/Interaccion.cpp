@@ -86,7 +86,7 @@ void Interaccion::rebote(Remy& g, Plataforma& p) {
 	if (g.GetYVelocidad() <0.1 && (g.GetYPosicion() + g.GetAltura() - 3 > p.GetYCoordenada() - 1) && (g.GetYPosicion() + g.GetAltura() - 3 < p.GetYCoordenada() + 1) && (g.GetXPosicion() > p.GetXCoordenada() - 2) && (g.GetXPosicion() < p.GetXCoordenada() + p.GetLargo() + 2))
 	{
 		g.SetPosicion(g.GetXPosicion(), p.GetYCoordenada() - 1 - g.GetAltura() + 3);
-		g.SetVelocidad(g.GetXVelocidad(), g.GetXVelocidad());
+		g.SetVelocidad(g.GetXVelocidad(), g.GetYVelocidad());
 	}
 	else if ((g.GetYPosicion()+g.GetAltura()-3 > p.GetYCoordenada() - 1) && (g.GetYPosicion()+g.GetAltura()-3 < p.GetYCoordenada() + 1) && (g.GetXPosicion() > p.GetXCoordenada()-2) && (g.GetXPosicion() < p.GetXCoordenada() + p.GetLargo()+2))
 	{
@@ -107,7 +107,7 @@ void Interaccion::rebote(Remy& g, Plataforma& p) {
 				g.SetPosicion(p.GetXCoordenada()-3.5, g.GetYPosicion());
 				g.SetVelocidad(g.GetXVelocidad(), g.GetYVelocidad());
 			}
-			else 
+			else
 			{
 				g.SetPosicion(p.GetXCoordenada()+p.GetLargo()+3.5, g.GetYPosicion());
 				g.SetVelocidad(g.GetXVelocidad(), g.GetYVelocidad());
@@ -191,8 +191,6 @@ bool Interaccion::rebote(Enemigo& g, Plataforma& p) {
 
 	if ((g.GetYPosicion() < p.GetYCoordenada() + 1) && (g.GetYPosicion() > p.GetYCoordenada() - 1) && (g.GetXPosicion() > p.GetXCoordenada()) && (g.GetXPosicion() < p.GetXCoordenada() + p.GetLargo()))
 	{
-		
-			
 		g.SetPosicion(g.GetXPosicion(), p.GetYCoordenada() + 1);
 		g.SetVelocidad(0, 0);
 		return true;
@@ -202,7 +200,7 @@ bool Interaccion::rebote(Enemigo& g, Plataforma& p) {
 
 bool Interaccion::rebote(Disparo& d, Enemigo& g)
 {
-	if (abs(d.GetPosicion().GetX() - g.GetXPosicion()) < 9 && ((d.GetPosicion().GetY() - g.GetYPosicion()) < 18))
+	if (abs(d.GetPosicion().GetX() - g.GetXPosicion()) < 9 && (d.GetPosicion().GetY() - g.GetYPosicion()) < 18 && (d.GetPosicion().GetY() - g.GetYPosicion()) > -2)
 	{
 		return true;
 	}
@@ -213,22 +211,19 @@ bool Interaccion::rebote(Disparo& d, Enemigo& g)
 void Interaccion::rebote(Enemigo& g, Fondo& e)
 {
 	e.plataformas.Rebote(g);
-	
 }
 
 bool Interaccion::rebote(Remy& r, Enemigo& g)
 {
-
-
-	if (((r.GetXPosicion() - g.GetXPosicion()) > -6) && (r.GetXPosicion() < g.GetXPosicion()) && abs(r.GetYPosicion() - g.GetYPosicion()) < 9)
+	if (((r.GetXPosicion() - g.GetXPosicion()) > -10) && (r.GetXPosicion() < g.GetXPosicion()) && abs(r.GetYPosicion() - g.GetYPosicion()) < 12)
 	{
-		r.SetPosicion(g.GetXPosicion() - 15, r.GetYPosicion() + 5);
+		r.SetPosicion(g.GetXPosicion() - 15, r.GetYPosicion());
 		r.SetVelocidad(0, 0);
 		return true;
 	}
-	else if (((r.GetXPosicion() - g.GetXPosicion()) < 6.7) && (r.GetXPosicion() > g.GetXPosicion()) && abs(r.GetYPosicion() - g.GetYPosicion()) < 9)
+	else if (((r.GetXPosicion() - g.GetXPosicion()) < 10.7) && (r.GetXPosicion() > g.GetXPosicion()) && abs(r.GetYPosicion() - g.GetYPosicion()) < 12)
 	{
-		r.SetPosicion(g.GetXPosicion() + 19.7, r.GetYPosicion() + 5);
+		r.SetPosicion(g.GetXPosicion() + 19.7, r.GetYPosicion());
 		r.SetVelocidad(0, 0);
 		return true;
 	}
