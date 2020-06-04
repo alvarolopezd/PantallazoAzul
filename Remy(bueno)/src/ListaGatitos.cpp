@@ -29,6 +29,8 @@ Gatitos ListaGatitos::GetGatitos(int j)
 	return *lista[j];
 }
 
+
+
 bool ListaGatitos::agregar(Gatitos* q)
 {
 	// Añadir que si la Plataforma ya está creatda haga un return false
@@ -56,27 +58,29 @@ void ListaGatitos::Rebote(Remy& r)
 
 	for (int i = 0; i < numero; i++)
 	{
-		if (abs(r.GetXPosicion() - lista[i]->GetXPosicion()) < 6.5 && (r.GetYPosicion() < 15) && r.GetXPosicion() < lista[i]->GetXPosicion())
+		if (abs(r.GetXPosicion() - lista[i]->GetXPosicion()) < 6.5 && r.GetYPosicion() < 15)
 		{
 			lista[i]->SetAtaque(1);
 			lista[i]->Ataque.flip(true, false);
-			lista[i]->SetVelocidad(-0.4,0);
+			lista[i]->SetVelocidad(-0.4, 0);
 
 		}
-		else if (abs(r.GetXPosicion() - lista[i]->GetXPosicion()) < 7 && r.GetYPosicion() < 15 && r.GetXPosicion() > lista[i]->GetXPosicion())
+		else if (abs(r.GetXPosicion() - lista[i]->GetXPosicion()) < 7 && r.GetYPosicion() < 15)
 		{
 			lista[i]->SetAtaque(1);
 			lista[i]->Ataque.flip(false, false);
-			lista[i]->SetVelocidad( 0.4, 0);
-
+			lista[i]->SetVelocidad(0.4, 0);
 		}
-		else		
+		else if (abs(r.GetYPosicion() - lista[i]->GetYPosicion()) < 2 && ((lista[i]->GetXPosicion() >= (lista[i]->GetPatrulla().GetX() + lista[i]->GetLimites()) || lista[i]->GetXPosicion() <= (lista[i]->GetPatrulla().GetX() + lista[i]->GetLimites()))))
 		{
-			if (abs(r.GetXPosicion() - lista[i]->GetXPosicion())<20 && r.GetXPosicion() < lista[i]->GetXPosicion())
+			if (abs(r.GetXPosicion() - lista[i]->GetXPosicion()) < 60 && r.GetXPosicion() < lista[i]->GetXPosicion())
 				lista[i]->SetVelocidad(-10, 0);
-			else if (abs(r.GetXPosicion() - lista[i]->GetXPosicion()) < 20 && r.GetXPosicion() > lista[i]->GetXPosicion())
+			else if (abs(r.GetXPosicion() - lista[i]->GetXPosicion()) < 60 && r.GetXPosicion() > lista[i]->GetXPosicion())
 				lista[i]->SetVelocidad(10, 0);
-
+		}
+		else
+		{
+			lista[i]->SetVelocidad(0, 0);
 		}
 
 		if (Interaccion::rebote(r, *(lista[i])))

@@ -8,9 +8,9 @@ Skinner::Skinner(): Ataque("Imagenes/Skinner_Ataque.png", 12, 1, 75), Quieto("Im
 	SetVelocidad(0, 0);
 	SetAceleracion(0, -100);
 
-	Muerto.setCenter(9, 0);
-	Muerto.setSize(18, 24);
-	Muerto.setState(0);
+	Muerto.setCenter(13, 0);
+	Muerto.setSize(26, 24);
+	Muerto.setState(0, false);
 
 	Ataque.setCenter(13, 1);
 	Ataque.setSize(26, 24);
@@ -31,8 +31,6 @@ void Skinner::Mover(float t)
 	Salto.loop();
 	Muerto.loop();
 	Quieto.loop();
-	//cout << vida<< "\n";
-
 }
 void Skinner::Pintar()
 {
@@ -59,11 +57,13 @@ void Skinner::Pintar()
 	{
 		Salto.draw();
 	}
-	if (vida == 0 && Muerto.getState()==0)
+	if (vida == 0)
 	{
 		Muerto.draw();
 		if (Muerto.getState() >= 9)
-			vida = -1;
+		{
+			Muerto.setState(9, true);
+		}
 	}
 	if (atacar == 1 && vida > 0)
 	{

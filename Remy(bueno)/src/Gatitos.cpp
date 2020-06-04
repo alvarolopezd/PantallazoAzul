@@ -62,6 +62,17 @@ Vector2D Gatitos::GetPosicion()
 	return posicion;
 }
 
+Vector2D Gatitos::GetPatrulla()
+{
+	return patrulla;
+}
+
+float Gatitos::GetLimites()
+{
+	return limites;
+}
+
+
 float Gatitos::GetXPosicion()
 {
 	return posicion.GetX();
@@ -161,19 +172,19 @@ void Gatitos::Mover(float t)
 		Quieto.loop();
 		
 
-		if (posicion.GetX() > (patrulla.GetX() + limites))
+		if (posicion.GetX() >= (patrulla.GetX() + limites))
 		{
 			posicion.SetCoordenadas(patrulla.GetX() + limites, posicion.GetY());
-			velocidad.SetCoordenadas(-10, 0);
+			velocidad.SetCoordenadas(0, 0);
 
 		}
-		else if (posicion.GetX() < (patrulla.GetX() - limites))
+		else if (posicion.GetX() <= (patrulla.GetX() - limites))
 		{
-			velocidad.SetCoordenadas(10, 0);
+			velocidad.SetCoordenadas(0, 0);
 			posicion.SetCoordenadas(patrulla.GetX() - limites, posicion.GetY());
 		}
 	}
-	cout << atacar << endl;
+	//cout << atacar << endl;
 	if(atacar==1)
 		Ataque.loop();
 }

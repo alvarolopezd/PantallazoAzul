@@ -4,6 +4,8 @@ void Fondo::SetLvl1()
 {
 	Plataforma* aux = new Plataforma(130, 20);
 	plataformas.agregar(aux);
+	aux = new Plataforma(195, 40);
+	plataformas.agregar(aux);
 	aux = new Plataforma(260, 20);
 	plataformas.agregar(aux);
 	aux = new Plataforma(320, 20);
@@ -305,27 +307,32 @@ void Fondo::SetLvl3()
 }
 void Fondo::SetLvl4()
 {
-	Plataforma* aux = new Plataforma(0, 20, 30);
+	Plataforma* aux = new Plataforma(0, 20, 25);
 	plataformas.agregar(aux);
-	aux = new Plataforma(35, 30, 30);
+	aux = new Plataforma(40, 30, 25);
 	plataformas.agregar(aux);
-	aux = new Plataforma(70, 40, 30);
+	aux = new Plataforma(80, 40, 25);
 	plataformas.agregar(aux);
-	aux = new Plataforma(105, 50, 30);
+	aux = new Plataforma(120, 50, 25);
 	plataformas.agregar(aux);
-	aux = new Plataforma(140, 60, 30);
+	aux = new Plataforma(160, 60, 25);
 	plataformas.agregar(aux);
 
-	Queso* auxq = new Queso(25, 21);
+	Queso* auxq = new Queso(22, 21);
 	quesos.agregar(auxq);
-	auxq = new Queso(60, 31);
+	auxq = new Queso(62, 31);
 	quesos.agregar(auxq);
-	auxq = new Queso(95, 41);
+	auxq = new Queso(102, 41);
 	quesos.agregar(auxq);
-	auxq = new Queso(130, 51);
+	auxq = new Queso(142, 51);
 	quesos.agregar(auxq);
-	auxq = new Queso(165, 61);
+	auxq = new Queso(182, 61);
 	quesos.agregar(auxq);
+
+	Trampa* auxt = new Trampa(25, 11);
+	bombas.agregar(auxt);
+	auxt = new Trampa(25, 0);
+	bombas.agregar(auxt);
 
 	for (int i = 1; i <= 4; i++)
 	{

@@ -42,6 +42,8 @@ public:
 
 	//Metodos GET
 	Vector2D GetPosicion();
+	Vector2D GetPatrulla();
+	float GetLimites();
 	float GetXPosicion();
 	float GetYPosicion();
 	float GetXVelocidad();

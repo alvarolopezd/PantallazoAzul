@@ -67,9 +67,9 @@ float Vida::GetYAceleracion()
 }
 
 void Vida::Dibuja() {
-	glTranslatef(posicion.GetX(), posicion.GetY(), 0.5);
+	glTranslatef(posicion.GetX(), posicion.GetY(), 0.6);
 	vida.draw();
-	glTranslatef(-posicion.GetX(), -posicion.GetY(), -0.5);
+	glTranslatef(-posicion.GetX(), -posicion.GetY(), -0.6);
 }
 
 void Vida::Mover(float t)

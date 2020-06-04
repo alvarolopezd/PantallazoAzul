@@ -144,6 +144,7 @@ void Remy::Pintar()
 	if (velocidad.GetY()!=0 && vida > 0)
 	{
 		Salto.draw();
+
 	}
 	if (vida <= 0)
 	{

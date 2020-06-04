@@ -37,9 +37,9 @@ bool Mundo::CargarNivel()
 		gatitos.agregar(auxg);
 		auxg = new Gatitos(300, 0);
 		gatitos.agregar(auxg);
-		auxg = new Gatitos(380, 60);
+		auxg = new Gatitos(380, 0);
 		gatitos.agregar(auxg);
-		auxg = new Gatitos(450, 40);
+		auxg = new Gatitos(450, 0);
 		gatitos.agregar(auxg);
 		auxg = new Gatitos(600, 0);
 		gatitos.agregar(auxg);
@@ -90,11 +90,7 @@ bool Mundo::CargarNivel()
 		auxg = new Gatitos(150, 0);
 		gatitos.agregar(auxg);
 
-		//Skinner* skinner = new Skinner();
-		//skinner->SetAceleracion(0, 0);
-		//skinner->SetVelocidad(0, 0);
-		skinner->SetPosicion(10, 22);
-		//skinner->SetAceleracion (0, -100);
+		skinner->SetPosicion(8, 22);
 
 		escenario.SetLvl4();
 
@@ -137,6 +133,8 @@ void Mundo::Dibuja()
 		escenario.PintarLvl4();
 		skinner->Pintar();
 	}
+	cout << skinner->GetXPosicion() << '\n';
+
 }
 
 void Mundo::Mueve()
@@ -196,7 +194,8 @@ void Mundo::Mueve()
 
 	if ((skinner->GetVida() == 20 && skinner->GetYPosicion() < 30) || (skinner->GetVida() == 15 && skinner->GetYPosicion() < 40) || (skinner->GetVida() == 10 && skinner->GetYPosicion() < 50) || (skinner->GetVida() == 5 && skinner->GetYPosicion() < 60))
 	{
-		skinner->SetVelocidad(28, 55);
+		skinner->SetVelocidad(32.7, 55);
+		ETSIDI::play("sonidos/SaltoSkinner.mp3");
 	}
 	else
 	{
@@ -287,7 +286,10 @@ void Mundo::teclaEspecial(unsigned char _key) {
 		break;
 	case GLUT_KEY_UP:
 		if ((remy.GetYPosicion() == 0) || remy.GetYPosicion() == 11 || remy.GetYPosicion() == 21 || remy.GetYPosicion() == 31 || remy.GetYPosicion() == 41 || remy.GetYPosicion() == 51 || remy.GetYPosicion() == 61)
+		{
 			remy.SetVelocidad(remy.GetXVelocidad(), 68);
+			ETSIDI::play("sonidos/SaltoRemy.mp3");
+		}
 		break;
 	}
 }

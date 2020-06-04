@@ -154,7 +154,7 @@ bool Interaccion::rebote(Remy& r, Gatitos& g)
 
 bool Interaccion::rebote(Disparo& d, Gatitos& g)
 {
-	if (abs(d.GetPosicion().GetX() - g.GetPosicion().GetX()) < 2,5 && ((d.GetPosicion().GetY() - g.GetPosicion().GetY()) < 10))
+	if (abs(d.GetPosicion().GetX() - g.GetPosicion().GetX()) < 2.5 && ((d.GetPosicion().GetY() - g.GetPosicion().GetY()) < 10))
 	{
 		return true;
 	}
@@ -179,7 +179,7 @@ bool Interaccion::rebote(Disparo& d, Plataforma& p)
 
 bool Interaccion::rebote(Remy& r, Trampa& t)
 {
-	if (abs(r.GetXPosicion() - t.GetX()) < 4 && ((r.GetYPosicion() - t.GetY()) > -11 && abs(r.GetYPosicion() - t.GetY()) < 5))
+	if (abs(r.GetXPosicion() - t.GetX()) < 4 && ((r.GetYPosicion() - t.GetY()) > -12 && abs(r.GetYPosicion() - t.GetY()) < 5))
 	{
 		return true;
 	}
@@ -215,15 +215,15 @@ void Interaccion::rebote(Enemigo& g, Fondo& e)
 
 bool Interaccion::rebote(Remy& r, Enemigo& g)
 {
-	if (((r.GetXPosicion() - g.GetXPosicion()) > -10) && (r.GetXPosicion() < g.GetXPosicion()) && abs(r.GetYPosicion() - g.GetYPosicion()) < 12)
+	if (((r.GetXPosicion() - g.GetXPosicion()) > -10) && (r.GetXPosicion() < g.GetXPosicion()) && abs(r.GetYPosicion() - g.GetYPosicion()) < 14)
 	{
 		r.SetPosicion(g.GetXPosicion() - 15, r.GetYPosicion());
 		r.SetVelocidad(0, 0);
 		return true;
 	}
-	else if (((r.GetXPosicion() - g.GetXPosicion()) < 10.7) && (r.GetXPosicion() > g.GetXPosicion()) && abs(r.GetYPosicion() - g.GetYPosicion()) < 12)
+	else if (((r.GetXPosicion() - g.GetXPosicion()) < 10.7) && (r.GetXPosicion() > g.GetXPosicion()) && abs(r.GetYPosicion() - g.GetYPosicion()) < 14)
 	{
-		r.SetPosicion(g.GetXPosicion() + 19.7, r.GetYPosicion());
+		r.SetPosicion(g.GetXPosicion() + 18.7, r.GetYPosicion());
 		r.SetVelocidad(0, 0);
 		return true;
 	}
