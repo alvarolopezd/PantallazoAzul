@@ -163,8 +163,8 @@ void Remy::Mover(float t)
 		velocidad = velocidad + aceleracion * t;
 		Camina.loop();
 		Salto.loop();
-		//cout << posicion.x << "\n";
-		//cout << quesos << "\n";
+		cout << posicion.x << "\n";
+		
 	}
 }
 

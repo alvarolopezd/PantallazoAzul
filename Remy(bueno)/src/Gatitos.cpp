@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Gatitos::Gatitos(float _x,float _y) :Camina("Imagenes/GatoAndaBueno.png",8,1,50),Ataque("Imagenes/Gato_Ataque.png",4,1,70),Quieto("Imagenes/Gatitos_Quieto.png",2,1,500)
+Gatitos::Gatitos(float _x,float _y) :Camina("Imagenes/GatoAndaBueno.png",8,1,50),Ataque("Imagenes/Gato_Ataque.png",4,1,70),Quieto("Imagenes/Gatitos_Quieto.png",2,1,200)
 {
 	SetPosicion(_x, _y);
 	SetVelocidad(10, 0);
@@ -128,13 +128,7 @@ void Gatitos::Pintar() {
 	
 	if (velocidad.GetX() < 0.01 && velocidad.GetX() > -0.01 && velocidad.GetY() == 0 && atacar==0)
 	{
-		
 		Quieto.draw();
-		if (Quieto.getState() == 1)
-		{
-			Quieto.setState(0,false);
-
-		}
 	}
 
 	if (velocidad.GetY() == 0 && (velocidad.GetX() > 0.5 || velocidad.GetX() < -0.5) && atacar==0)
@@ -148,6 +142,7 @@ void Gatitos::Pintar() {
 		Ataque.draw();
 		if (Ataque.getState() >= 3)
 		{	
+			
 			Ataque.setState(0, false);
 			atacar = 0;	
 		}
@@ -174,14 +169,14 @@ void Gatitos::Mover(float t)
 
 		if (posicion.GetX() >= (patrulla.GetX() + limites))
 		{
-			posicion.SetCoordenadas(patrulla.GetX() + limites, posicion.GetY());
+			posicion.SetCoordenadas(patrulla.GetX() + limites-0.1, posicion.GetY());
 			velocidad.SetCoordenadas(0, 0);
 
 		}
 		else if (posicion.GetX() <= (patrulla.GetX() - limites))
 		{
 			velocidad.SetCoordenadas(0, 0);
-			posicion.SetCoordenadas(patrulla.GetX() - limites, posicion.GetY());
+			posicion.SetCoordenadas(patrulla.GetX() - limites+0.1, posicion.GetY());
 		}
 	}
 	//cout << atacar << endl;

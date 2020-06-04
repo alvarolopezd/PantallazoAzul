@@ -4,7 +4,7 @@ void Fondo::SetLvl1()
 {
 	Plataforma* aux = new Plataforma(130, 20);
 	plataformas.agregar(aux);
-	aux = new Plataforma(195, 40);
+	aux = new Plataforma(170, 40);
 	plataformas.agregar(aux);
 	aux = new Plataforma(260, 20);
 	plataformas.agregar(aux);
@@ -46,7 +46,9 @@ void Fondo::SetLvl1()
 	auxq = new Queso(740, 61);
 	quesos.agregar(auxq);
 
-	Trampa* auxt = new Trampa(240, 0);
+	Trampa* auxt = new Trampa(-10, 11);
+	bombas.agregar(auxt);
+	auxt = new Trampa(240, 0);
 	bombas.agregar(auxt);
 	auxt = new Trampa(380, 61);
 	bombas.agregar(auxt);
@@ -280,9 +282,9 @@ void Fondo::SetLvl3()
 	bombas.agregar(auxt);
 	auxt = new Trampa(680, 31);
 	bombas.agregar(auxt);
-	auxt = new Trampa(750, 31);
+	auxt = new Trampa(750, 25);
 	bombas.agregar(auxt);
-	auxt = new Trampa(750, 51);
+	auxt = new Trampa(750, 56);
 	bombas.agregar(auxt);
 
 
@@ -327,6 +329,9 @@ void Fondo::SetLvl4()
 	auxq = new Queso(142, 51);
 	quesos.agregar(auxq);
 	auxq = new Queso(182, 61);
+	quesos.agregar(auxq);
+
+	auxq = new Queso(310, 0);		//Dificil pero innecesario
 	quesos.agregar(auxq);
 
 	Trampa* auxt = new Trampa(25, 11);

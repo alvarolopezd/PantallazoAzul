@@ -75,6 +75,18 @@ bool Mundo::CargarNivel()
 
 		Gatitos* auxg = new Gatitos(70, 0);
 		gatitos.agregar(auxg);
+		auxg = new Gatitos(220, 0);
+		gatitos.agregar(auxg);
+		auxg = new Gatitos(310, 0);
+		gatitos.agregar(auxg);
+		auxg = new Gatitos(370, 0);
+		gatitos.agregar(auxg);
+		auxg = new Gatitos(550, 0);
+		gatitos.agregar(auxg);
+		auxg = new Gatitos(628, 0);
+		gatitos.agregar(auxg);
+		auxg = new Gatitos(690, 0);
+		gatitos.agregar(auxg);
 
 		escenario.SetLvl3();
 		ETSIDI::stopMusica();
@@ -89,6 +101,7 @@ bool Mundo::CargarNivel()
 		gatitos.agregar(auxg);
 		auxg = new Gatitos(150, 0);
 		gatitos.agregar(auxg);
+
 
 		skinner->SetPosicion(8, 22);
 
@@ -141,25 +154,21 @@ void Mundo::Mueve()
 {
 	escenario.Mueve(0.025f);
 	disparos.Mueve(0.025f);
-	disparos.Rebote(escenario.plataformas);
-
-	gatitos.Mueve(0.025f);
-	
-	gatitos.Rebote(remy);
-
-	
-
-
 	remy.Mover(0.025f);
-	Interaccion::rebote(remy, nivel);
-
-	Interaccion::rebote(remy, escenario);
+	gatitos.Mueve(0.025f);
 
 	if (nivel == 4)
 	{
 		skinner->Mover(0.025f);
 	}
 
+	disparos.Rebote(escenario.plataformas);
+	gatitos.Rebote(remy);
+
+
+	
+	Interaccion::rebote(remy, nivel);
+	Interaccion::rebote(remy, escenario);
 	if (nivel == 4)
 	{
 		Interaccion::rebote(*skinner, escenario);
@@ -207,7 +216,9 @@ void Mundo::Mueve()
 	{
 		if (Interaccion::rebote(remy, *skinner))
 		{
+			ETSIDI::play("sonidos/Aranazo.mp3");
 			skinner->SetAtaque(1);
+			remy.SetVida(remy.GetVida() - 1);
 		}
 	}
 }
@@ -219,9 +230,7 @@ void Mundo::Inicializa()
 	z_ojo=120;
 
 	remy.SetVida(vidas);
-
 	remy.SetPosicion(-65, 0);
-
 	remy.SetVelocidad(0, 0);
 
 
@@ -290,6 +299,7 @@ void Mundo::teclaEspecial(unsigned char _key) {
 			remy.SetVelocidad(remy.GetXVelocidad(), 68);
 			ETSIDI::play("sonidos/SaltoRemy.mp3");
 		}
+
 		break;
 	}
 }

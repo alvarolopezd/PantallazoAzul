@@ -58,20 +58,23 @@ void ListaGatitos::Rebote(Remy& r)
 
 	for (int i = 0; i < numero; i++)
 	{
-		if (abs(r.GetXPosicion() - lista[i]->GetXPosicion()) < 6.5 && r.GetYPosicion() < 15)
+		
+		
+		if (abs(r.GetXPosicion() - lista[i]->GetXPosicion()) < 6.5 && r.GetXPosicion() <lista[i]->GetXPosicion() && r.GetYPosicion() < 15)
 		{
+			
 			lista[i]->SetAtaque(1);
 			lista[i]->Ataque.flip(true, false);
 			lista[i]->SetVelocidad(-0.4, 0);
 
 		}
-		else if (abs(r.GetXPosicion() - lista[i]->GetXPosicion()) < 7 && r.GetYPosicion() < 15)
+		else if (abs(r.GetXPosicion() - lista[i]->GetXPosicion()) < 7 && r.GetXPosicion() > lista[i]->GetXPosicion() && r.GetYPosicion() < 15)
 		{
 			lista[i]->SetAtaque(1);
 			lista[i]->Ataque.flip(false, false);
 			lista[i]->SetVelocidad(0.4, 0);
 		}
-		else if (abs(r.GetYPosicion() - lista[i]->GetYPosicion()) < 2 && ((lista[i]->GetXPosicion() >= (lista[i]->GetPatrulla().GetX() + lista[i]->GetLimites()) || lista[i]->GetXPosicion() <= (lista[i]->GetPatrulla().GetX() + lista[i]->GetLimites()))))
+		else if (r.GetYPosicion() < 15)
 		{
 			if (abs(r.GetXPosicion() - lista[i]->GetXPosicion()) < 60 && r.GetXPosicion() < lista[i]->GetXPosicion())
 				lista[i]->SetVelocidad(-10, 0);
@@ -82,10 +85,13 @@ void ListaGatitos::Rebote(Remy& r)
 		{
 			lista[i]->SetVelocidad(0, 0);
 		}
+		
+		
 
 		if (Interaccion::rebote(r, *(lista[i])))
 		{
 			//tiempo_pasado = (double(clock() / CLOCKS_PER_SEC));
+			ETSIDI::play("sonidos/Aranazo.mp3");
 			r.SetVida(r.GetVida() - 1);
 			if (abs(r.GetXPosicion() - lista[i]->GetXPosicion()) < 20 && r.GetXPosicion() < lista[i]->GetXPosicion())
 				lista[i]->SetVelocidad(-10, 0);

@@ -179,7 +179,7 @@ bool Interaccion::rebote(Disparo& d, Plataforma& p)
 
 bool Interaccion::rebote(Remy& r, Trampa& t)
 {
-	if (abs(r.GetXPosicion() - t.GetX()) < 4 && ((r.GetYPosicion() - t.GetY()) > -12 && abs(r.GetYPosicion() - t.GetY()) < 5))
+	if (abs(r.GetXPosicion() - t.GetX()) < 4 && ((r.GetYPosicion() - t.GetY()) < 2 && abs(r.GetYPosicion() - t.GetY()) <14))
 	{
 		return true;
 	}
