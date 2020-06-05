@@ -229,7 +229,7 @@ void Coordinador::Tecla(unsigned char key)
 			mundo.SetVidas(4);
 			estado = JUEGO;
 		}
-		if (key == 'H')				//VIDAS PARA PROBAR LOS NIVELES EN "MODO DEBUG"
+		if (key == '0')				//VIDAS PARA PROBAR LOS NIVELES EN "MODO DEBUG"
 		{
 			mundo.SetVidas(15);
 			estado = JUEGO;
